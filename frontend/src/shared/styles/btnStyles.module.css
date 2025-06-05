@@ -1,0 +1,41 @@
+.default {
+	border-radius: var(--globalDefaultRounded);
+	padding: var(--globalPaddingY) var(--globalPaddingX);
+	border: 1px solid #2e2d2d;
+	font-size: var(--globalDefaultFontSize);
+	margin-top: var(--globalDefaultMarginTop);
+	cursor: pointer;
+}
+ 
+.default:hover {
+	transition: all 0.3s ease;
+	opacity: 0.8;
+}
+
+.default:active {
+	opacity: 0.5;
+}
+
+@media (max-width: 500px) {
+	.default {
+		max-width: 80%;
+	}
+}
+
+/* themes */
+.dark {
+	color: var(--globalMainColor_dark);
+	background-color: var(--globalMainBgColor_dark);
+}
+
+.light {
+	color: var(--globalMainColor_light);
+	background-color: var(--globalMainBgColor_light);
+}
+
+/* disabled */
+.disabled {
+	transition: all 0.5s ease;
+	opacity: 0.5;
+	cursor: not-allowed;
+}	

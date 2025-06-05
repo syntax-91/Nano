@@ -1,0 +1,30 @@
+.default {
+	border-radius: var(--globalDefaultRounded);
+	padding: var(--globalPaddingY) var(--globalPaddingX);
+	font-size: var(--globalDefaultFontSize);
+	margin-top: 0;
+
+	border: 1px solid #444;
+	outline: 0;
+}
+
+.full {
+	width: 100%;
+}
+
+.dark {
+	color: var(--globalMainBgColor_dark);
+	background-color: var(--globalMainBgColor_dark);
+}
+
+.light {
+	color: var(--globalMainBgColor_light);
+	background-color: var(--globalMainBgColor_light);
+}
+
+/* focus */
+.default:focus {
+	transition: all 0.3s ease;
+	/*box-shadow: 0px 0px 20px rgba(109, 108, 108, 0.3);*/
+	border: 1px solid #999898;
+}

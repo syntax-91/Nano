@@ -1,0 +1,24 @@
+:root {
+	/* color */
+	--globalMainColor_light: #d4d1d4;
+	--globalMainColor_dark: #242324;
+
+	/* background_color */
+	--globalMainBgColor_light: #353537;
+	--globalMainBgColor_dark: #bfbfc1;
+
+	/* rounded */
+	--globalDefaultRounded: 35px;
+
+	/* padding X */
+	--globalPaddingX: 35px;
+
+	/* padding Y */
+	--globalPaddingY: 10px;
+
+	/* front */
+	--globalDefaultFontSize: 15px;
+
+	/* margin */
+	--globalDefaultMarginTop: 5px;
+}
