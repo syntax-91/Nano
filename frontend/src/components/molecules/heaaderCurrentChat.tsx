@@ -9,9 +9,8 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 	}
 
 	return (
-		<div className='w-[100%] h-[50px] _fixed top-0 
-		flex items-center px-[10px] bg-white/5
-		rounded-b-2xl'>
+		<div className='w-[100%] h-[50px] 
+		flex items-center px-[10px] bg-white/5'>
 				
 				<div
 				onClick={handleClose}>

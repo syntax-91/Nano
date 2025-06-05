@@ -35,7 +35,7 @@ function Login(){
 		onSubmit={handleSubmit(submit)} 
 		className='flex items-center justify-center w-[100%] h-[100vh] relative'>
 
-			{modalStore.isOpen && 
+			{modalStore.isOpen === true && 
 			<Modal
 			msg={modalStore.msg}
 			success={modalStore.success} /> }

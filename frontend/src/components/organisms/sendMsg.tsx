@@ -49,26 +49,29 @@ interface ISendMsgProps {
 	}
 
 	return (
-	<div className='w-[100%] h-18 bottom-[100px] left-0
-	flex justify-between gap-5'>
-		
+	<div className='w-[100%] h-17
+	flex justify-between gap-2 delay-1000 items-center bg-[#050505]'>
+		 
 		<Input 
 		rhf={false}
 		value={text}
 		onChange={(e) => setText(e.target.value) }
 		style='full'
+		border='border_none'
+		
 		/>
 
-		<div className='w-[120px]'>
+		{text.length > 0 && 
+		<div className='w-[120px] fixed right-[-18px]'>
 		<Button 
-		w={120} 
+		w={99} 
 		isBlock={false}
-		max_w={120}
+		max_w={190}
 		label='send'
 		disabled={!text.trim()}
 		onClick={send}
 		/>
-		</div>
+		</div>}
 		
 
 	</div>

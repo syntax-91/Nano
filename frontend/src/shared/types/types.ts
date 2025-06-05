@@ -35,6 +35,11 @@ export interface InputProps {
 	
 	rhf: boolean // react-hook-form
 	register?: UseFormRegisterReturn
+
+	bg?: string
+	rounded?: string
+	className?: string
+	border?: 'border_none'|'border'
 }
 
 export interface IModalProps {

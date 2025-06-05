@@ -76,7 +76,7 @@
 
 /* TopToBottom-jump - ttb-jump */
 .ttb-jump {
-	animation: ltr-jump 0.4s ease-in-out forwards;
+	animation: ttb-jump 0.4s ease-in-out forwards;
 }
 
 @keyframes ttb-jump {

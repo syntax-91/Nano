@@ -18,6 +18,8 @@ export async function LoginFetch(data: IUserDataSubmit) {
 
 			Cookies.set('userName_nano', data.username, { expires: 7 })
 
+			location.href = '/'
+
 			loadingStore.setLoading(false)
 			modalStore.run(res.data.msg, res.data.success)
 			return res.data.success

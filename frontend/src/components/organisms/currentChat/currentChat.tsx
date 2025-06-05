@@ -20,9 +20,9 @@ interface ICurrentChatsProps {
  function CurrentChat({typeDevice}:ICurrentChatsProps) {
 
 	const currentChat_stylesDesktop = 
-	'w-[100%] h-[88%] fn flex justify-center items-center'
+	'w-[100%] h-[100vh] fn flex justify-center items-center '
 
-	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/99'
+	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto'
  
 
  
@@ -51,6 +51,7 @@ interface ICurrentChatsProps {
 
 
 	return (
+		<div>
 		<div className={`
 			${typeDevice == 'desktop' &&currentChat_stylesDesktop} 
 			
@@ -62,18 +63,28 @@ interface ICurrentChatsProps {
 		>для начала общение нажмите чат!</div>}
 
 		{currentChatDataStore.selectedCurrentChat && 
-		<div className='w-[95%] h-[100%] rounded-2xl'>
+		<div className='w-[100%] relative h-full flex flex-col'>
 			<HeaderCurrentChat />
 			
-			<div className='h-[100%] overflow-y-auto'>
-				<MsgsCurrentChat  
-				roomID={currentChatDataStore.roomID} /> 
+			<div className='max-h-full  flex-1 overflow-y-auto'>
+				<div className='pb-20'>
+					<MsgsCurrentChat  
+					roomID={currentChatDataStore.roomID} /> 
+				</div>
 			</div>
 
-			<SendMsg roomID={currentChatDataStore.roomID} />
+			<div className='w-[100%] h-20
+			absolute bottom-[-10px] '>
+				<SendMsg roomID={currentChatDataStore.roomID} />
+			</div>
 
 		</div>}
-  
+
+
+		</div>
+
+		
+
 		</div>
 	)
 }

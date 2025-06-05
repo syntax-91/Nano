@@ -5,26 +5,26 @@ import type { IMsgProps } from '../../shared/types/types'
 
 	 
 	return (
-		<div className='flex items-center gap-3 max-w-[80%] m-4 '>
+	<div className='gap-3  py-[10px] pl-[10px] pr-[10px] rounded-2xl border-[#444]
+	my-2 max-w-[80%] flex '>
 			 
-			{/* AVA */}
-			<div className='bg-white/30 flex justify-center items-center p-3 rounded-[50%] '>
-				<img src={msgData.ava} alt="img" />
-			</div>
+		{/* AVA */}		 
+	<div className='ava w-10 h-10 bg-white/35 rounded-full flex justify-center items-center flex-shrink-0'>
+		<img src={msgData.ava} alt="img" />	
+	</div>
 
-			{/* msg */}
-			<div className='  bg-[#1d1d1d] border
-		rounded-3xl border-[#444] flex justify-center items-center w-[25%]
-		mt-3 py-3 pt-10  relative'>
+		{/* MSG */}
+	<div 
+	className='border border-[#444] max-w-[100%] block p-1 rounded-2xl p-2'>
 
-			<p className='absolute top-2
-			left-3 text-emerald-600'>
-				{msgData.who}</p>
+		<h4>{msgData.who}</h4>
+		<p className='break-words whitespace-pre-wrap'>
+			{msgData.text}
+		</p>
+	</div>
+
 			
-			<p>{msgData.text}</p>
-		</div>
-
-		</div>
+	</div>
 	) 
 }
 

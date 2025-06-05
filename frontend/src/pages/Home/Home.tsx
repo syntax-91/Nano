@@ -21,7 +21,7 @@ function Home(){
 
  
 	return (
-		<div className='w-[100%] h-[100vh] flex cursor-pointer fn-5'>
+		<div className='w-[100%] h-[100vh] flex cursor-pointer fn-5 bg-red-00'>
  
 		<div className='w-[90%] mx-auto md:w-[300px] md:ml-10'>
 			<Block1 />
@@ -29,8 +29,11 @@ function Home(){
 
 		{/* currentChat для Desktop'а */}
 		{!isMobile && 
-		<CurrentChat 
-		typeDevice='desktop' />}
+		<div className='relative w-full'> 
+			<CurrentChat 
+			typeDevice='desktop' />
+		</div>
+		}
 
 		{isMobile && currentChatDataStore.selectedCurrentChat && 
 		<CurrentChat 

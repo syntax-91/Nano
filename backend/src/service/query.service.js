@@ -4,8 +4,8 @@ export async function QueryService(query){
 	try {
 		
 		const res = await UserModel.find({
-			username: query
-		})
+			username: { $regex: query, $options: 'i' }
+				})
 
 		if(res == null || !res){
 			return {

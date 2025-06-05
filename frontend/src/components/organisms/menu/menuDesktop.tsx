@@ -9,7 +9,8 @@ import { isOpenMenuDesktop } from '../../../app/store/isOpenMenu/isOpenMenuDeskt
 
 	return (
 		<div className='absolute top-20
-		w-[300px] h-[100px] bg-white/30'
+		w-[200px] h-[220px] bg-black/80
+		rounded-2xl z-10 ttb-jump'
 		onClick={ handleClick }>
 
 		</div>

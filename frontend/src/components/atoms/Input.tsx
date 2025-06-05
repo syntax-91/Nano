@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import s from './../../shared/styles/inputStyles.module.css'
 import { InputProps } from './../../shared/types/types'
 
@@ -8,11 +9,13 @@ export function Input({
 	style = 'default',
 	required = false,
 	rhf = false,
+	border = 'border',
+	className,
 	...rest
 }: InputProps) {
 	return (
 		rhf ? (
-			<input
+			<input 
 			required={required}
 			placeholder={placeholder}
 			className={`${s[style]} ${s.default}`}
@@ -22,7 +25,16 @@ export function Input({
 		):(
 			<input
 			required={required}
-			className={`${s[style]} ${s.default}`}
+			
+			style={{ 
+				background: `${rest.bg && rest.bg}`,
+				borderRadius: `${rest.rounded && rest.rounded}px`
+			}}
+
+			className={clsx(s.default, s[style], className, 
+				s[border]
+			)}
+				
 			type={type}
 			placeholder={placeholder}
 			value={value}
