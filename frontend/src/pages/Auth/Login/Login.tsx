@@ -28,7 +28,7 @@ function Login(){
 				window.location.href = '/'
 			}, 1000)
 		}
-	}, [])
+	}, []) 
 
 	return (
 		<form 
@@ -36,7 +36,7 @@ function Login(){
 		className='flex items-center justify-center w-[100%] h-[100vh] relative'>
 
 			{modalStore.isOpen === true && 
-			<Modal
+			<Modal 
 			msg={modalStore.msg}
 			success={modalStore.success} /> }
 			
@@ -57,7 +57,7 @@ function Login(){
 				}
 			</div>
 
-<div className='mb-2 mx-auto w-[80%]'>
+		<div className='mb-2 mx-auto w-[80%]'>
 			
 			<Input rhf={true} 
 			placeholder='Enter password'
@@ -70,7 +70,7 @@ function Login(){
 				}
 </div>
 
-<div className='mb-2 mx-auto w-[80%]'>
+		<div className='mb-2 mx-auto w-[80%]'>
 			<Button isBlock={false} max_w={80} w={315} 
 			disabled={loadingStore.loading} />
 		</div>

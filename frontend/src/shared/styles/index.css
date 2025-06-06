@@ -10,6 +10,9 @@ html {
 }
 
 :root {
+  --main-gamma-color: #9516d5;
+
+  
   font-family: monospace;
   line-height: 1.5;
   font-weight: 400;

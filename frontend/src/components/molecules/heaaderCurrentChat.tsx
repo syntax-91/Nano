@@ -10,7 +10,8 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 
 	return (
 		<div className='w-[100%] h-[50px] 
-		flex items-center px-[10px] bg-white/5'>
+		flex items-center px-[10px] bg-white/5 ml-2 rounded-2xl mt-2'>
+
 				
 				<div
 				onClick={handleClose}>

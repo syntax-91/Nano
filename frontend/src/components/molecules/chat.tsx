@@ -13,19 +13,22 @@ import type { IChatProps } from '../../shared/types/types'
 }:IChatProps	) {
 
 	const handleClick = () => {
-		currentChatDataStore.setSelectedCurrentChat(true)
-		currentChatDataStore.setData(ava, username, roomID)
-		msgsAPI()
-
+		
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
 		if(isFound){
+			
 			console.log('isFound > true')
 			currentChatDataStore.setIsFound(true)
+			currentChatDataStore.setData(ava, username, roomID)
+			msgsAPI(isFound.roomID)
+
 		} else {
 			console.log('isFound > false')
-			currentChatDataStore.setIsFound(false)
+			currentChatDataStore.setIsFound(false);currentChatDataStore.setLoading(false)
 		}
+
+		currentChatDataStore.setSelectedCurrentChat(true)
 
 	}
  

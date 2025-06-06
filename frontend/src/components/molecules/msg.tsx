@@ -10,7 +10,7 @@ import type { IMsgProps } from '../../shared/types/types'
 			 
 		{/* AVA */}		 
 	<div className='ava w-10 h-10 bg-white/35 rounded-full flex justify-center items-center flex-shrink-0'>
-		<img src={msgData.ava} alt="img" />	
+		<img src='HUI' alt="img" />	
 	</div>
 
 		{/* MSG */}
@@ -24,7 +24,7 @@ import type { IMsgProps } from '../../shared/types/types'
 	</div>
 
 			
-	</div>
+	</div> 
 	) 
 }
 

@@ -12,7 +12,6 @@ import Chat from '../molecules/chat'
 		chatsStore.fetchChats()
 
 		const handleNewChat = (data:IChatProps) => {
-			console.log('сообщник ПиДидди')
 			chatsStore.updateChats(data)
 		}
  

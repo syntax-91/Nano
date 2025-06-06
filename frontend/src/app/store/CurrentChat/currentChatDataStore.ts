@@ -11,6 +11,9 @@ class currentChatDataClass {
 	ava = '' 
 	username = ''
 	roomID = ''
+
+	loading: boolean = false
+
 	isFound = false
 	msgs: IMsgProps[] = []
 
@@ -39,6 +42,10 @@ class currentChatDataClass {
 
 	setIsFound(value:boolean){
 		this.isFound = value
+	}
+
+	setLoading(value:boolean){
+		this.loading = value
 	}
 
 }

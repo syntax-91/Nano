@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { CreateChatAPI } from '../../api/create'
 import socket from '../../app/socket/socket'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
@@ -8,12 +8,14 @@ import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 
 interface ISendMsgProps {
-	roomID: string
+	roomID: string,
+	endRef: React.RefObject<HTMLDivElement | null>
 }
 
  function SendMsg(
 	{
-		roomID
+		roomID,
+		endRef
 	}:ISendMsgProps 
 ){ 
 
@@ -21,6 +23,7 @@ interface ISendMsgProps {
 
 	const send = () => {
 	
+		endRef.current?.scrollIntoView({behavior: 'smooth'})
 		if(currentChatDataStore.isFound){
 
 			console.warn('roomID: ', currentChatDataStore.roomID)
@@ -50,14 +53,14 @@ interface ISendMsgProps {
 
 	return (
 	<div className='w-[100%] h-17
-	flex justify-between gap-2 delay-1000 items-center bg-[#050505]'>
+	flex justify-between gap-2 delay-1000 items-center bg-[#050505] rounded-[5px]'>
 		 
 		<Input 
 		rhf={false}
 		value={text}
 		onChange={(e) => setText(e.target.value) }
 		style='full'
-		border='border_none'
+		
 		
 		/>
 

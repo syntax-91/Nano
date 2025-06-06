@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import s from './../../shared/styles/inputStyles.module.css'
-import { InputProps } from './../../shared/types/types'
+import type { InputProps } from './../../shared/types/types'
 
 export function Input({
 	type = 'text',
@@ -31,7 +31,10 @@ export function Input({
 				borderRadius: `${rest.rounded && rest.rounded}px`
 			}}
 
-			className={clsx(s.default, s[style], className, 
+			className={clsx(
+				s.default, 
+				s[style], 
+				className, 
 				s[border]
 			)}
 				

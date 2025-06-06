@@ -12,15 +12,16 @@ import Chat from '../molecules/chat'
 
 	useEffect(() => {
 		QueryAPI()
-		console.log('HUI')
 	}, [searchQueryStore.query]) 
 
-	console.info('queryRES: ', queryResJSON)
+	console.info('queryRES: ', queryResJSON);
+
+
 
 	return (
 		<div className='w-[100%] h-[100px]
 		fn mx-auto mt-[20px] text-center
-		border p-4 rounded-2xl border-[#444] ltr-jump overflow-y-auto fixed top-0 left-0'>
+		border p-4 rounded-2xl border-[#444] ltr-jump overflow-y-auto '>
 			
 			{searchQueryStore.queryRes.length === 0 && 
 			<div>
@@ -28,12 +29,12 @@ import Chat from '../molecules/chat'
 			</div>}
 			
 		{searchQueryStore.queryRes.length > 0 && 
-			queryResJSON.map((e, idx) => (
+			searchQueryStore.queryRes.map((e, idx) => (
 				<div key={idx}>
 					<Chat 
 					username={e.username}
 					roomID={e.roomID}
-					ava=''
+					ava='x'
 					/>
 				</div>
 			)) 

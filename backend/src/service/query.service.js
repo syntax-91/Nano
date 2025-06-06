@@ -1,29 +1,35 @@
 import { UserModel } from '../models/UserModel.js'
 
-export async function QueryService(query){
+export async function QueryService(query, username){
 	try {
 		
 		const res = await UserModel.find({
-			username: { $regex: query, $options: 'i' }
-				})
+			username: { $regex: query, $options: 'i', $ne:username }
+		})
 
-		if(res == null || !res){
+		const currentUser = await UserModel.findOne({username})
+
+		console.log('cr chat > ', currentUser.chats)
+
+		const isFound = res.map(user => {
+			
+			const found = currentUser.chats.find(chat => 
+				chat.username === user.username
+			)
+
 			return {
-				success: false,
-				res: []
+				username: user.username,
+				isFound: Boolean(found)
 			}
-		}
+		});
 
-		const dataJSON = JSON.parse(JSON.stringify(res))
-
-		dataJSON.map(d => (
-			console.log('res: ', d.username)
-		))
+		console.log('isFound > ', isFound)
 
 		return {
 			success: true,
-			res: dataJSON.map(data => ({
-				username: data.username
+			res: isFound.map(data => ({
+				username: data.username,
+				isFound: data.isFound
 			}))
 		}
 

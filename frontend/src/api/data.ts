@@ -1,26 +1,25 @@
 import axios from 'axios'
 import { currentChatDataStore } from '../app/store/CurrentChat/currentChatDataStore'
 import { searchQueryStore } from '../app/store/HeaderSearchQuery'
+import { userDataStore } from '../app/store/userData'
 import type { IChatProps } from '../shared/types/types'
-
 
 //
 
-export async function msgsAPI(){
-	
-	const roomIDCurrentChat=  currentChatDataStore.roomID;
-	console.info('roomID (currentChat): ', roomIDCurrentChat)
- 
-	 try {
-		
-		const res = await axios.get('http://localhost:3000/historyChat',
-			{headers: {Authorization: `${roomIDCurrentChat}`}}
-		)
- 
-		console.info('ответ от сервера  > ', res.data)
+export async function msgsAPI(roomID:string){
 
-		currentChatDataStore.setMsgs(res.data.msgs)
+	currentChatDataStore.setLoading(true)
+
+	 try {
+
+		const res = await axios.get('http://localhost:3000/historyChat',
+			{headers: {Authorization: `${roomID}`}}
+		)
+
 		
+		currentChatDataStore.setMsgs(res.data.msgs)
+		currentChatDataStore.setLoading(false)
+
 
 	 } catch(err){
 		console.error('ERROR > ', err)
@@ -29,17 +28,22 @@ export async function msgsAPI(){
 
 export async function QueryAPI(){
 
-	console.info('queryAPI > ', searchQueryStore.query)
-
 	try {
 		const res = await axios.get(
 			'http://localhost:3000/query',
-			{headers: { 'x-query': searchQueryStore.query }}
+			{
+				headers: { 'x-query': searchQueryStore.query, 'username': userDataStore.userName }
+				
+			}
 		)
 
-		const data:IChatProps[] = res.data
+		const data:IChatProps[] = res.data.res
+		
+		if(res.data){
+			searchQueryStore.setQueryRes(data)
+		}
 
-		searchQueryStore.setQueryRes(data.res)
+	
 
 	} catch(err){
 		console.error("ERROR > ", err)

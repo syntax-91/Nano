@@ -1,42 +1,50 @@
-import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { useEffect } from 'react'
-import { msgsAPI } from '../../api/data'
+import React, { useEffect } from 'react'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
 import Msg from '../molecules/msg'
 
 export interface IMsgsCurrentChatProps {
-	roomID:string
+	roomID:string,
+	endRef: React.RefObject<HTMLDivElement | null>
 }
 
  function MsgsCurrentChat(
-	{
-		roomID
-	}:IMsgsCurrentChatProps
-){
+	{ roomID, endRef }:IMsgsCurrentChatProps
+ ){
 
 
 	useEffect(() => {
-		msgsAPI() 
-	}, []) 
- 
-	const msgsJSON = toJS(currentChatDataStore.msgs)
-	console.info('MSGS > ', msgsJSON)
-
+		if(!currentChatDataStore.loading){
+			endRef.current?.scrollIntoView({ behavior: 'smooth' })
+		}
+	}, [currentChatDataStore.loading])
 
 	return (
-		<div className='p-5 w-[100%] h-[100%]'>
-			{currentChatDataStore.msgs.map((msg, idx) => (
-				<div key={idx}>
+		<div className='p-5 w-[100%] h-[100%] '>
+			{!currentChatDataStore.isFound && 
+			<div>
+				пусто
+			</div>
+			}
+			
+			{currentChatDataStore.isFound && 
+			currentChatDataStore.msgs.map((msg, idx) => (
+				
+				<div key={idx} className=''>
 					<Msg 
 					text={msg.text}
 					msgID={msg.msgID}
-					ava=''
+					ava={msg.ava}
 					who={msg.who}
 					/> 
+				
 				</div> 
-			))}
+			))} 
+
+				
+			<div ref={endRef} />
 		</div>
+		
 	)
 }
 

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/userData'
 
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
+import { themeStore } from '../../app/store/theme'
 import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
 
@@ -21,7 +22,9 @@ function Home(){
 
  
 	return (
-		<div className='w-[100%] h-[100vh] flex cursor-pointer fn-5 bg-red-00'>
+		<div 
+		className={`w-[100%] h-[100vh] flex cursor-pointer fn-5 bg-red-00 fixed ${themeStore.currentTheme}`}
+		>
  
 		<div className='w-[90%] mx-auto md:w-[300px] md:ml-10'>
 			<Block1 />

@@ -39,7 +39,6 @@ export interface InputProps {
 	bg?: string
 	rounded?: string
 	className?: string
-	border?: 'border_none'|'border'
 }
 
 export interface IModalProps {
@@ -51,7 +50,8 @@ export interface IModalProps {
 export interface IChatProps {
 	ava: string,
 	username: string,
-	roomID: string
+	roomID: string,
+	isFound?: boolean
 } 
 
 export interface IMsgProps {
@@ -67,3 +67,9 @@ export interface ICreateChatProps {
 	userB: string,
 	firstMsg: string
 }
+
+//theme
+
+export type TTheme = [
+	type: 'light'|'dark'
+]
