@@ -4,7 +4,7 @@ import { makeAutoObservable, reaction } from 'mobx'
 
 class theme {
 	
-	currentTheme = Cookies.get('currentTheme')||'light'
+	currentTheme = Cookies.get('currentTheme')||'dark'
 
 	constructor() {
 		makeAutoObservable(this)	

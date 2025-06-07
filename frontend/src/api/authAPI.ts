@@ -37,6 +37,38 @@ export async function LoginFetch(data: IUserDataSubmit) {
 	}
 }
 
+export async function RegisterFetch(data: IUserDataSubmit) {
+	try {
+	 
+		const res = await axios.post('http://localhost:3000/auth/register', data)
+
+		console.info("req.body > ", data)
+
+		console.info("ответ dataAPI > ", res.data)
+
+		if (res.data.success) {
+			Cookies.set('isAuth_nano', res.data.success, { expires: 7 })
+
+			Cookies.set('userName_nano', data.username, { expires: 7 })
+
+			location.href = '/'
+
+			loadingStore.setLoading(false)
+			modalStore.run(res.data.msg, res.data.success)
+			return res.data.success
+		}
+
+ 
+		modalStore.run(res.data.msg, res.data.success)
+		loadingStore.setLoading(false)
+
+		console.info(res.data)
+	} catch (err) {
+		console.error('ERROR: ', err)
+	} finally {
+		loadingStore.setLoading(false)
+	}
+}
 
 /* create ACCESS */
 export async function createACCESS(){

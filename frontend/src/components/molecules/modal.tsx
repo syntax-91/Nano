@@ -2,14 +2,17 @@ import type { IModalProps } from '../../shared/types/types'
 
 export function Modal({ msg = 'message', success = false }: IModalProps) {
 
-	const mcls = 'fixed top-0 left-0 w-[100vw] flex justify-center mt-10 ttb';
+	const mCls = 'fixed top-0 left-10 w-[100vw] flex  mt-10 ltr-jump';
 
+	const cls = 'bg-[#000] px-20 py-5 rounded-2xl'
 
 	return (
-	<div className={mcls}>
+	<div className={mCls}>
 			
-		<p>{msg || 'text not found' }</p> 	
-		
+		<div className={cls}>
+			<p>{msg || 'text not found' }</p> 	
+		</div>
+		 
 	</div>
 	)
 }

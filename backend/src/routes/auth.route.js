@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { validateLoginOrRegister } from '../middlewares/validateLoginOrRegister.js'
+import { addUserService } from '../service/addUser.service.js'
 import { LoginService } from '../service/login.service.js'
 
 export const AuthRouter = Router()
@@ -28,3 +29,22 @@ AuthRouter.post('/login', (req, res) => {
 	})
 
 })
+
+// /auth/register
+
+AuthRouter.use('/register', validateLoginOrRegister)
+
+AuthRouter.post('/register', (req, res) => {
+	console.log('req.body >  ', req.body)
+	const data = req.body
+
+	addUserService(data)
+	.then(e => {		
+		res.json({
+			success: e.success,
+			msg: e.msg,
+		})				
+	})
+
+})
+

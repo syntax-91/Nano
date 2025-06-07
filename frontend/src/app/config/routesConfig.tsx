@@ -1,5 +1,6 @@
 import _404Lazy from '../../pages/_404/NotFoundLazy'
 import LoginLazy from '../../pages/Auth/Login/LoginLazy'
+import { RegisterLazy } from '../../pages/Auth/Register/RegisterLazy'
 //import LoginLazy from '../../pages/auth/Login/LoginLazy'
 import HomeLazy from '../../pages/Home/HomeLazy'
 import { settingsLazy } from '../../pages/Settings/SettingsLazy'
@@ -10,5 +11,6 @@ export const routesConfig = {
 	//Login: { path: '/login', element: LoginLazy },
 	NotFound: { path: '*', element: _404Lazy },
 	Login: { path: '/login', element: LoginLazy },
-	settings: { path: '/settings', element: settingsLazy }
+	settings: { path: '/settings', element: settingsLazy },
+	register: { path: '/register', element: RegisterLazy }
 }

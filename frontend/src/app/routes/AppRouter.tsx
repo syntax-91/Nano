@@ -56,6 +56,15 @@ export function AppRouter() {
 						}
 				/>
 
+				<Route
+					path={routesConfig.register.path}
+					element={
+						<Suspense fallback={<GlobalLoader />}>
+							<routesConfig.register.element />
+						</Suspense>
+						}
+				/>
+
 			</Routes>
 		</BrowserRouter>
 	)
