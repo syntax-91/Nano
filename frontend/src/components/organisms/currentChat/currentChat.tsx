@@ -54,7 +54,7 @@ interface ICurrentChatsProps {
  
 	const cls = 'px-5 py-3 rounded-2xl'
 
-	return (
+	return ( 
 		<div>
 		<div className={`
 			${typeDevice == 'desktop' &&currentChat_stylesDesktop} 

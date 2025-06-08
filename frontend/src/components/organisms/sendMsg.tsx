@@ -1,10 +1,11 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import React, { useState } from 'react'
+import { IoMdSend } from 'react-icons/io'
 import { CreateChatAPI } from '../../api/create'
 import socket from '../../app/socket/socket'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
 import { userDataStore } from '../../app/store/userData'
-import { Button } from '../atoms/Button'
 import { Input } from '../atoms/Input'
 
 interface ISendMsgProps {
@@ -53,7 +54,7 @@ interface ISendMsgProps {
 
 	return (
 	<div className='w-[100%] h-17
-	flex gap-2 delay-1000 items-center  rounded-[5px] relative'>
+	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'>
 		 
 		<Input 
 		rhf={false}
@@ -63,15 +64,19 @@ interface ISendMsgProps {
 		/>
 
 		{text.length > 0 && 
-		<div className=' absolute right-0 top-0'>
-		<Button 
-			w={99} 
-			isBlock={false}
-			max_w={190}
-			label='send'
-			disabled={!text.trim()}
+		<div className={
+			clsx(
+				text.trim().length > 0
+				? 'inline-block': 'hidden',
+				' ab_solute right-0 top-0')
+		}>
+			<IoMdSend 
+			color='#cfcbcb' 
+			size={40} 
 			onClick={send}
-		/>
+			className='hover:rotate-x-[-30deg] 
+			text-[#cfcbcb]'
+			/>
 		</div>}
 		
 

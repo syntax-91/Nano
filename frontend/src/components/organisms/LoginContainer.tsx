@@ -64,5 +64,4 @@ export function LoginContainer() {
 			{/* Btn */}
 			<Button isBlock={true} location='center' label='submit' />
 		</form>
-	)
-}
+	) 

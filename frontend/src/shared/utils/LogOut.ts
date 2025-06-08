@@ -11,5 +11,5 @@ export function logOutU(){
 
 	setTimeout(() => {
 		location.href = '' 
-	}, 3000) 
+	}, 1500) 
 }

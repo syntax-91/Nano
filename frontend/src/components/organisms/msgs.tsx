@@ -23,10 +23,15 @@ export interface IMsgsCurrentChatProps {
 	return (
 		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
 			{!currentChatDataStore.isFound && 
-			<div>
+			<div className='w-[100%] h-[100%] flex justify-center items-center'>
 				пусто
 			</div>
 			}
+
+			{currentChatDataStore.loading == true &&
+			<div className='w-[100px] h-[100px] bg-red-900'>
+				Loading...	
+			</div>}
 
 				<div 
 			className='relative top-0 left-0 bg-white/20 w-[100%] h-[100%]'/>

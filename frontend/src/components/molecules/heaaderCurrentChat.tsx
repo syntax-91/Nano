@@ -10,7 +10,7 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 
 	return (
 		<div className='w-[100%] h-[80px] 
-		flex items-center px-[5px] py-[4px] md:border border-[#535252] rounded-full headerCurrentChat'>
+		flex items-center px-[5px] md:border border-[#535252] rounded-full headerCurrentChat'>
 
 		<div 
 		className='hidden_el cursor-pointer'

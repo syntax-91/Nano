@@ -33,29 +33,29 @@ import { logOutU } from '../../../shared/utils/LogOut'
 	onClick={ handleClick }>
 
 		<div className='flex justify-center 
- 		py-5  hover:bg-white/5 rounded-2xl font-light text-2xl'>
+ 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'>
 			<h3>profile</h3>
 		</div>
 
 		<div className='flex justify-center 
- 		py-5  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
 		onClick={handleSettings}>
 			<h3>settings</h3>
 		</div>
 
 		<div className='flex justify-center 
- 		py-5  hover:bg-white/5 rounded-2xl font-light text-2xl'>
+ 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'>
 			<h3>about</h3>
 		</div>
 
 		<div className='flex justify-center 
- 		py-5  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
 		onClick={toggleTheme}>
 			<h3>{themeStore.currentTheme} mode</h3>
 		</div>
 
 		<div className='flex justify-center 
- 		py-5  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
 		onClick={handleLogOut}>
 			<h3>logOut</h3>
 		</div>

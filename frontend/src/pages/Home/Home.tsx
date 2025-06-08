@@ -7,6 +7,7 @@ import { userDataStore } from '../../app/store/userData'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
 import { sharedStore } from '../../app/store/sharedStore'
 import { themeStore } from '../../app/store/theme'
+import GlobalLoader from '../../components/atoms/globalLoader'
 import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
 
@@ -39,7 +40,7 @@ function Home(){
 
 			{/* settings */}
 		{sharedStore.isOpen && 
-		<Suspense fallback={''}>
+		<Suspense fallback={<GlobalLoader />}>
 			<SettingsLazy />
 		</Suspense> }
  
