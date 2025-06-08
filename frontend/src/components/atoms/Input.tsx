@@ -9,7 +9,6 @@ export function Input({
 	style = 'default',
 	required = false,
 	rhf = false,
-	border = 'border',
 	className,
 	...rest
 }: InputProps) {
@@ -35,7 +34,6 @@ export function Input({
 				s.default, 
 				s[style], 
 				className, 
-				s[border]
 			)}
 				
 			type={type}
