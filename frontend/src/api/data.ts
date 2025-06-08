@@ -2,7 +2,7 @@ import axios from 'axios'
 import { currentChatDataStore } from '../app/store/CurrentChat/currentChatDataStore'
 import { searchQueryStore } from '../app/store/HeaderSearchQuery'
 import { userDataStore } from '../app/store/userData'
-import type { IChatProps } from '../shared/types/types'
+import type { IChatProps, IUserData } from '../shared/types/types'
  
 //
 
@@ -46,4 +46,24 @@ export async function QueryAPI(){
 	} catch(err){
 		console.error("ERROR > ", err)
 	}
+}
+
+export async function userDataAPI(username:string){
+
+	try {	
+		const res = await axios.get(
+			'http://localhost:3000/userInfo',
+			{ 
+				headers: { 'username': username } 
+			}
+		);
+		
+		const data:IUserData = res.data;
+
+		return data
+
+	} catch(err){
+		console.error("ERROR userDateAPI > ", err)
+	}
+
 }

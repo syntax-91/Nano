@@ -89,3 +89,10 @@ export interface ICreateChatProps {
 export type TTheme = [
 	type: 'light'|'dark'
 ]
+
+export interface IUserData {
+	username: string,
+	ava: string,
+	description: string,
+	age: number
+}

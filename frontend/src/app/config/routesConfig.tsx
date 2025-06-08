@@ -15,7 +15,7 @@ export const routesConfig = {
 	
 	Login: { path: '/login', element: LoginLazy },
 	register: { path: '/register', element: RegisterLazy },
-
+ 
 	// user
 	u: { path: 'u/:username', element: UserProfileLazy }
 

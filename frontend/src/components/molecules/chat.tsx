@@ -65,6 +65,7 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 		hover:bg-white/10 active:bg-white/10"
 		onClick={handleClick}>
 				
+			{/* AVA */}
 		<div className='ava border rounded-[50%] w-[46px] h-[46px] flex items-center justify-center border-[#464545]'>
 			<img src={ava} alt="img" />
 		</div>

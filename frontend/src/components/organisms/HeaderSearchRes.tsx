@@ -17,14 +17,13 @@ import Chat from '../molecules/chat'
 	console.info('queryRES: ', queryResJSON);
 
 
-
 	return (
 		<div className='w-[100%] h-[100px]
 		fn mx-auto mt-[20px] text-center
-		border p-4 rounded-2xl border-[#444] ltr-jump overflow-y-auto '>
+		border px-3 py-2 rounded-2xl border-[#444]  overflow-y-auto '>
 			
 			{searchQueryStore.queryRes.length === 0 && 
-			<div>
+			<div className='pt-10'>
 				ничего не найдено
 			</div>}
 			

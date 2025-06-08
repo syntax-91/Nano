@@ -18,7 +18,7 @@ export function AppRouter() {
 							<routesConfig.Layout.element />
 						</Suspense>
 					}	
-				> 
+				>  
 
 						<Route index
 						element={
@@ -65,6 +65,16 @@ export function AppRouter() {
 						</Suspense>
 						}
 				/>
+
+				<Route
+					path={routesConfig.u.path}
+					element={
+						<Suspense 
+						fallback={<GlobalLoader />}>
+							<routesConfig.u.element />
+						</Suspense>
+					}	
+				/>  
 
 			</Routes>
 		</BrowserRouter>
