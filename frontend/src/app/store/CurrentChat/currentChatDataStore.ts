@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, reaction } from 'mobx'
 import type { IMsgProps } from '../../../shared/types/types'
 
 export interface IMsgsCurrentChatProps {
@@ -19,6 +19,12 @@ class currentChatDataClass {
 
 	constructor() {
 		makeAutoObservable(this)	
+
+		reaction(
+			() => this.selectedCurrentChat,
+			() => console.log('currentChatData username > ', this.username)
+		)
+
 	}
 
 	setSelectedCurrentChat(value: boolean) {

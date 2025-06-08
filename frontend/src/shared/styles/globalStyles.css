@@ -11,3 +11,57 @@
 	
  }
 
+/* status */
+
+.online {
+	background-color: #d0cccc;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+}
+
+.hidden_el {
+	transition: all 0.3s ease-in;
+	transform: scale(0);
+	opacity: 0;
+	width: 0px;
+	height: 20px;
+}
+
+.headerCurrentChat:hover .hidden_el {
+	opacity: 1;
+	margin-left: 10px;
+	width: 20px;
+	transform: scale(1);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (max-width: 670px) {
+	.headerCurrentChat .hidden_el {
+	opacity: 1;
+	margin-left: 10px;
+	width: 20px;
+	transform: scale(1);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+}
+
+
+/* скрываем прокрутку  для chrome, edge, opera */
+*::-webkit-scrollbar {
+	display: none;
+}
+
+/* скрываем прокрутку  для firefox */
+
+* {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}

@@ -20,7 +20,7 @@ export interface IMsgsCurrentChatProps {
 	}, [currentChatDataStore.loading])
 
 	return (
-		<div className='p-5 w-[100%] h-[100%] '>
+		<div className='p-5 w-[100%] h-[100%]  mt-3  rounded-2xl'>
 			{!currentChatDataStore.isFound && 
 			<div>
 				пусто

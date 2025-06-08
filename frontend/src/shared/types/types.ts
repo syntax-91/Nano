@@ -51,7 +51,20 @@ export interface IChatProps {
 	ava: string,
 	username: string,
 	roomID: string,
+
 	isFound?: boolean
+} 
+
+// INewChatProps
+export interface INewChatProps {
+	ava: string,
+	username: string,
+	roomID: string,
+
+	userA: string,
+	userB: string
+
+	
 } 
 
 export interface IMsgProps {

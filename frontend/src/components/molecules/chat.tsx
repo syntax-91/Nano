@@ -9,7 +9,7 @@ import type { IChatProps } from '../../shared/types/types'
 		ava,
 		username,  
 		roomID
-	
+		
 }:IChatProps	) {
 
 	const handleClick = () => {
@@ -25,26 +25,30 @@ import type { IChatProps } from '../../shared/types/types'
 
 		} else {
 			console.log('isFound > false')
-			currentChatDataStore.setIsFound(false);currentChatDataStore.setLoading(false)
+
+		
+			currentChatDataStore.setIsFound(false);
+			currentChatDataStore.setData(ava, username, roomID);
 		}
 
 		currentChatDataStore.setSelectedCurrentChat(true)
+		currentChatDataStore.setLoading(false)
 
 	}
  
 	return (
 		  
-		<div className="bg-white/5 w-[100%] mx-auto ttb-jump
-		h-[45px] my-2 rounded-2xl flex items-center pl-2
+		<div className="bg-white/3 w-[100%] mx-auto ttb-jump
+		h-[50px] my-2 rounded-2xl flex items-center pl-2
 		hover:bg-white/10 active:bg-white/10"
 		onClick={handleClick}>
 				
-		<div className='ava border rounded-[50%] w-[35px] h-[35px] flex items-center justify-center border-[#686464]'>
+		<div className='ava border rounded-[50%] w-[46px] h-[46px] flex items-center justify-center border-[#464545]'>
 			<img src={ava} alt="img" />
 		</div>
 		
 		<div className='pl-4'>
-			<h5>{username}</h5>
+			<h5>{username || 'не удалось получить имя'}</h5>
 		</div> 
 		
 		</div>

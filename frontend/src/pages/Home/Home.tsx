@@ -23,24 +23,29 @@ function Home(){
  
 	return (
 		<div 
-		className={`w-[100%] h-[100vh] flex cursor-pointer fn-5 bg-red-00 fixed ${themeStore.currentTheme}`}
+		className={`md:w-[90%] w-[100%]  h-[100vh] flex 
+			justify-center md:mx-auto items-center ${themeStore.currentTheme} gap-8`}
 		>
  
-		<div className='w-[90%] mx-auto md:w-[300px] md:ml-10'>
+		<div className='w-[95%]  md:w-[400px] md:ml-10 '>
 			<Block1 />
 		</div>
 
 		{/* currentChat для Desktop'а */}
 		{!isMobile && 
-		<div className='relative w-full'> 
+		<div className='relative w-full justify-center items-center'> 
 			<CurrentChat 
 			typeDevice='desktop' />
 		</div>
 		}
 
-		{isMobile && currentChatDataStore.selectedCurrentChat && 
-		<CurrentChat 
-		typeDevice='mobile' />}
+		{isMobile && 
+		currentChatDataStore.selectedCurrentChat && 
+		<div className='bg-red-900'>
+			<CurrentChat 
+			typeDevice='mobile'
+			/>
+		</div> }
  
 		</div>  
 	)

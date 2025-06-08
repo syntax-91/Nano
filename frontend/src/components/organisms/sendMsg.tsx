@@ -53,19 +53,17 @@ interface ISendMsgProps {
 
 	return (
 	<div className='w-[100%] h-17
-	flex justify-between gap-2 delay-1000 items-center bg-[#050505] rounded-[5px]'>
+	flex gap-2 delay-1000 items-center  rounded-[5px] relative'>
 		 
 		<Input 
 		rhf={false}
 		value={text}
 		onChange={(e) => setText(e.target.value) }
 		style='full'
-		
-		
 		/>
 
 		{text.length > 0 && 
-		<div className='w-[120px] fixed right-[-18px]'>
+		<div className=' absolute right-0 top-0'>
 		<Button 
 		w={99} 
 		isBlock={false}

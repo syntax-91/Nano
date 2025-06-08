@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import socket from '../../app/socket/socket'
 import { chatsStore } from '../../app/store/chatsStore/chats'
 import { userDataStore } from '../../app/store/userData'
-import type { IChatProps } from '../../shared/types/types'
+import type { IChatProps, INewChatProps } from '../../shared/types/types'
 import Chat from '../molecules/chat'
 
  function Chats(){
@@ -11,8 +11,25 @@ import Chat from '../molecules/chat'
 	useEffect(() => {
 		chatsStore.fetchChats()
 
-		const handleNewChat = (data:IChatProps) => {
-			chatsStore.updateChats(data)
+		const handleNewChat = (data:INewChatProps) => {
+			console.info('new chat > ', data)
+			const newChat = data.userA === userDataStore.userName;
+
+			if(!newChat){
+				 chatsStore.updateChats({
+					ava: 'sss',
+					roomID: data.roomID,
+					username: data.userB
+				 })
+			}
+			else {
+				chatsStore.updateChats({ 
+					ava: 'sss',
+					roomID: data.roomID,
+					username: data.userA
+				 })
+			}
+
 		}
  
 		socket.on('new-chat', handleNewChat)
@@ -29,11 +46,11 @@ import Chat from '../molecules/chat'
 	return (
 		<div className=''>
 			 
-			{chatsStore.chats && 
+			{chatsStore.chats.length && 
 			chatsStore.chats.map((chat:IChatProps, idx) => (
 					<div key={idx}>
 						<Chat
-						ava={chat.ava}
+						ava='HI'
 						username={chat.username}
 						roomID={chat.roomID}
 						 />

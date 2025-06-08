@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { BiArrowBack } from 'react-icons/bi'
+import { FaArrowLeft } from 'react-icons/fa6'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
 
  function HeaderCurrentChat(){
@@ -9,21 +9,27 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 	}
 
 	return (
-		<div className='w-[100%] h-[50px] 
-		flex items-center px-[10px] bg-white/5 ml-2 rounded-2xl mt-2'>
+		<div className='w-[100%] h-[80px] 
+		flex items-center px-[5px] py-[4px] border border-[#535252] rounded-full headerCurrentChat'>
 
+		<div 
+		className='hidden_el cursor-pointer'
+		onClick={handleClose}>
+			<FaArrowLeft color='#fff' size={16} />
+		</div>
 				
-				<div
-				onClick={handleClose}>
-					<BiArrowBack color='#fff' size={25} />
-				</div>
-
-				<div className='w-[35px] h-[35px] bg-white/30 rounded-[50%] mx-5 flex justify-center items-center'>
+				<div className='w-[50px] h-[50px] _bg-white/30 rounded-[50%] mx-2 flex justify-center  border items-center border-[#333]'>
 					<img src={currentChatDataStore.ava} alt="img" />
 				</div>
 
-				<div>
+				<div className=''>
 					<p>{currentChatDataStore.username}</p>
+					
+				<div className='flex items-center gap-2'>
+					<div className='online' />
+					<p>online</p>
+				</div>
+
 				</div>
 
 
