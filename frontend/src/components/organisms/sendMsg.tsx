@@ -30,12 +30,12 @@ interface ISendMsgProps {
 
 			socket.emit('sendMessage', {
 			roomID: roomID, 
-		
+			
 				msg: {
-					msgID: 'HUI',
+					msgID: new Date,
 					text: text,
 					ava: '', 
-					who: currentChatDataStore.username
+					who: userDataStore.userName
 				}
 			})
 		} 
@@ -65,12 +65,12 @@ interface ISendMsgProps {
 		{text.length > 0 && 
 		<div className=' absolute right-0 top-0'>
 		<Button 
-		w={99} 
-		isBlock={false}
-		max_w={190}
-		label='send'
-		disabled={!text.trim()}
-		onClick={send}
+			w={99} 
+			isBlock={false}
+			max_w={190}
+			label='send'
+			disabled={!text.trim()}
+			onClick={send}
 		/>
 		</div>}
 		

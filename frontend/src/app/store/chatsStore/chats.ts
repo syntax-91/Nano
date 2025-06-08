@@ -26,10 +26,10 @@ class ChatsStore {
 			 console.info('Ответ от сервера > ', res.data)
 
 			 if(!res.data.success){
-				modalStore.run(res.data.success, res.data.msg)
+				modalStore.run(res.data.success, res.data.msg, 3000)
 			 }
 
-			modalStore.run(res.data.success, res.data.msg)
+			
 
 			const data:IChatProps = res.data.chats
 			const chatsArr:IChatProps[] = Object.values(data)

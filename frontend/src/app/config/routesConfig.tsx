@@ -1,16 +1,22 @@
+import { UserProfileLazy } from '../../components/organisms/UserProfile/UserProfileLazy'
 import _404Lazy from '../../pages/_404/NotFoundLazy'
 import LoginLazy from '../../pages/Auth/Login/LoginLazy'
 import { RegisterLazy } from '../../pages/Auth/Register/RegisterLazy'
 //import LoginLazy from '../../pages/auth/Login/LoginLazy'
 import HomeLazy from '../../pages/Home/HomeLazy'
-import { settingsLazy } from '../../pages/Settings/SettingsLazy'
+import { LayoutLazy } from '../../pages/Layout/LayoutLazy'
 //import LayoutLazy from '../../pages/Layout/LayoutLazy'
 
 export const routesConfig = {
-	Home: { path: '/', element: HomeLazy },
-	//Login: { path: '/login', element: LoginLazy },
+	Layout: { path: '/', element: LayoutLazy },
+	Home: { path: '/home', element: HomeLazy },
+	
 	NotFound: { path: '*', element: _404Lazy },
+	
 	Login: { path: '/login', element: LoginLazy },
-	settings: { path: '/settings', element: settingsLazy },
-	register: { path: '/register', element: RegisterLazy }
+	register: { path: '/register', element: RegisterLazy },
+
+	// user
+	u: { path: 'u/:username', element: UserProfileLazy }
+
 }

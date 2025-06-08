@@ -10,7 +10,7 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 
 	return (
 		<div className='w-[100%] h-[80px] 
-		flex items-center px-[5px] py-[4px] border border-[#535252] rounded-full headerCurrentChat'>
+		flex items-center px-[5px] py-[4px] md:border border-[#535252] rounded-full headerCurrentChat'>
 
 		<div 
 		className='hidden_el cursor-pointer'
@@ -18,7 +18,8 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
 			<FaArrowLeft color='#fff' size={16} />
 		</div>
 				
-				<div className='w-[50px] h-[50px] _bg-white/30 rounded-[50%] mx-2 flex justify-center  border items-center border-[#333]'>
+				{/* AVA */}
+				<div className='w-[50px] h-[48px] _bg-white/30 rounded-[50%] ml-2 mr-3 flex justify-center  border items-center border-[#333]'>
 					<img src={currentChatDataStore.ava} alt="img" />
 				</div>
 

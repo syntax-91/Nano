@@ -18,11 +18,11 @@ export function setupSocket(io){
  
 		socket.on('sendMessage', (data) => {
 			
-			const { roomID, msg } = data;
-			console.log('/sendMSG > ', roomID, data)
+			const { msg, roomID } = data;
+			console.log('/sendMSG > ', msg, roomID)
 
-			io.to(roomID).emit('msg', msg);
-			SaveMsgDB(data, roomID); 
+			io.to(data.roomID).emit('msg', msg);
+			SaveMsgDB(data); 
 			
 		});
  

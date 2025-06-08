@@ -19,13 +19,18 @@ export interface IMsgsCurrentChatProps {
 		}
 	}, [currentChatDataStore.loading])
 
+ 
 	return (
-		<div className='p-5 w-[100%] h-[100%]  mt-3  rounded-2xl'>
+		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
 			{!currentChatDataStore.isFound && 
 			<div>
 				пусто
 			</div>
 			}
+
+				<div 
+			className='relative top-0 left-0 bg-white/20 w-[100%] h-[100%]'/>
+
 			
 			{currentChatDataStore.isFound && 
 			currentChatDataStore.msgs.map((msg, idx) => (

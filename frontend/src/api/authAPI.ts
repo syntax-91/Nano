@@ -21,12 +21,12 @@ export async function LoginFetch(data: IUserDataSubmit) {
 			location.href = '/'
 
 			loadingStore.setLoading(false)
-			modalStore.run(res.data.msg, res.data.success)
+			modalStore.run(res.data.msg, res.data.success, 3000)
 			return res.data.success
 		}
 
  
-		modalStore.run(res.data.msg, res.data.success)
+		modalStore.run(res.data.msg, res.data.success, 3000)
 		loadingStore.setLoading(false)
 
 		console.info(res.data)
@@ -54,12 +54,12 @@ export async function RegisterFetch(data: IUserDataSubmit) {
 			location.href = '/'
 
 			loadingStore.setLoading(false)
-			modalStore.run(res.data.msg, res.data.success)
+			modalStore.run(res.data.msg, res.data.success, 3000)
 			return res.data.success
 		}
 
  
-		modalStore.run(res.data.msg, res.data.success)
+		modalStore.run(res.data.msg, res.data.success, 3000)
 		loadingStore.setLoading(false)
 
 		console.info(res.data)

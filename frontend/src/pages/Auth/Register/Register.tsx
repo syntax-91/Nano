@@ -30,29 +30,34 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
  
 	useEffect(() => {
 		if(userDataStore.isAuth){
-			modalStore.run('Вы уже авторизованы!', true)
+			modalStore.run('Вы уже авторизованы!', true, 3000)
 			setTimeout(() => {
-				window.location.href = '/'
+				n('/')
 			}, 1000)
 		}
 	}, []) 
  
 	return (
-		<form 
-		onSubmit={handleSubmit(submit)} 
-		className='flex items-center justify-center w-[100%] h-[100vh] relative'>
+	<form 
+	onSubmit={handleSubmit(submit)} 
+	className='flex items-center justify-center w-[100%] h-[100vh] relative'>
  
-			{modalStore.isOpen === true && 
-			<Modal
-			msg={modalStore.msg}
-			success={modalStore.success} /> }
+		{/* Modal */}
+	{modalStore.isOpen === true && 
+		<Modal
+		msg={modalStore.msg}
+		success={modalStore.success} /> 
+	}
 			
-		<div className='w-[800%] md:w-[300px]'>
+		<div className='w-[80%] md:w-[300px]'>
 			<h2 className='text-center text-3xl py-5'>Register</h2>
-			
-			<div className='mb-2 mx-auto w-[80%]'>
+	
+
+
+				{/* UserName */}
+		<div className='mb-2 mx-auto w-[80%]'>
 				
-				<Input rhf={true} 
+			<Input rhf={true} 
 				placeholder='Enter username' 
 				{...register("username", usernameSchema) }
 			/> 
@@ -61,34 +66,37 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
 				<p className='text-red-500 
 				text-center text-md font-stretch-50% '>
 				{errors.username.message.toString()}</p>
-				}
-			</div>
+			}
+		</div>
  
+
+			{/* Register */}
 		<div className='mb-2 mx-auto w-[80%]'>
 			
 			<Input rhf={true} 
 			placeholder='Enter password'
 			{...register("password", passwordSchema) } />
 			
-				{errors?.password?.message && 
-				<p className='text-red-500 
+			{errors?.password?.message && 
+			<p className='text-red-500 
 				text-center text-md font-stretch-50% '>
-				{errors.password.message.toString()}</p>
-				}
- 			</div>
+				{errors.password.message.toString()}
+			</p>}
 
+ 		</div>
+
+				{/*  Link to Login */}
 			<div className='my-3 hover:opacity-[0.5] w-[70%] mx-auto cursor-pointer' onClick={handleLogin}>
 				<p>Login</p>
 			</div>
- 
+
+			{/* btn to data submit */}
 		<div className='mb-2 mx-auto w-[80%]'>
 			<Button isBlock={false} max_w={80} w={315} 
 			disabled={loadingStore.loading} />
 		</div>
  
 		</div>
-			
- 
 		</form>
 	)
  }

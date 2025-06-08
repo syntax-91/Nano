@@ -24,7 +24,7 @@ interface ICurrentChatsProps {
 
 
 	const currentChat_stylesDesktop = 
-	'w-[100%] h-[90vh] px-5 m-2 rounded-2xl flex justify-center items-center'
+	'w-[100%] h-[99vh] px-5 mt-2 rounded-2xl flex justify-center items-center'
 
 	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto rel'
  
@@ -32,28 +32,25 @@ interface ICurrentChatsProps {
  
 	useEffect(() => {
 
-		console.log('useEffect сработал!')
-
 		socket.on('connect', () => {
 			console.log('connected socket')
 		}) 
-
+ 
 		const handleMsg = (msg: IMsgProps) => {
+			console.info('new-msg > ', msg)
 			currentChatDataStore.setMsg(msg)
-		}
+		} 
  
 		socket.on('msg', handleMsg)
 		socket.emit('joinRoom', currentChatDataStore.roomID)
 		
 		
 		return () => {
-			console.log('unmount useEffect currentChat')
 			socket.off('msg', handleMsg)
 		}
 	}, [currentChatDataStore.roomID]
 )
 
-	console.info('loading: ', currentChatDataStore.loading)
  
 	const cls = 'px-5 py-3 rounded-2xl'
 
@@ -73,7 +70,7 @@ interface ICurrentChatsProps {
 
 		>для начала общение нажмите чат!</div>}
 
-		{currentChatDataStore.loading == true && 
+		{currentChatDataStore.loading === true && 
 			<div 
 			className='w-[100%] h-[100vh] absolute left-0 top-0 z-10 flex justify-center items-center bg-[#111]'
 			>
@@ -83,12 +80,13 @@ interface ICurrentChatsProps {
 	
 	
 		{currentChatDataStore.selectedCurrentChat && 
-		<div className='w-[90%] md:w-[100%] relative h-[100%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
+
+		<div className='w-[100%] relative h-[100%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
 			<HeaderCurrentChat />
 			 
 			<div className='w-[100%] h-[100%] md:border 
-			border-[#5846ab]  rounded-2xl mx-auto my-4 overflow-y-auto'>
-				<div className='pb-20'>
+			border-[#5846ab]  rounded-2xl mx-auto my-3 overflow-y-auto'>
+				<div className=''>
 					<MsgsCurrentChat
 					roomID={currentChatDataStore.roomID} 
 					endRef={endRef}/> 
@@ -103,12 +101,7 @@ interface ICurrentChatsProps {
 
 		</div>}
 
-	
-
-
 		</div>
-
-	
 
 		</div>
 	)

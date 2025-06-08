@@ -10,17 +10,26 @@ export function AppRouter() {
 		<BrowserRouter> 
 			<Routes>
 				
-				<Route
-					path={routesConfig.Home.path}
+				<Route 
+					path={routesConfig.Layout.path}
 					element={
-						<Suspense fallback={<GlobalLoader />}>
-							<routesConfig.Home.element />
+						<Suspense 
+						fallback={<GlobalLoader />}>
+							<routesConfig.Layout.element />
 						</Suspense>
-					}>
-					<Route index element={<routesConfig.Home.element />} />
-				</Route>
+					}	
+				> 
 
-		  
+						<Route index
+						element={
+							<Suspense 
+							fallback={<GlobalLoader />}>
+								<routesConfig.Home.element />
+							</Suspense>
+						} />
+
+
+				</Route>
 
 				<Route
 					path={routesConfig.NotFound.path}
@@ -47,14 +56,6 @@ export function AppRouter() {
 						}
 				/>
 
-				<Route
-					path={routesConfig.settings.path}
-					element={
-						<Suspense fallback={<GlobalLoader />}>
-							<routesConfig.settings.element />
-						</Suspense>
-						}
-				/>
 
 				<Route
 					path={routesConfig.register.path}

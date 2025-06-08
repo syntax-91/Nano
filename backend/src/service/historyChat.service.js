@@ -17,6 +17,7 @@ export async function historyChatService(roomID){
 		}
 
 		const dataJSON = JSON.parse(JSON.stringify(res))
+	
 		const msgsJSON = dataJSON.msgs;
 
 		return {

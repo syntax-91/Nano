@@ -1,28 +1,50 @@
 import { observer } from 'mobx-react-lite'
+import { useEffect, useState } from 'react'
 import { msgsAPI } from '../../api/data'
+import socket from '../../app/socket/socket'
 import { chatsStore } from '../../app/store/chatsStore/chats'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
-import type { IChatProps } from '../../shared/types/types'
+import type { IChatProps, IMsgProps } from '../../shared/types/types'
 
  function Chat({
 	
 		ava,
 		username,  
-		roomID
+		roomID,
+		latestMsg
 		
 }:IChatProps	) {
+
+	const [latestMsgState, setLatestMsg] = useState('')
+
+	useEffect(() => {
+		const handleNewMsg = (msg:IMsgProps) => {
+			
+			if(msg.roomID === roomID){
+				setLatestMsg('')
+				setLatestMsg(msg.text)
+			}
+
+		}
+
+		socket.on('new-msg', handleNewMsg)
+
+		return () => {
+			socket.off('new-msg', handleNewMsg)
+		}
+	}, [])
 
 	const handleClick = () => {
 		
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
 		if(isFound){
+			currentChatDataStore.setLoading(true)
 			
-			console.log('isFound > true')
 			currentChatDataStore.setIsFound(true)
 			currentChatDataStore.setData(ava, username, roomID)
 			msgsAPI(isFound.roomID)
-
+ 
 		} else {
 			console.log('isFound > false')
 
@@ -48,7 +70,11 @@ import type { IChatProps } from '../../shared/types/types'
 		</div>
 		
 		<div className='pl-4'>
-			<h5>{username || 'не удалось получить имя'}</h5>
+			<h5>
+				{username || 'не удалось получить имя'}
+			</h5>
+
+			<h5>{latestMsg || ''}</h5>
 		</div> 
 		
 		</div>

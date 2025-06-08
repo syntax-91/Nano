@@ -18,11 +18,14 @@ export async function SaveMsgDB(data){
 			console.log('не удалось получить roomID')
 		}
 
+		console.log('saveMsgService data > ', data)
+
 		room.msgs.push({
+			roomID: data.roomID,
 			msgID: new Date,
 			text: data.msg.text,
 			ava: '1488',
-			who: data.username
+			who: data.msg.who
 		})
 
 		room.save()

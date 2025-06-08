@@ -52,7 +52,8 @@ export interface IChatProps {
 	username: string,
 	roomID: string,
 
-	isFound?: boolean
+	isFound?: boolean,
+	latestMsg?: string
 } 
 
 // INewChatProps
@@ -71,7 +72,9 @@ export interface IMsgProps {
 	msgID: string, 
 	text: string,
 	ava: string,
-	who: string
+	who: string,
+
+	roomID?: string
 }
 
 //

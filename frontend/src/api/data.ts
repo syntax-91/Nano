@@ -3,7 +3,7 @@ import { currentChatDataStore } from '../app/store/CurrentChat/currentChatDataSt
 import { searchQueryStore } from '../app/store/HeaderSearchQuery'
 import { userDataStore } from '../app/store/userData'
 import type { IChatProps } from '../shared/types/types'
-
+ 
 //
 
 export async function msgsAPI(roomID:string){
@@ -16,7 +16,7 @@ export async function msgsAPI(roomID:string){
 			{headers: {Authorization: `${roomID}`}}
 		)
 
-		
+	
 		currentChatDataStore.setMsgs(res.data.msgs)
 		currentChatDataStore.setLoading(false)
 
@@ -42,8 +42,6 @@ export async function QueryAPI(){
 		if(res.data){
 			searchQueryStore.setQueryRes(data)
 		}
-
-	
 
 	} catch(err){
 		console.error("ERROR > ", err)

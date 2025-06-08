@@ -3,7 +3,8 @@ import { makeAutoObservable, reaction } from 'mobx'
 class ModalStore {
 	isOpen = false
 //	title = ''
-	msg = ''
+	msg = 'Добро пожаловать'
+	delay = 3000
 	success = false
 
 	constructor() {
@@ -14,7 +15,8 @@ class ModalStore {
 			() => {
 				setTimeout(() => {
 					this.closeModal()
-				}, 3000)
+					console.info('изменение modalStore > ')
+				}, this.delay)
 			}
 		)
 	}
@@ -23,10 +25,11 @@ class ModalStore {
 		this.isOpen = false
 	}
 
-	run(msg: string, success: boolean) {
+	run(msg: string, success: boolean, delay:number) {
 		;(this.isOpen = true), //
 			(this.msg = msg || ''),
-			(this.success = success || false)
+			(this.success = success || false),
+			(this.delay = delay)
 	}
 }
 

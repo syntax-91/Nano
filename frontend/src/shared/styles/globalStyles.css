@@ -1,15 +1,15 @@
  .light {
-	background-color: #b1afaf;
-	color: #000;
+	background-color: #e0dede;
+	color: #4e4c4c;
  }
 
  .menuDesktop_light {
 	color: #d8d6d6;
  }
 
- .menuDesktop_dark {
+/* .menuDesktop_dark {
 	
- }
+ }*/
 
 /* status */
 
@@ -64,4 +64,18 @@
 * {
 	-ms-overflow-style: none;
 	scrollbar-width: none;
+}
+
+/* shw - shadow White */
+
+.shw {
+	border: 1px solid #696767;
+	box-shadow: 0 0 3px #797777;
+}
+
+/**/
+
+.bf-10 {
+	
+	backdrop-filter: blur(10px);
 }

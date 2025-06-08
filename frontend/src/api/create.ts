@@ -22,7 +22,7 @@ export async function CreateChatAPI(
 		)
 
 		console.info("ответ от сервера create (create) > ", res.data)
-		modalStore.run(res.data.msg, res.data.success)
+		modalStore.run(res.data.msg, res.data.success, 3000)
 
 	
  

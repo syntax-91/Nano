@@ -16,13 +16,14 @@ class currentChatDataClass {
 
 	isFound = false
 	msgs: IMsgProps[] = []
+	latestMsg = ''
 
 	constructor() {
 		makeAutoObservable(this)	
 
 		reaction(
-			() => this.selectedCurrentChat,
-			() => console.log('currentChatData username > ', this.username)
+			() => this.loading,
+			() => console.log('currentChatData loading > ', this.loading)
 		)
 
 	}

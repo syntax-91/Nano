@@ -10,10 +10,13 @@ import Chat from '../molecules/chat'
  
 	useEffect(() => {
 		chatsStore.fetchChats()
+ 
+				///////////////////////////
 
 		const handleNewChat = (data:INewChatProps) => {
-			console.info('new chat > ', data)
 			const newChat = data.userA === userDataStore.userName;
+					console.info('new-chat')
+
 
 			if(!newChat){
 				 chatsStore.updateChats({
@@ -30,10 +33,11 @@ import Chat from '../molecules/chat'
 				 })
 			}
 
-		}
+		} 
+
+		///////////////////////////
  
 		socket.on('new-chat', handleNewChat)
-
 		socket.emit('join', userDataStore.userName)
 
 		return () => {
