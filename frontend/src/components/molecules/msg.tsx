@@ -9,7 +9,7 @@ import type { IMsgProps } from '../../shared/types/types'
 
 	const n = useNavigate()
 
-	const clsMsg = 'gap-3  py-[10px] pl-[10px]  pr-[10px] rounded-2xl my-2  flex'
+	const clsMsg = 'gap-3  py-[10px] pl-[10px]  pr-[10px] rounded-2xl my-2  flex '
 
 	const clsMsgMe = 'gap-3  py-[5px] pl-[10px] pr-[10px] rounded-2xl my-2 max-w-[85%] flex  justify-end ml-auto'
 
@@ -32,7 +32,8 @@ import type { IMsgProps } from '../../shared/types/types'
 			 
 		{/* AVA */}		 
 		{!msgMe && 
-			<div className='border w-15 h-15 rounded-full border-[#444] flex justify-center items-center'>
+			<div className='border w-15 h-15 rounded-full border-[#444] flex 
+			justify-center items-center resize-none'>
 				<img src={msgData.ava} alt="img" />
 		</div>}
 
@@ -56,7 +57,7 @@ import type { IMsgProps } from '../../shared/types/types'
 	</div>
 
 		{msgMe && 
-			<div className='border w-15 h-15 rounded-full border-[#444] flex justify-center items-center'>
+			<div className='border w-15 h-15 rounded-full border-[#444] flex justify-center items-center shrink-0'>
 				<img src={msgData.ava} alt="img" />
 		</div>}
 

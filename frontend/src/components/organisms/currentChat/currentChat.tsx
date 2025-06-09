@@ -24,11 +24,11 @@ interface ICurrentChatsProps {
 
 
 	const currentChat_stylesDesktop = 
-	'w-[100%] h-[99vh] px-5 mt-2 rounded-2xl flex justify-center items-center'
+	'w-[100%] h-[99vh] px-5 mt-3 rounded-2xl flex justify-center items-center'
 
 	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto rel'
  
-	const endRef = useRef<HTMLDivElement | null>(null)
+	const endRef = useRef<HTMLDivElement | null>(null) 
  
 	useEffect(() => {
 
@@ -52,7 +52,7 @@ interface ICurrentChatsProps {
 )
 
  
-	const cls = 'px-5 py-3 rounded-2xl'
+	const cls = 'px-5 py-3 rounded-2xl relative z-9'
 
 	return ( 
 		<div>
@@ -79,7 +79,7 @@ interface ICurrentChatsProps {
 		}
 	
 	
-		{currentChatDataStore.selectedCurrentChat && 
+		{currentChatDataStore.selectedCurrentChat === true && 
 
 		<div className='w-[100%] relative h-[99%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
 			<HeaderCurrentChat />

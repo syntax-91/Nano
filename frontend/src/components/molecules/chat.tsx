@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useEffect, useState } from 'react'
 import { msgsAPI } from '../../api/data'
@@ -16,6 +18,8 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 }:IChatProps	) {
 
 	const [latestMsgState, setLatestMsg] = useState('')
+
+	const currentChatDataJSON = toJS(currentChatDataStore)
 
 	useEffect(() => {
 		const handleNewMsg = (msg:IMsgProps) => {
@@ -38,6 +42,13 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 		
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
+		if(
+			currentChatDataJSON.username === username
+		) {
+			currentChatDataStore.reset()	
+			return;
+		}
+
 		if(isFound){
 			currentChatDataStore.setLoading(true)
 			
@@ -45,7 +56,8 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 			currentChatDataStore.setData(ava, username, roomID)
 			msgsAPI(isFound.roomID)
  
-		} else {
+		}
+		 else {
 		
 			currentChatDataStore.setIsFound(false);
 			currentChatDataStore.setData(ava, username, roomID);
@@ -56,18 +68,18 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 
 	}
  
+	const cls = " w-[100%] mx-auto h-[53px] my-3 rounded-2xl flex items-center pl-2 hover:bg-white/10 active:bg-white/10"
 
 	return (
-		  
-		<div className="bg-white/3 w-[100%] mx-auto ttb-jump
-		h-[50px] my-2 rounded-2xl flex items-center pl-2
-		hover:bg-white/10 active:bg-white/10"
+		<div className={clsx(
+			cls, 
+			`${currentChatDataStore.username === username ? 'bg-[#2c3982]/20' : 'bg-white/5' }`
+		)}
 		onClick={handleClick}>
 				
 			{/* AVA */}
 		<div className='ava border rounded-[50%] 
-		w-[46px] h-[46px] flex items-center 
-		
+		w-[45px] h-[90%] flex items-center 
 		justify-center border-[#464545]'>
 			<img src={ava} alt="img" 
 			className='' />

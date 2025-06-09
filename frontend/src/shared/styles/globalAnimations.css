@@ -127,3 +127,22 @@ body {
 		backdrop-filter: blur(0px);
 	}
 }
+
+/* rltr - rotateLeftToRight */
+
+.rltr {
+	transition: all 0.3s ease;
+	animation: rlrt 0.5s ease forwards;
+}
+
+@keyframes rlrt {
+	from {
+		transform: rotate(50deg);
+		opacity: 0;
+	}
+
+	to {
+		transform: rotate(0deg);
+		opacity: 1;
+	}
+}

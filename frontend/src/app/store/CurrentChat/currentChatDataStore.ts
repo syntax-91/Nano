@@ -46,6 +46,10 @@ class currentChatDataClass {
 		this.msgs.push(msg)
 	}
 
+	reset(){
+		this.selectedCurrentChat = false
+		this.username = ''
+	}
 
 	setIsFound(value:boolean){
 		this.isFound = value

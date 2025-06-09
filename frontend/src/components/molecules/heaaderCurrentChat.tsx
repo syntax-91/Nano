@@ -5,12 +5,12 @@ import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDat
  function HeaderCurrentChat(){
 
 	const handleClose = () => {
-		currentChatDataStore.setSelectedCurrentChat(false)
+		currentChatDataStore.reset()
 	}
 
 	return (
-		<div className='w-[100%] h-[80px] 
-		flex items-center px-[5px] md:border border-[#535252] rounded-full headerCurrentChat'>
+		<div className='w-[100%] h-[75px] 
+		flex items-center px-[3px] md:border border-[#535252] rounded-full headerCurrentChat'>
 
 		<div 
 		className='hidden_el cursor-pointer'

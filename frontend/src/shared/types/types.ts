@@ -1,3 +1,4 @@
+import type React from 'react'
 import type { UseFormRegisterReturn } from 'react-hook-form'
 
 type TBtn = 'button' | 'submit' | 'reset'|'danger'
@@ -25,6 +26,7 @@ export interface IUserDataSubmit {
 type InpType = 'text' | 'password' | 'email' | ''
 
 export interface InputProps {
+	ref?: React.Ref<HTMLInputElement>
 	required?: boolean
 	type?: InpType
 	placeholder?: string
@@ -56,16 +58,18 @@ export interface IChatProps {
 	latestMsg?: string
 } 
 
+export type TMembers = {
+	userA: string,
+	userB: string
+}
+
 // INewChatProps
 export interface INewChatProps {
 	ava: string,
 	username: string,
 	roomID: string,
 
-	userA: string,
-	userB: string
-
-	
+	members: TMembers
 } 
 
 export interface IMsgProps {

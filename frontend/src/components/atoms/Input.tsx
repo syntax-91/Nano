@@ -8,7 +8,7 @@ export function Input({
 	value = '',
 	style = 'default',
 	required = false,
-	rhf = false,
+	rhf = false, 
 	className,
 	...rest
 }: InputProps) {
@@ -24,7 +24,7 @@ export function Input({
 		):(
 			<input
 			required={required}
-			
+			ref={rest.ref && rest.ref}
 			style={{ 
 				background: `${rest.bg && rest.bg}`,
 				borderRadius: `${rest.rounded && rest.rounded}px`

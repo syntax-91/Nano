@@ -3,8 +3,9 @@ import { useEffect } from 'react'
 import socket from '../../app/socket/socket'
 import { chatsStore } from '../../app/store/chatsStore/chats'
 import { userDataStore } from '../../app/store/userData'
-import type { IChatProps, INewChatProps } from '../../shared/types/types'
+import type { IChatProps, INewChatProps, TMembers } from '../../shared/types/types'
 import Chat from '../molecules/chat'
+
 
  function Chats(){
  
@@ -14,22 +15,26 @@ import Chat from '../molecules/chat'
 				///////////////////////////
 
 		const handleNewChat = (data:INewChatProps) => {
-			const newChat = data.userA === userDataStore.userName;
-					console.info('new-chat')
+			
+			const members:TMembers = data.members;
+
+			const newChat = members.userA === userDataStore.userName;
+
+			console.info('new-chat', data)
 
 
-			if(!newChat){
+			if(newChat){
 				 chatsStore.updateChats({
 					ava: 'sss',
 					roomID: data.roomID,
-					username: data.userB
+					username: data.members.userB
 				 })
-			}
+			} 
 			else {
 				chatsStore.updateChats({ 
 					ava: 'sss',
 					roomID: data.roomID,
-					username: data.userA
+					username: data.members.userA
 				 })
 			}
 
@@ -45,16 +50,15 @@ import Chat from '../molecules/chat'
 		}
 	}, [])
 
-	
   
 	return (
 		<div className='chats'>
 			 
 			{chatsStore.chats.length > 0 && 
 			chatsStore.chats.map(
-				(chat:IChatProps, idx) => (
-					<div key={idx}>
-						<Chat
+				(chat:IChatProps) => (
+					<div key={chat.username}>
+						<Chat 
 						ava='HI'
 						username={chat.username}
 						roomID={chat.roomID}
