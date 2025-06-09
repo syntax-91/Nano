@@ -48,10 +48,11 @@ import Chat from '../molecules/chat'
 	
   
 	return (
-		<div className=''>
+		<div className='chats'>
 			 
-			{chatsStore.chats.length && 
-			chatsStore.chats.map((chat:IChatProps, idx) => (
+			{chatsStore.chats.length > 0 && 
+			chatsStore.chats.map(
+				(chat:IChatProps, idx) => (
 					<div key={idx}>
 						<Chat
 						ava='HI'

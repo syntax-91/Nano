@@ -46,8 +46,6 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 			msgsAPI(isFound.roomID)
  
 		} else {
-			console.log('isFound > false')
-
 		
 			currentChatDataStore.setIsFound(false);
 			currentChatDataStore.setData(ava, username, roomID);
@@ -58,6 +56,7 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 
 	}
  
+
 	return (
 		  
 		<div className="bg-white/3 w-[100%] mx-auto ttb-jump
@@ -66,8 +65,12 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 		onClick={handleClick}>
 				
 			{/* AVA */}
-		<div className='ava border rounded-[50%] w-[46px] h-[46px] flex items-center justify-center border-[#464545]'>
-			<img src={ava} alt="img" />
+		<div className='ava border rounded-[50%] 
+		w-[46px] h-[46px] flex items-center 
+		
+		justify-center border-[#464545]'>
+			<img src={ava} alt="img" 
+			className='' />
 		</div>
 		
 		<div className='pl-4'>

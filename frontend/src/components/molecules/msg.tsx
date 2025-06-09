@@ -9,9 +9,9 @@ import type { IMsgProps } from '../../shared/types/types'
 
 	const n = useNavigate()
 
-	const clsMsg = 'gap-3  py-[10px] pl-[10px] pr-[10px] rounded-2xl border-[#444] my-2 max-w-[80%] flex'
+	const clsMsg = 'gap-3  py-[10px] pl-[10px]  pr-[10px] rounded-2xl my-2  flex'
 
-	const clsMsgMe = 'gap-3  py-[10px] pl-[10px] pr-[10px] rounded-2xl border-[#444] my-2  flex justify-end'
+	const clsMsgMe = 'gap-3  py-[5px] pl-[10px] pr-[10px] rounded-2xl my-2 max-w-[85%] flex  justify-end ml-auto'
 
 	const msgMe = msgData.who == userDataStore.userName;
 	
@@ -38,7 +38,11 @@ import type { IMsgProps } from '../../shared/types/types'
 
 		{/* MSG */}
 	<div 
-	className='border border-[#444] max-w-[100%] block rounded-2xl p-4 bg-[#040404]'>
+	className={clsx(
+		msgMe ? 'border border-[#3455af] max-w-[100%] block rounded-2xl p-4 bg-[#040404]' :
+
+	 'border border-[#444] max-w-[100%] block rounded-2xl p-4 bg-[#040404]'
+	)}>
 
 		<h4 
 		className='text-[#a7a3a3] cursor-pointer hover:text-[#d7d5d5]'

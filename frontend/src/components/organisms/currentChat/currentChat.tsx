@@ -81,7 +81,7 @@ interface ICurrentChatsProps {
 	
 		{currentChatDataStore.selectedCurrentChat && 
 
-		<div className='w-[100%] relative h-[100%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
+		<div className='w-[100%] relative h-[99%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
 			<HeaderCurrentChat />
 			 
 			<div className='w-[100%] h-[100%] md:border 

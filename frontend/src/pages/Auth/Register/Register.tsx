@@ -8,7 +8,7 @@ import { loadingStore } from '../../../app/store/app/loadingStore'
 import { userDataStore } from '../../../app/store/userData'
 import { Button } from '../../../components/atoms/Button'
 import { Input } from '../../../components/atoms/Input'
-import { Modal } from '../../../components/molecules/modal'
+import Modal from '../../../components/molecules/modal'
 import { passwordSchema, usernameSchema } from '../../../shared/schema/schema'
 import type { IUserDataSubmit } from '../../../shared/types/types'
 

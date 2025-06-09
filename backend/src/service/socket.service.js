@@ -25,6 +25,15 @@ export function setupSocket(io){
 			SaveMsgDB(data); 
 			
 		});
+
+		socket.on('change-status', (data) => {
+			
+			io.emit('change-status', {
+				username: data.username,
+				status: data.status
+			} )
+			
+		});
  
 		socket.on('disconnect', () => {
 			console.log('Client disconnected');

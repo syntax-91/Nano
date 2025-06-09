@@ -6,7 +6,7 @@ import { CreateChatAPI } from '../../api/create'
 import socket from '../../app/socket/socket'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
 import { userDataStore } from '../../app/store/userData'
-import { Input } from '../atoms/Input'
+import { TextArea } from '../atoms/TextArea'
 
 interface ISendMsgProps {
 	roomID: string,
@@ -56,12 +56,13 @@ interface ISendMsgProps {
 	<div className='w-[100%] h-17
 	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'>
 		 
-		<Input 
-		rhf={false}
+	
+
+		<TextArea 
 		value={text}
 		onChange={(e) => setText(e.target.value) }
-		style='full'
-		/>
+		resize='vertical'
+		/> 
 
 		{text.length > 0 && 
 		<div className={

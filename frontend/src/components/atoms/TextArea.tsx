@@ -1,20 +1,26 @@
 import type React from 'react'
 
 interface ITextAreaProps {
-	value: string,
+	value?: string,
 	
-	setState: 
+	setState?: 
 	(e: React.ChangeEvent<HTMLTextAreaElement>) => void,
 
 	handleInput?: () => void,
 	handleKeyDown?: 
 	(e:React.KeyboardEvent<HTMLTextAreaElement>) => void
 
-	resize: 'none'|'block'|'horizontal'|'inline',
-	overflowY: 'auto'|'hidden',
-	lineHeight: number,
+	resize?: 'none'|'block'|'inline'|'vertical',
+	
+	overflow?: 'auto'|'hidden'|'vertical'|'horizontal',
 
-	padding: number
+	lineHeight?: number,
+	placeholder?: string
+	padding?: number,
+
+	onChange: (
+		e:React.ChangeEvent<HTMLTextAreaElement>
+	) => void,
 }
 
 export function TextArea(
@@ -22,9 +28,10 @@ export function TextArea(
 		value,
 		setState,
 		resize = 'none',
-		overflowY = 'auto',
+		overflow = 'auto',
 		lineHeight = 18,
 		padding = 8,
+		placeholder = 'Enter text...',
 		...rest
 	}:ITextAreaProps
 ){
@@ -34,7 +41,9 @@ export function TextArea(
 	return (
 		<textarea 
 		value={value}
-		onChange={ setState }
+		onChange={ rest.onChange }
+
+		placeholder={placeholder}
 		
 		onInput={rest.handleInput && rest.handleInput}
 		
@@ -45,11 +54,14 @@ export function TextArea(
 		style={{
 			width: '100%',
 			resize: resize,
-			overflowY: overflowY,
+			overflow: overflow,
 			lineHeight: `${lineHeight}px`,
 			padding: `${padding}px`,
 			maxHeight: `${lineHeight * MAX_ROWS}`
-		}}>
+		}}
+		
+		className='border border-[#4355b1] rounded-2xl outline-0'
+		>
 		
 
 		</textarea>

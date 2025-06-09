@@ -29,18 +29,18 @@ export interface IMsgsCurrentChatProps {
 			}
 
 			{currentChatDataStore.loading == true &&
-			<div className='w-[100px] h-[100px] bg-red-900'>
+			<div className='w-[100px] h-[100px] '>
 				Loading...	
 			</div>}
 
 				<div 
-			className='relative top-0 left-0 bg-white/20 w-[100%] h-[100%]'/>
+			className='relative top-0 left-0 bg-white/20 w-[90%] h-[100%] '/>
 
 			
 			{currentChatDataStore.isFound && 
 			currentChatDataStore.msgs.map((msg, idx) => (
 				
-				<div key={idx} className=''>
+				<div key={idx} className='p-1'>
 					<Msg 
 					text={msg.text}
 					msgID={msg.msgID}

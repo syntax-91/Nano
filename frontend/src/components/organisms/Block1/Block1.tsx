@@ -4,7 +4,7 @@ import { isOpenMenuDesktop } from '../../../app/store/isOpenMenu/isOpenMenuDeskt
 import { isOpenMenuMobile } from '../../../app/store/isOpenMenu/isOpenMenuMobile'
 import Chats from '../Chats'
 import HeaderB1 from '../HeaderB1'
-import HeaderSearchRes from '../HeaderSearchRes'
+import QueryResult from '../QueryResult'
 import MenuDesktop from '../menu/menuDesktop'
 import MenuMobile from '../menu/menuMobile'
 
@@ -22,7 +22,8 @@ import MenuMobile from '../menu/menuMobile'
 			{isOpenMenuDesktop.isOpenMenuDesktop && 
 			<MenuDesktop />}
 								
-			{searchQueryStore.query && <HeaderSearchRes />}
+			{searchQueryStore.query && 
+			<QueryResult />}
 			
 			<Chats />
 

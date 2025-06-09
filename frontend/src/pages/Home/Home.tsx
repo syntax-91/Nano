@@ -34,7 +34,7 @@ function Home(){
 		>
 
 			{/* Block 1 */}
-		<div className='w-[95%]  md:w-[400px] '>
+		<div className='w-[95%] sm:w-[400px] '>
 			<Block1 />
 		</div>
 
