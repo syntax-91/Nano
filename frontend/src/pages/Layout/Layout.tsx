@@ -3,11 +3,11 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { modalStore } from '../../app/store'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
-import { chatsStore } from '../../app/store/chatsStore/chats'
+import { userDataStore } from '../../app/store/userData'
 import Modal from '../../components/molecules/modal'
 import socket from './../../app/socket/socket'
 
-interface IStatusChangeProps {
+export interface IStatusChangeProps {
 	username: string,
 	status:'offline'|'online'
 }
@@ -16,16 +16,37 @@ interface IStatusChangeProps {
 
 	useEffect(() => {
 
-		socket.on('change-status', (data:IStatusChangeProps[]) => {
-			
-			const statusFriends = 
-			
-			chatsStore.chats.forEach (f =>
-				data.some(user => user.username === f.username)
-			)
+		socket.emit('change-status', {
+				username: userDataStore.userName,
+				status: 'online'
+			}
+		)
 
-			statusFriendsStore.setChats(statusFriends)
+		socket.on('change-status', (data:IStatusChangeProps) => {
+
+		const dataArr = [data];
+
+			console.info('changeStatus >  ', dataArr)
+
+			statusFriendsStore.setChats(dataArr)
+			
+
+			//statusFriendsStore.setChats(statusFriends)
 		})
+
+
+		window.addEventListener('beforeunload', ()=>{
+			socket.emit('change-status', {
+				username: userDataStore.userName,
+				status: 'offline'
+			})
+
+		})
+		
+
+		return () => {
+			socket.off('change-status')
+		}
 
 	}, [])
 

@@ -1,12 +1,11 @@
 import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { useEffect, useState } from 'react'
 import { msgsAPI } from '../../api/data'
-import socket from '../../app/socket/socket'
+import { statusFriendsStore } from '../../app/store/app/statusUsers'
 import { chatsStore } from '../../app/store/chatsStore/chats'
 import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
-import type { IChatProps, IMsgProps } from '../../shared/types/types'
+import type { IChatProps } from '../../shared/types/types'
 
  function Chat({
 	
@@ -17,26 +16,8 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 		
 }:IChatProps	) {
 
-	const [latestMsgState, setLatestMsg] = useState('')
-
+	
 	const currentChatDataJSON = toJS(currentChatDataStore)
-
-	useEffect(() => {
-		const handleNewMsg = (msg:IMsgProps) => {
-			
-			if(msg.roomID === roomID){
-				setLatestMsg('')
-				setLatestMsg(msg.text)
-			}
-
-		}
-
-		socket.on('new-msg', handleNewMsg)
-
-		return () => {
-			socket.off('new-msg', handleNewMsg)
-		}
-	}, [])
 
 	const handleClick = () => {
 		
@@ -70,6 +51,14 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
  
 	const cls = " w-[100%] mx-auto h-[53px] my-3 rounded-2xl flex items-center pl-2 hover:bg-white/10 active:bg-white/10"
 
+	const friendsJSON = toJS(statusFriendsStore)
+
+	const isFriend = friendsJSON.chats.find(
+		friend => username === friend.username
+	) 
+
+	console.info('friend > ', isFriend)
+
 	return (
 		<div className={clsx(
 			cls, 
@@ -79,10 +68,18 @@ import type { IChatProps, IMsgProps } from '../../shared/types/types'
 				
 			{/* AVA */}
 		<div className='ava border rounded-[50%] 
-		w-[45px] h-[90%] flex items-center 
+		w-[45px] h-[90%] flex items-center relative
 		justify-center border-[#464545]'>
 			<img src={ava} alt="img" 
 			className='' />
+
+		<div 
+		className={clsx(
+			'w-[10px] h-[10px] absolute right-1 bottom-[3px]',
+			 isFriend?.status
+		)}
+		/>
+
 		</div>
 		
 		<div className='pl-4'>

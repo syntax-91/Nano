@@ -28,6 +28,8 @@ export function setupSocket(io){
 
 		socket.on('change-status', (data) => {
 			
+			console.log('change event > ', data)
+
 			io.emit('change-status', {
 				username: data.username,
 				status: data.status

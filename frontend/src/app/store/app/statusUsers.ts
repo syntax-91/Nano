@@ -17,6 +17,7 @@ class StatusFriends {
 		this.chats = data
 	}
 
+
 }
 
 export const statusFriendsStore = new StatusFriends()
