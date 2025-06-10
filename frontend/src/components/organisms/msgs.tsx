@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
+import { ScrollBtn } from '../atoms/scrollButton'
 import Msg from '../molecules/msg'
 
 export interface IMsgsCurrentChatProps {
@@ -9,19 +10,19 @@ export interface IMsgsCurrentChatProps {
 }
  
  function MsgsCurrentChat(
-	{ roomID, endRef }:IMsgsCurrentChatProps
+	{ endRef }:IMsgsCurrentChatProps
  ){
 
 
 	useEffect(() => {
-		if(!currentChatDataStore.loading){
+		if(!currentChatDataStore.loading == true){
 			endRef.current?.scrollIntoView({ behavior: 'smooth' })
 		}
 	}, [currentChatDataStore.loading])
 
  
 	return (
-		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
+		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative '>
 			{!currentChatDataStore.isFound && 
 			<div className='w-[100%] h-[100%] flex justify-center items-center'>
 				пусто
@@ -51,6 +52,12 @@ export interface IMsgsCurrentChatProps {
 				
 				</div> 
 			))} 
+
+				{/* Scroll Btn */}
+					{endRef.current?.scrollHeight == 10 && 
+					<div className='fixed right-10 bottom-30'>
+						<ScrollBtn ref={endRef} />
+					</div>}
 
 				
 			<div ref={endRef} />

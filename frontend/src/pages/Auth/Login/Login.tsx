@@ -17,7 +17,7 @@ function Login(){
 	const navigate = useNavigate()
 	
 
-	const { register, handleSubmit, formState: { errors } } = useForm({'mode': 'onChange'});
+	const { register, handleSubmit, formState: { errors } } = useForm<IUserDataSubmit>({'mode': 'onChange'});
 
 	const handleReg = () => {
 		navigate('/register')
@@ -44,17 +44,16 @@ function Login(){
 
 		
 	{modalStore.isOpen === true && 
-		<Modal 
-			msg={modalStore.msg}
-			success={modalStore.success} /> }
+		<Modal /> }
 			
-		<div className='w-[80%] md:w-[300px]'>
+		<div className=' w-[90%] sm:w-[320px]'>
 			<h2 className='text-center text-3xl py-5'>Login</h2>
 			
 			{/* username */}
-			<div className='mb-2 mx-auto w-[80%]'>
+			<div className='my-2 mx-auto w-[80%] '>
 				
 				<Input rhf={true} 
+				style='full' 
 				placeholder='Enter username' 
 				{	...register("username", usernameSchema) }
 				/> 
@@ -71,6 +70,7 @@ function Login(){
 			
 			<Input rhf={true} 
 			placeholder='Enter password'
+			style='full'
 			{...register("password", passwordSchema) } />
 			
 				{errors?.password?.message && 
@@ -86,10 +86,17 @@ function Login(){
 		</div>
 
 					{/* data submit */}
-		<div className='mb-2 mx-auto w-[80%]'>
-			<Button isBlock={false} max_w={80} w={315} 
-			disabled={loadingStore.loading} />
-		</div>
+			<div className='w-[80%] mx-auto'>
+				
+				<Button
+				isBlock={true}
+				location='center'
+				style='full'
+				w={500}
+				max_w={100}
+				disabled={loadingStore.loading} />
+
+			</div>
 
 		</div>
 		</form>

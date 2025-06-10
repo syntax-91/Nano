@@ -52,7 +52,7 @@ import Chat from '../molecules/chat'
 
   
 	return (
-		<div className='chats mt-5'>
+		<div className='chats mt-3 w-[100%]'>
 			 
 			{chatsStore.chats.length > 0 && 
 			chatsStore.chats.map(

@@ -9,6 +9,7 @@ export function Button({
 	theme = 'dark',
 	isBlock = true,
 	max_w = 80,
+	className,
 	w = 300,
 	...rest
 }: IBtnProps) {
@@ -29,7 +30,11 @@ export function Button({
 		>
 			<button
 				style={{ width: w, maxWidth: `${max_w}%` }} //
-				className={` ${s[style]} ${s[theme]} 
+				className={`
+					${s[style]}
+					${s[theme]}
+					${s.default} 
+					${className}
 				${rest.disabled && s.disabled} }`}
 				onClick={rest.onClick}
 				disabled={rest.disabled}

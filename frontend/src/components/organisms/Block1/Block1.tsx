@@ -11,10 +11,10 @@ import MenuMobile from '../menu/menuMobile'
  function Block1(){
 
 	return (
-	<div className='w-[100%] md:_border  
-		h-[99vh] border-[#5c5b5b] px-3.5 rounded-2xl mx-auto bg-red-90  flex shrink-0 grow-0 ml-2'>  
+	<div className='w-[100%]  
+		h-[99vh]  rounded-2xl flex '>  
 			
-	<div>
+	<div className='w-[95%] mx-auto'>
 		<HeaderB1 />
 
 			{isOpenStore.isOpenMap.menuMobile &&

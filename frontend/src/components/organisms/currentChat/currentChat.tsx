@@ -10,11 +10,6 @@ import HeaderCurrentChat from '../../molecules/heaaderCurrentChat'
 import SendMsg from '../sendMsg'
 import MsgsCurrentChat from './../msgs'
 
-type TMsg = {
-	text: string,
-	who: string,
-	roomID: string,
-}
 
 interface ICurrentChatsProps {
 	typeDevice: 'mobile'|'desktop'
@@ -25,11 +20,22 @@ interface ICurrentChatsProps {
 //	const notification = new Audio('./../../../assets/notification.mp3')
 
 	const currentChat_stylesDesktop = 
-	'max-w-[100%] h-[99vh] px-3.5 rounded-2xl flex justify-center items-center' 
+	' h-[99vh] px-3.5 rounded-2xl flex justify-center items-center tr6'  
 
 	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto rel'
  
 	const endRef = useRef<HTMLDivElement | null>(null) 
+
+	const handleKeyDown = (e:KeyboardEvent) => {
+		if(
+			e.ctrlKey === true &&
+			e.key === 'Escape' &&
+			currentChatDataStore.selectedCurrentChat
+		){
+			currentChatDataStore.reset()
+		}
+		
+	}
  
 	useEffect(() => {
 
@@ -54,6 +60,19 @@ interface ICurrentChatsProps {
 	}, [currentChatDataStore.roomID]
 )
 
+	useEffect(() => {
+		document.addEventListener(
+			'keydown', 
+			handleKeyDown
+		)
+
+		return () => {
+			document.removeEventListener(
+				'keydown',
+				handleKeyDown
+			)
+		}
+	}, [])
  
 	const cls = 'px-5 py-3 rounded-2xl relative z-9'
 
@@ -84,7 +103,7 @@ interface ICurrentChatsProps {
 	
 		{currentChatDataStore.selectedCurrentChat === true && 
 
-		<div className='w-[100%] relative h-[99%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
+		<div className='h-[99%] flex justify-center items-center flex-col mt-[25px] md:mt-0 ltr w-[100%] '>
 			<HeaderCurrentChat />
 			 
 			<div className={`w-[100%] h-[100%] md:border 
@@ -97,6 +116,8 @@ interface ICurrentChatsProps {
 
 				</div>
 			</div>
+
+
 
 			<div className='w-[100%] h-20'>
 				<SendMsg 

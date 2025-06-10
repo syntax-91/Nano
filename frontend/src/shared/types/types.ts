@@ -6,7 +6,7 @@ type TBtn = 'button' | 'submit' | 'reset'|'danger'
 export interface IBtnProps {
 	label?: string,
 	type?: TBtn,
-	style?: 'default'|'danger'|'disabled'|'mini',
+	style?: 'default'|'danger'|'disabled'|'mini'|'full',
 	location?: string,
 	theme?: string,
 	isBlock?: boolean,
@@ -14,6 +14,7 @@ export interface IBtnProps {
 	w?: number,
 	disabled?: boolean,
 	onClick?: () => void,
+	className?: string
 }
 
 //userDataSubmit
@@ -106,4 +107,9 @@ export interface IUserData {
 	ava: string,
 	description: string,
 	age: number
+}
+
+export type TUser = {
+	username: string,
+	password: string
 }

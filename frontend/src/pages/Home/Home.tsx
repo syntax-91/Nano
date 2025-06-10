@@ -34,7 +34,7 @@ function Home(){
 		>
 
 			{/* Block 1 */}
-		<div className='w-[100%] sm:w-[400px] '>
+		<div className='w-[100%] md:w-[400px] mx-2  shrink-0'>
 			<Block1 />
 		</div>
 
@@ -46,7 +46,7 @@ function Home(){
  
 		{/* currentChat для Desktop'а */}
 		{!isMobile && 
-		<div className='relative w-full justify-center items-center bg-red-00'> 
+		<div className=' w-full bg-green-90'> 
 			<CurrentChat 
 			typeDevice='desktop' />
 		</div> 

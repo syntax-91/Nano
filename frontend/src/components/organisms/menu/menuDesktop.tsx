@@ -1,13 +1,11 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
-import { useNavigate } from 'react-router-dom'
 import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
 import { sharedStore } from '../../../app/store/shared/sharedStore'
 import { logOutU } from '../../../shared/utils/LogOut'
 
  function MenuDesktop(){
 
-	const n = useNavigate();
 
 	const handleSettings = () => {
 		isOpenStore.setIsOpen('settings', true)

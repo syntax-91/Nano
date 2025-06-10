@@ -1,6 +1,4 @@
 import { useParams } from 'react-router-dom'
-import { userDataAPI } from '../../../api/data'
-import type { IUserData } from '../../../shared/types/types'
 import { Button } from '../../atoms/Button'
 
 
@@ -9,8 +7,6 @@ export default function UserProfile(){
 
 	const { username } = useParams<string>()
 
-	const userData:IUserData = 
-	userDataAPI(username||'');
 
 	const handleClickBtn = () => {
 
@@ -24,13 +20,13 @@ export default function UserProfile(){
 		{/* username */}
 		<h2
 		className='text-center my-10 text-2xl'
-		>{userData.username || 'null'}</h2>
+		>{username}</h2>
 
 		{/* AVA */}
 		<div className='w-[100px] h-[100px] 
 			bg-white/5 mx-auto mt-5 rounded-full 			
 				flex justify-center items-center text-2xl'>
-			<img src={userData.ava} alt="img" />
+			<img src='s' alt="img" />
 		</div>
 
 		{/* description */}
@@ -38,7 +34,7 @@ export default function UserProfile(){
 			<h3>описание:</h3>
 			<h2
 			className='text-center'
-			>{userData.description || 'пусто'}</h2>
+			>{/*userData.description ||*/ 'пусто'}</h2>
 		</div>
 
 		<div className='my-20'>

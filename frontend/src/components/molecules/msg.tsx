@@ -10,9 +10,9 @@ import Ava from '../atoms/ava'
 
 	const n = useNavigate()
 
-	const clsMsg = 'gap-3 pl-[10px]  pr-[10px] rounded-2xl flex items-center my-2'
+	const clsMsg = 'gap-3 rounded-2xl flex items-center my-1 lg:max-w-[70%] ltr'
 
-	const clsMsgMe = 'gap-3  py-[5px] pl-[10px] pr-[10px] rounded-2xl max-w-[85%] flex  justify-end ml-auto'
+	const clsMsgMe = 'gap-2  rounded-2xl max-w-[85%] flex  justify-end ml-auto lg:max-w-[70%]ltr'
 
 	const msgMe = msgData.who == userDataStore.userName;
 	
@@ -35,10 +35,9 @@ import Ava from '../atoms/ava'
 		{
 		!msgMe && 
 			<div className='w-15 h-15 rounded-full  flex cursor-pointer
-			justify-center items-center resize-none'>
-				
+			justify-center items-center resize-none'
+			>
 				<Ava ava={msgData.ava} />
-				
 		</div>
 		}
 
@@ -46,29 +45,34 @@ import Ava from '../atoms/ava'
 	<div 
 	className={clsx(
 		msgMe ? 
-		'border border-[#233157]  max-w-[100%] block rounded-2xl px-8 bg-[#040404] rounded-br-[10px] relative bottom-10'  
-		
-		:'border border-[#444] max-w-[100%] block  py-4 px-10 bg-[#040404] ||        rounded-bl-[7px] rounded-2xl relative'
+		'border border-[#233157]'  
+		:'border border-[#333]',
+		'p-7 px-8 rounded-3xl relative max-w-[100%]'
 	)}>
 
-		<h4 
-		className='text-[#a7a3a3] cursor-pointer hover:text-[#d7d5d5]'
-		onClick={handleClickProfile}
-		>{msgData.who || 'null'}</h4>
+		{/* username */}
+		<p
+		onClick={ handleClickProfile }
+		className='absolute top-2 left-4 
+		text-[10px] text-[#cccbcb] hover:text-[#5e5d5d] cursor-pointer'
+		>{msgData.who}</p>
 		
-		<p className='break-words break-all
-		whitespace-pre-wrap pt-2'>
-			{msgData.text} 
-		</p>
+		{/* Text */}
+		<p
+		className='break-words oa'
+		>{msgData.text}</p>
 
-			{/* Date */}
-		<p className='w-5 h-5 float-right'>{msgData.createAt}</p>
+		{/* createAt */}
+		<span
+		className='absolute bottom-1 right-3 
+		text-[8px]'
+		>{msgData.createAt}</span>
 			
 	</div>
 
-	{/* AVA */}
+	{/* meAVA */}
 		{msgMe && 
-			<div className='w-15 h-15 rounded-full  flex cursor-pointer
+			<div className='w-15 h-15 rounded-full  flex cursor-pointer shrink-0
 			justify-center items-center resize-none'>
 				
 				<Ava ava={msgData.ava} />

@@ -25,7 +25,7 @@ interface IAva {
 
 	return (
 		<div className={clsx(clsAVA, 
-		`bg-gradient-to-r
+		`bg-gradient-to-r flex shrink-0
 		 from-white/5 to-white/15`)}>
 			
 			{ava.length > 0 && 

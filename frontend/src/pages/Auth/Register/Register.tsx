@@ -17,7 +17,7 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
  
 	const n = useNavigate()
 
-	const { register, handleSubmit, formState: { errors } } = useForm({'mode': 'onChange'});
+	const { register, handleSubmit, formState: { errors } } = useForm<IUserDataSubmit>({'mode': 'onChange'});
  
 	const handleLogin = () => {
 		n('/login')
@@ -44,9 +44,7 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
  
 		{/* Modal */}
 	{modalStore.isOpen === true && 
-		<Modal
-		msg={modalStore.msg}
-		success={modalStore.success} /> 
+		<Modal /> 
 	}
 			
 		<div className='w-[80%] md:w-[300px]'>

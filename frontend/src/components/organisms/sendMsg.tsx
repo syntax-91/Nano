@@ -57,6 +57,12 @@ interface ISendMsgProps {
 		setText('')
 	}
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if(e.ctrlKey && e.key === 'Enter' && text.length > 0){
+			send()
+		}
+	}
+
 	return (
 	<div className='w-[100%] h-17
 	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'>
@@ -65,6 +71,7 @@ interface ISendMsgProps {
 		value={text}
 		onChange={(e) => setText(e.target.value) }
 		resize='vertical'
+		handleKeyDown={handleKeyDown}
 		/> 
 
 		{text.length > 0 && 

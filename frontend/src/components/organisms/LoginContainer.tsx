@@ -2,20 +2,20 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { LoginFetch } from '../../api/authAPI'
 import { passwordSchema, usernameSchema } from '../../shared/schema/schema'
-import type { TUser } from '../../shared/types/types'
+import type { IUserDataSubmit } from '../../shared/types/types'
 import { Button } from '../atoms/Button'
-
+ 
 export function LoginContainer() {
 
 	const nav = useNavigate();
 	
-	const {
+	const { 
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm({ mode: 'onChange' })
+	} = useForm<IUserDataSubmit>({ mode: 'onChange' })
 
-	const submit = (data: TUser) => {
+	const submit = (data: IUserDataSubmit) => {
 		LoginFetch(data)
 		.then(e => { 
 			if(e === true){ 
@@ -42,8 +42,13 @@ export function LoginContainer() {
 					{...register('username', usernameSchema)}
 				/>
 			</div>
-			<p className='text-center  mt-2 text-red-600'>
-				{errors?.username?.message}
+			
+		
+			<p 
+			className='text-center  mt-2 text-red-600'>
+				
+				{errors?.username?.message as string}			
+
 			</p>
 
 			{/* Password */}
@@ -58,7 +63,7 @@ export function LoginContainer() {
 				/>
 			</div>
 			<p className='text-center  mt-2 text-red-600'>
-				{errors?.password?.message}
+				{errors?.password?.message as string}
 			</p>
 
 			{/* Btn */}

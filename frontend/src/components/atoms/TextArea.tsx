@@ -20,13 +20,13 @@ interface ITextAreaProps {
 
 	onChange: (
 		e:React.ChangeEvent<HTMLTextAreaElement>
-	) => void,
+	) => void
 }
 
 export function TextArea(
 	{
 		value,
-		setState,
+		setState, 
 		resize = 'none',
 		overflow = 'auto',
 		lineHeight = 18,
@@ -44,6 +44,7 @@ export function TextArea(
 		onChange={ rest.onChange }
 
 		placeholder={placeholder}
+
 		
 		onInput={rest.handleInput && rest.handleInput}
 		

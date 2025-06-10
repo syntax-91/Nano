@@ -49,7 +49,7 @@ import Ava from '../atoms/ava'
 
 	}
  
-	const cls = "w-[100%] mx-auto h-[53px] my-1 rounded-2xl flex items-center pl-2 hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200"
+	const cls = "w-[100%] mx-auto h-[53px] my-1 rounded-2xl flex items-center hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200 || ltr-jump"
 
 	return (
 		<div className={clsx(
