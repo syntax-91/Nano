@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-import type { IChatProps } from '../../shared/types/types'
+import type { IChatProps } from '../../../shared/types/types'
 
 class SearchQuery {
 	

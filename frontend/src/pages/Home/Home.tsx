@@ -2,11 +2,11 @@ import { observer } from 'mobx-react-lite'
 import { lazy, Suspense, useLayoutEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
-import { userDataStore } from '../../app/store/userData'
+import { userDataStore } from '../../app/store/app/userData'
 
-import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
-import { sharedStore } from '../../app/store/sharedStore'
-import { themeStore } from '../../app/store/theme'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
+import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
+import { sharedStore } from '../../app/store/shared/sharedStore'
 import GlobalLoader from '../../components/atoms/globalLoader'
 import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
@@ -29,27 +29,27 @@ function Home(){
  
 	return (
 		<div 
-		className={` w-[100%]  h-[100vh] flex fixed
-		 ${themeStore.currentTheme} gap-1`}
+		className={`w-[100%]  h-[100vh] flex fixed
+		 ${sharedStore.currentTheme} gap-0 items-center`}
 		>
 
 			{/* Block 1 */}
-		<div className='w-[95%] sm:w-[400px] '>
+		<div className='w-[100%] sm:w-[400px] '>
 			<Block1 />
 		</div>
 
 			{/* settings */}
-		{sharedStore.isOpen && 
+		{isOpenStore.isOpenMap.settings && 
 		<Suspense fallback={<GlobalLoader />}>
 			<SettingsLazy />
 		</Suspense> }
  
 		{/* currentChat для Desktop'а */}
 		{!isMobile && 
-		<div className='relative w-full justify-center items-center bg-red-90'> 
+		<div className='relative w-full justify-center items-center bg-red-00'> 
 			<CurrentChat 
 			typeDevice='desktop' />
-		</div>
+		</div> 
 		}
 
 		{/* currentChat mobile */}

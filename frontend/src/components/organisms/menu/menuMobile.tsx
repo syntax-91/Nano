@@ -1,10 +1,11 @@
 import { observer } from 'mobx-react-lite'
-import { isOpenMenuMobile } from '../../../app/store/isOpenMenu/isOpenMenuMobile'
+import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
+
 
  function MenuMobile(){
 
 	const handleClick = () => {
-		isOpenMenuMobile.close() 
+		isOpenStore.setIsOpen('menuMobile', false)
 	}
  
 	return (

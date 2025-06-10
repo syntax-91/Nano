@@ -3,16 +3,18 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { modalStore } from '../../app/store'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
-import { userDataStore } from '../../app/store/userData'
+import { userDataStore } from '../../app/store/app/userData'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import Modal from '../../components/molecules/modal'
 import socket from './../../app/socket/socket'
 
 export interface IStatusChangeProps {
 	username: string,
 	status:'offline'|'online'
-}
+} 
 
  function Layout(){
+
 
 	useEffect(() => {
 
@@ -48,7 +50,7 @@ export interface IStatusChangeProps {
 			socket.off('change-status')
 		}
 
-	}, [])
+	}, [currentChatDataStore])
 
 	return (
 		<div> 

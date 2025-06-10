@@ -2,10 +2,10 @@ import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { msgsAPI } from '../../api/data'
-import { statusFriendsStore } from '../../app/store/app/statusUsers'
-import { chatsStore } from '../../app/store/chatsStore/chats'
-import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
+import { chatsStore } from '../../app/store/chatStore/chats'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import type { IChatProps } from '../../shared/types/types'
+import Ava from '../atoms/ava'
 
  function Chat({
 	
@@ -49,37 +49,21 @@ import type { IChatProps } from '../../shared/types/types'
 
 	}
  
-	const cls = " w-[100%] mx-auto h-[53px] my-3 rounded-2xl flex items-center pl-2 hover:bg-white/10 active:bg-white/10"
-
-	const friendsJSON = toJS(statusFriendsStore)
-
-	const isFriend = friendsJSON.chats.find(
-		friend => username === friend.username
-	) 
-
-	console.info('friend > ', isFriend)
+	const cls = "w-[100%] mx-auto h-[53px] my-1 rounded-2xl flex items-center pl-2 hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200"
 
 	return (
 		<div className={clsx(
 			cls, 
-			`${currentChatDataStore.username === username ? 'bg-[#2c3982]/20' : 'bg-white/5' }`
+			`${currentChatDataStore.username 
+				=== username ? 'bg-[#2c3982]/20' : 'bg-gradient-to-r from-white/1  to-white/3' } 
+				`,
+			``
 		)}
 		onClick={handleClick}>
 				
 			{/* AVA */}
-		<div className='ava border rounded-[50%] 
-		w-[45px] h-[90%] flex items-center relative
-		justify-center border-[#464545]'>
-			<img src={ava} alt="img" 
-			className='' />
-
-		<div 
-		className={clsx(
-			'w-[10px] h-[10px] absolute right-1 bottom-[3px]',
-			 isFriend?.status
-		)}
-		/>
-
+		<div className='w-[45px] h-[90%]'>
+			<Ava w={30} h={15} ava={ava} username={username} />
 		</div>
 		
 		<div className='pl-4'>

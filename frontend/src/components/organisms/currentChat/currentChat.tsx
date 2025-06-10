@@ -2,8 +2,8 @@ import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useEffect, useRef } from 'react'
 import socket from '../../../app/socket/socket'
-import { currentChatDataStore } from '../../../app/store/CurrentChat/currentChatDataStore'
-import { themeStore } from '../../../app/store/theme'
+import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
+import { sharedStore } from '../../../app/store/shared/sharedStore'
 import type { IMsgProps } from '../../../shared/types/types'
 import { Loader } from '../../atoms/Loader'
 import HeaderCurrentChat from '../../molecules/heaaderCurrentChat'
@@ -22,9 +22,10 @@ interface ICurrentChatsProps {
 
  function CurrentChat({typeDevice}:ICurrentChatsProps) {
 
+	const notification = new Audio('./../../../assets/notification.mp3')
 
 	const currentChat_stylesDesktop = 
-	'w-[100%] h-[99vh] px-5 mt-3 rounded-2xl flex justify-center items-center'
+	'w-[100%] h-[99vh] px-3.5 rounded-2xl flex justify-center items-center' 
 
 	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto rel'
  
@@ -38,6 +39,7 @@ interface ICurrentChatsProps {
  
 		const handleMsg = (msg: IMsgProps) => {
 			console.info('new-msg > ', msg)
+			notification.play()
 			currentChatDataStore.setMsg(msg)
 		} 
  
@@ -64,8 +66,8 @@ interface ICurrentChatsProps {
 
 		{!currentChatDataStore.selectedCurrentChat && 
 		<div className={clsx(cls, 
-			themeStore.currentTheme === 'dark' && 'bg-white/5',
-			themeStore.currentTheme === 'light' && 'bg-black/80 text-[#fbf4f4]'
+			sharedStore.currentTheme === 'dark' && 'bg-white/5',
+			sharedStore.currentTheme === 'light' && 'bg-black/80 text-[#fbf4f4]'
 		)}
 
 		>для начала общение нажмите чат!</div>}
@@ -85,7 +87,7 @@ interface ICurrentChatsProps {
 			<HeaderCurrentChat />
 			 
 			<div className='w-[100%] h-[100%] md:border 
-			border-[#5846ab]  rounded-2xl mx-auto my-3 overflow-y-auto'>
+			border-[#2a3367]  rounded-2xl mx-auto my-3 overflow-y-auto'>
 				<div className=''>
 					<MsgsCurrentChat
 					roomID={currentChatDataStore.roomID} 

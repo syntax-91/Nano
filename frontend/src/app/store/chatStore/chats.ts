@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { makeAutoObservable, reaction } from 'mobx'
 import type { IChatProps } from '../../../shared/types/types'
-import { modalStore } from '../modalStore'
-import { userDataStore } from '../userData'
+import { userDataStore } from '../app/userData'
+import { modalStore } from '../shared/modalStore'
 
 class ChatsStore {
 	

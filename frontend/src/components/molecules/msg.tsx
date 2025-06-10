@@ -1,24 +1,25 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
-import { sharedStore } from '../../app/store/sharedStore'
-import { userDataStore } from '../../app/store/userData'
+import { userDataStore } from '../../app/store/app/userData'
+import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 import type { IMsgProps } from '../../shared/types/types'
+import Ava from '../atoms/ava'
 
  function MsgCurrentChat(msgData: IMsgProps){
 
 	const n = useNavigate()
 
-	const clsMsg = 'gap-3  py-[10px] pl-[10px]  pr-[10px] rounded-2xl my-2  flex '
+	const clsMsg = 'gap-3 pl-[10px]  pr-[10px] rounded-2xl flex items-center my-2'
 
-	const clsMsgMe = 'gap-3  py-[5px] pl-[10px] pr-[10px] rounded-2xl my-2 max-w-[85%] flex  justify-end ml-auto'
+	const clsMsgMe = 'gap-3  py-[5px] pl-[10px] pr-[10px] rounded-2xl max-w-[85%] flex  justify-end ml-auto'
 
 	const msgMe = msgData.who == userDataStore.userName;
 	
 	const handleClickProfile = () => {
 		
 		if(msgData.who === userDataStore.userName){
-			sharedStore.setIsOpen(true)
+			isOpenStore.setIsOpen('settings',true)
 		} else {
 			n(`/u/${msgData.who}`)
 		}
@@ -27,22 +28,27 @@ import type { IMsgProps } from '../../shared/types/types'
 
 	return (
 	<div className={clsx(
-		msgMe ?clsMsgMe : clsMsg, 
+		msgMe ? clsMsgMe : clsMsg, 
 	)}>
 			 
 		{/* AVA */}		 
-		{!msgMe && 
-			<div className='border w-15 h-15 rounded-full border-[#444] flex 
+		{
+		!msgMe && 
+			<div className='w-15 h-15 rounded-full  flex cursor-pointer
 			justify-center items-center resize-none'>
-				<img src={msgData.ava} alt="img" />
-		</div>}
+				
+				<Ava ava={msgData.ava} />
+				
+		</div>
+		}
 
 		{/* MSG */}
 	<div 
 	className={clsx(
-		msgMe ? 'border border-[#3455af] max-w-[100%] block rounded-2xl p-4 bg-[#040404]' :
-
-	 'border border-[#444] max-w-[100%] block rounded-2xl p-4 bg-[#040404]'
+		msgMe ? 
+		'border border-[#233157]  max-w-[100%] block rounded-2xl p-4 bg-[#040404] rounded-br-[4px] relative bottom-10'  
+		
+		:'border border-[#444] max-w-[100%] block  py-2 px-3 bg-[#040404] || rounded-bl-[5px] rounded-2xl relative bottom-3 left-[-3px]'
 	)}>
 
 		<h4 
@@ -50,15 +56,20 @@ import type { IMsgProps } from '../../shared/types/types'
 		onClick={handleClickProfile}
 		>{msgData.who || 'null'}</h4>
 		
-		<p className='break-words whitespace-pre-wrap pt-2 '>
+		<p className='break-words 
+		whitespace-pre-wrap pt-2 '>
 			{msgData.text} 
 		</p>
 
 	</div>
 
+	{/* AVA */}
 		{msgMe && 
-			<div className='border w-15 h-15 rounded-full border-[#444] flex justify-center items-center shrink-0'>
-				<img src={msgData.ava} alt="img" />
+			<div className='w-15 h-15 rounded-full  flex cursor-pointer
+			justify-center items-center resize-none'>
+				
+				<Ava ava={msgData.ava} />
+				
 		</div>}
 
 			

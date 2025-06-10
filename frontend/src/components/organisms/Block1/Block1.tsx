@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react-lite'
-import { searchQueryStore } from '../../../app/store/HeaderSearchQuery'
-import { isOpenMenuDesktop } from '../../../app/store/isOpenMenu/isOpenMenuDesktop'
-import { isOpenMenuMobile } from '../../../app/store/isOpenMenu/isOpenMenuMobile'
+import { searchQueryStore } from '../../../app/store/fetch/HeaderQuery'
+import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
 import Chats from '../Chats'
 import HeaderB1 from '../HeaderB1'
 import QueryResult from '../QueryResult'
@@ -12,14 +11,15 @@ import MenuMobile from '../menu/menuMobile'
  function Block1(){
 
 	return (
-		<div className=' w-[100%] md:_border h-[99vh] border-[#5c5b5b] px-5 m-2 rounded-2xl '>  
+		<div className='w-[100%] md:_border  
+		h-[99vh] border-[#5c5b5b] px-3.5 rounded-2xl mt-10 mx-auto bg-red-90'>  
 			
 			<HeaderB1 />
 
-			{isOpenMenuMobile.isOpenMenuMobile &&
+			{isOpenStore.isOpenMap.menuMobile &&
 			<MenuMobile />}	
 										 			
-			{isOpenMenuDesktop.isOpenMenuDesktop && 
+			{isOpenStore.isOpenMap.menuDesktop && 
 			<MenuDesktop />}
 								
 			{searchQueryStore.query && 

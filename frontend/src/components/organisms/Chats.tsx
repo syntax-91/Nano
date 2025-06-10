@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import socket from '../../app/socket/socket'
-import { chatsStore } from '../../app/store/chatsStore/chats'
-import { userDataStore } from '../../app/store/userData'
+import { userDataStore } from '../../app/store/app/userData'
+import { chatsStore } from '../../app/store/chatStore/chats'
 import type { IChatProps, INewChatProps, TMembers } from '../../shared/types/types'
 import Chat from '../molecules/chat'
 
@@ -52,14 +52,14 @@ import Chat from '../molecules/chat'
 
   
 	return (
-		<div className='chats'>
+		<div className='chats mt-5'>
 			 
 			{chatsStore.chats.length > 0 && 
 			chatsStore.chats.map(
 				(chat:IChatProps) => (
 					<div key={chat.username}>
 						<Chat 
-						ava='HI'
+						ava={chat.ava}
 						username={chat.username}
 						roomID={chat.roomID}
 						 />

@@ -1,9 +1,8 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
-import { isOpenMenuDesktop } from '../../../app/store/isOpenMenu/isOpenMenuDesktop'
-import { sharedStore } from '../../../app/store/sharedStore'
-import { themeStore } from '../../../app/store/theme'
+import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
+import { sharedStore } from '../../../app/store/shared/sharedStore'
 import { logOutU } from '../../../shared/utils/LogOut'
 
  function MenuDesktop(){
@@ -11,15 +10,15 @@ import { logOutU } from '../../../shared/utils/LogOut'
 	const n = useNavigate();
 
 	const handleSettings = () => {
-		sharedStore.setIsOpen(true)
+		isOpenStore.setIsOpen('settings', true)
 	}
 
 	const handleClick = () => {
-		isOpenMenuDesktop.close() 
+		isOpenStore.setIsOpen('menuDesktop', false)
 	} 
  
 	const toggleTheme = () => {
-		themeStore.toggleTheme()
+		sharedStore.toggleTheme()
 	}
 
 	const handleLogOut = () => {
@@ -29,7 +28,7 @@ import { logOutU } from '../../../shared/utils/LogOut'
 	const cls = 'absolute top-20 w-[200px]      bg-[#050505] rounded-2xl z-10 ttb-jump cursor-pointer'
 
 	return (
-	<div className={clsx(cls, `menuDesktop_${themeStore.currentTheme}` )}
+	<div className={clsx(cls, `menuDesktop_${sharedStore.currentTheme}` )}
 	onClick={ handleClick }>
 
 		<div className='flex justify-center 
@@ -51,7 +50,7 @@ import { logOutU } from '../../../shared/utils/LogOut'
 		<div className='flex justify-center 
  		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
 		onClick={toggleTheme}>
-			<h3>{themeStore.currentTheme} mode</h3>
+			<h3>{sharedStore.currentTheme} mode</h3>
 		</div>
 
 		<div className='flex justify-center 

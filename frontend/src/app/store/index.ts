@@ -1,1 +1,1 @@
-export { modalStore } from './modalStore'
+export { modalStore } from './shared/modalStore'

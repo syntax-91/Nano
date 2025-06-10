@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { currentChatDataStore } from '../app/store/CurrentChat/currentChatDataStore'
-import { searchQueryStore } from '../app/store/HeaderSearchQuery'
-import { userDataStore } from '../app/store/userData'
+import { userDataStore } from '../app/store/app/userData'
+import { currentChatDataStore } from '../app/store/chatStore/currentChatDataStore'
+import { searchQueryStore } from '../app/store/fetch/HeaderQuery'
 import type { IChatProps, IUserData } from '../shared/types/types'
  
 //

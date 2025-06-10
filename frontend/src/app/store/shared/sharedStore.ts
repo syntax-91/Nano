@@ -1,18 +1,13 @@
 import Cookies from 'js-cookie'
-import { makeAutoObservable, reaction } from 'mobx'
+import { makeAutoObservable } from 'mobx'
 
-
-class theme {
+class sharedStoreClass {
 	
 	currentTheme = Cookies.get('currentTheme')||'dark'
 
+
 	constructor() {
 		makeAutoObservable(this)	
-
-		reaction(
-			() => this.currentTheme,
-			() => Cookies.set('currentTheme', this.currentTheme)
-		)
 	}
 
 	toggleTheme(){
@@ -23,6 +18,7 @@ class theme {
 		}
 	}
 
+
 }
 
-export const themeStore = new theme()
+export const sharedStore = new sharedStoreClass()

@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import { IoMdSend } from 'react-icons/io'
 import { CreateChatAPI } from '../../api/create'
 import socket from '../../app/socket/socket'
-import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
-import { userDataStore } from '../../app/store/userData'
+import { userDataStore } from '../../app/store/app/userData'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { TextArea } from '../atoms/TextArea'
 
 interface ISendMsgProps {
@@ -56,8 +56,6 @@ interface ISendMsgProps {
 	<div className='w-[100%] h-17
 	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'>
 		 
-	
-
 		<TextArea 
 		value={text}
 		onChange={(e) => setText(e.target.value) }

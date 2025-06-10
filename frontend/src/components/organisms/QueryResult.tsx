@@ -2,7 +2,7 @@ import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { QueryAPI } from '../../api/data'
-import { searchQueryStore } from '../../app/store/HeaderSearchQuery'
+import { searchQueryStore } from '../../app/store/fetch/HeaderQuery'
 import Chat from '../molecules/chat'
 
  function QueryResult(){

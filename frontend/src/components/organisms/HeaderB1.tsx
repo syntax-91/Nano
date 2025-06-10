@@ -1,8 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { IoIosMenu } from 'react-icons/io'
 import { useMediaQuery } from 'react-responsive'
-import { isOpenMenuDesktop } from '../../app/store/isOpenMenu/isOpenMenuDesktop'
-import { isOpenMenuMobile } from '../../app/store/isOpenMenu/isOpenMenuMobile'
+import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 import { SearchMenu } from '../molecules/SearchHeader'
 
  function HeaderB1(){
@@ -11,28 +10,28 @@ import { SearchMenu } from '../molecules/SearchHeader'
 	const isMobile = useMediaQuery({ maxWidth: 700 })
 
 	const handleClickMobileMenuIcon = () => {
-		if(!isOpenMenuMobile.isOpenMenuMobile){
-			isOpenMenuMobile.open()
+		if(!isOpenStore.isOpenMap.menuMobile){
+			isOpenStore.setIsOpen('menuMobile', true)
 		} else {
-			isOpenMenuMobile.close()
+			isOpenStore.setIsOpen('menuMobile', false)
 		}
 	}
 
 	const handleClickDesktopMenuIcon = () => {
-		if(!isOpenMenuDesktop.isOpenMenuDesktop){
-			isOpenMenuDesktop.open()			
+		if(!isOpenStore.isOpenMap.menuDesktop){
+			isOpenStore.setIsOpen('menuDesktop', true)
 		} else {
-			isOpenMenuDesktop.close()
+			isOpenStore.setIsOpen('menuDesktop', false)
 		}
 	}
 
 	return (
-		<div className='flex  items-center mt-5 justify-between w-[100%] ttb-jump'>
+		<div className='flex items-center mt-5 justify-between w-[100%] ttb-jump'>
 			 			{/* mobile - MenuIcon */}
 			 {isMobile &&
 			 <div 
 			 className={`
-				${isOpenMenuMobile.isOpenMenuMobile ? 'rotate-180' : 'rotate-0'} cursor-pointer relative inline-flex`}
+				${isOpenStore.isOpenMap.menuMobile ? 'rotate-180' : 'rotate-0'} cursor-pointer relative tr2 inline-flex`}
  
 			 	onClick={ handleClickMobileMenuIcon }>
 					<IoIosMenu color='#fff' size={30} />
@@ -43,7 +42,7 @@ import { SearchMenu } from '../molecules/SearchHeader'
 			{!isMobile && 
 			 <div 
 			 className={`
-				${isOpenMenuDesktop.isOpenMenuDesktop ? 'rotate-180' : 'rotate-0'} cursor-pointer relative inline-flex
+				${isOpenStore.isOpenMap.menuDesktop ? 'rotate-180' : 'rotate-0'} cursor-pointer relative inline-flex tr2
 				`}
 
 			 	onClick={ handleClickDesktopMenuIcon }>

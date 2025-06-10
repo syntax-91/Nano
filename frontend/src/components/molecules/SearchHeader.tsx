@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
-import { searchQueryStore } from '../../app/store/HeaderSearchQuery'
+import { searchQueryStore } from '../../app/store/fetch/HeaderQuery'
 import { useDebounce } from '../../shared/hooks/useDebounce'
 import { Input } from '../atoms/Input'
 
@@ -30,7 +30,7 @@ export function SearchMenu() {
 	}
 
 	return (
-		<div className='flex-1/2 flex ml-[15px] items-center '>
+		<div className='flex-1/2 flex ml-[15px] items-center h-[100%]'>
 			<Input
 			ref={inputRef}
 			rhf={false}

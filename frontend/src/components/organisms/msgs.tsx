@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
-import { currentChatDataStore } from '../../app/store/CurrentChat/currentChatDataStore'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import Msg from '../molecules/msg'
 
 export interface IMsgsCurrentChatProps {

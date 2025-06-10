@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite'
 import { IoMdClose } from 'react-icons/io'
-import { sharedStore } from '../../app/store/sharedStore'
+import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 
  function HeaderSettings() {
 	
 	const handleClose = () => {
-		sharedStore.setIsOpen(false)
+		isOpenStore.setIsOpen('settings',false)
 	}
 
 	return (
