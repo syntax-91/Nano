@@ -62,7 +62,7 @@ import Ava from '../atoms/ava'
 		onClick={handleClick}>
 				
 			{/* AVA */}
-		<div className='w-[45px] h-[90%]'>
+		<div className='w-[45px] h-[85%]'>
 			<Ava w={30} h={15} ava={ava} username={username} />
 		</div>
 		

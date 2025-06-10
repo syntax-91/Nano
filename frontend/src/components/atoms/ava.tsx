@@ -14,7 +14,7 @@ interface IAva {
 	{ ava, w = 15, h = 15, ...rest }:IAva
 ){
 
-	const clsAVA = `ava  rounded-[50%]           w-[100%] h-[100%] flex items-center relative justify-center border-[#464545]`
+	const clsAVA = `ava  rounded-[50%]           w-[100%] h-[100%] flex items-center relative justify-center border-[#464545] shrink-0 grow-0`
 
 	const friendsJSON = toJS(statusFriendsStore)
 

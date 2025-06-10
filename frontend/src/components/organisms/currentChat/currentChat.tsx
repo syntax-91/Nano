@@ -25,7 +25,7 @@ interface ICurrentChatsProps {
 //	const notification = new Audio('./../../../assets/notification.mp3')
 
 	const currentChat_stylesDesktop = 
-	'w-[100%] h-[99vh] px-3.5 rounded-2xl flex justify-center items-center' 
+	'max-w-[100%] h-[99vh] px-3.5 rounded-2xl flex justify-center items-center' 
 
 	const currentChat_stylesMobile = 'w-[100%] h-[100%] ltr fixed top-0 left-0 bg-black/95 flex justify-center delay-1000 overflow-y-auto rel'
  

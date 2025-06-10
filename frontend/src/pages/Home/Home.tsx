@@ -29,7 +29,7 @@ function Home(){
  
 	return (
 		<div 
-		className={`w-[100%]  h-[100vh] flex fixed
+		className={`w-[100%]  h-[100vh] flex fixed_
 		 ${sharedStore.currentTheme} gap-0 items-center`}
 		>
 

@@ -46,9 +46,9 @@ import Ava from '../atoms/ava'
 	<div 
 	className={clsx(
 		msgMe ? 
-		'border border-[#233157]  max-w-[100%] block rounded-2xl px-8 bg-[#040404] rounded-br-[4px] relative bottom-10'  
+		'border border-[#233157]  max-w-[100%] block rounded-2xl px-8 bg-[#040404] rounded-br-[10px] relative bottom-10'  
 		
-		:'border border-[#444] max-w-[100%] block  py-2 px-8 bg-[#040404] || rounded-bl-[5px] rounded-2xl relative bottom-3 left-[-3px]'
+		:'border border-[#444] max-w-[100%] block  py-4 px-10 bg-[#040404] ||        rounded-bl-[7px] rounded-2xl relative'
 	)}>
 
 		<h4 
@@ -56,8 +56,8 @@ import Ava from '../atoms/ava'
 		onClick={handleClickProfile}
 		>{msgData.who || 'null'}</h4>
 		
-		<p className='break-words 
-		whitespace-pre-wrap pt-2 '>
+		<p className='break-words break-all
+		whitespace-pre-wrap pt-2'>
 			{msgData.text} 
 		</p>
 
