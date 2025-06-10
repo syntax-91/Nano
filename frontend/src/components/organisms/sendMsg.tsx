@@ -22,6 +22,10 @@ interface ISendMsgProps {
 
 	const [text, setText] = useState('')
 
+	const now = new Date;
+	const hours = now.getHours()
+	const minutes = now.getMinutes()
+
 	const send = () => {
 	
 		endRef.current?.scrollIntoView({behavior: 'smooth'})
@@ -36,7 +40,8 @@ interface ISendMsgProps {
 					msgID: new Date,
 					text: text,
 					ava: '', 
-					who: userDataStore.userName
+					who: userDataStore.userName,
+					createAt: `${hours}:${minutes}`
 				}
 			})
 		} 

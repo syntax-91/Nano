@@ -2,8 +2,6 @@ import { RoomModel } from './../models/RoomModel.js'
 
 export async function SaveMsgDB(data){
 
-	console.log('saveMsg service props  > ', data)
-
 	try {
 		
 		console.log('ROOMID > ', data.roomID)
@@ -12,7 +10,6 @@ export async function SaveMsgDB(data){
 			roomID: data.roomID
 		})
 
-		console.log('room > ', room)
 
 		if(!room || room === null){
 			console.log('не удалось получить roomID')
@@ -25,7 +22,8 @@ export async function SaveMsgDB(data){
 			msgID: new Date,
 			text: data.msg.text,
 			ava: '1488',
-			who: data.msg.who
+			who: data.msg.who,
+			createAt: data.msg.createAt
 		})
 
 		room.save()

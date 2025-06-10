@@ -48,6 +48,7 @@ export interface IModalProps {
 	success: boolean,
 } 
 
+
 // IChatsProps
 export interface IChatProps {
 	ava: string,
@@ -55,7 +56,8 @@ export interface IChatProps {
 	roomID: string,
 
 	isFound?: boolean,
-	latestMsg?: string
+	latestMsg?: string,
+
 } 
 
 export type TMembers = {
@@ -78,7 +80,12 @@ export interface IMsgProps {
 	ava: string,
 	who: string,
 
-	roomID?: string
+	roomID?: string,
+
+	hours?: number,
+	minutes?: number,
+
+	createAt: string
 }
 
 //

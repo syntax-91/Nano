@@ -7,7 +7,7 @@ export interface IMsgsCurrentChatProps {
 	roomID:string,
 	endRef: React.RefObject<HTMLDivElement | null>
 }
-
+ 
  function MsgsCurrentChat(
 	{ roomID, endRef }:IMsgsCurrentChatProps
  ){
@@ -46,6 +46,7 @@ export interface IMsgsCurrentChatProps {
 					msgID={msg.msgID}
 					ava={msg.ava}
 					who={msg.who}
+					createAt={msg.createAt}
 					/> 
 				
 				</div> 

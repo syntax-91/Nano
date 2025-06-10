@@ -46,9 +46,9 @@ import Ava from '../atoms/ava'
 	<div 
 	className={clsx(
 		msgMe ? 
-		'border border-[#233157]  max-w-[100%] block rounded-2xl p-4 bg-[#040404] rounded-br-[4px] relative bottom-10'  
+		'border border-[#233157]  max-w-[100%] block rounded-2xl px-8 bg-[#040404] rounded-br-[4px] relative bottom-10'  
 		
-		:'border border-[#444] max-w-[100%] block  py-2 px-3 bg-[#040404] || rounded-bl-[5px] rounded-2xl relative bottom-3 left-[-3px]'
+		:'border border-[#444] max-w-[100%] block  py-2 px-8 bg-[#040404] || rounded-bl-[5px] rounded-2xl relative bottom-3 left-[-3px]'
 	)}>
 
 		<h4 
@@ -61,6 +61,9 @@ import Ava from '../atoms/ava'
 			{msgData.text} 
 		</p>
 
+			{/* Date */}
+		<p className='w-5 h-5 float-right'>{msgData.createAt}</p>
+			
 	</div>
 
 	{/* AVA */}
@@ -72,7 +75,6 @@ import Ava from '../atoms/ava'
 				
 		</div>}
 
-			
 	</div> 
 	) 
 }

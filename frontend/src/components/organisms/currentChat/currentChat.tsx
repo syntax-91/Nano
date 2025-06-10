@@ -22,7 +22,7 @@ interface ICurrentChatsProps {
 
  function CurrentChat({typeDevice}:ICurrentChatsProps) {
 
-	const notification = new Audio('./../../../assets/notification.mp3')
+//	const notification = new Audio('./../../../assets/notification.mp3')
 
 	const currentChat_stylesDesktop = 
 	'w-[100%] h-[99vh] px-3.5 rounded-2xl flex justify-center items-center' 
@@ -39,11 +39,12 @@ interface ICurrentChatsProps {
  
 		const handleMsg = (msg: IMsgProps) => {
 			console.info('new-msg > ', msg)
-			notification.play()
+//			notification.play()
 			currentChatDataStore.setMsg(msg)
-		} 
+		}  
  
 		socket.on('msg', handleMsg)
+		
 		socket.emit('joinRoom', currentChatDataStore.roomID)
 		
 		
