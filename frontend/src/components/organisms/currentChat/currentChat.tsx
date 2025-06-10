@@ -87,12 +87,14 @@ interface ICurrentChatsProps {
 		<div className='w-[100%] relative h-[99%] flex justify-center items-center flex-col mt-[25px] md:mt-0'>
 			<HeaderCurrentChat />
 			 
-			<div className='w-[100%] h-[100%] md:border 
-			border-[#2a3367]  rounded-2xl mx-auto my-3 overflow-y-auto'>
+			<div className={`w-[100%] h-[100%] md:border 
+			border-[#2a3367]  rounded-2xl mx-auto my-3 overflow-y-auto`}>
 				<div className=''>
-					<MsgsCurrentChat
-					roomID={currentChatDataStore.roomID} 
-					endRef={endRef}/> 
+
+				<MsgsCurrentChat
+				roomID={currentChatDataStore.roomID} 
+				endRef={endRef}/> 				
+
 				</div>
 			</div>
 

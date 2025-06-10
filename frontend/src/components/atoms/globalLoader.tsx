@@ -1,3 +1,6 @@
+//import IMG from './../../assets/bg.jpeg'
+
+
 export default function GlobalLoader(){
 
 	return (
