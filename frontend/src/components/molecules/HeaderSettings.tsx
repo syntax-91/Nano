@@ -14,7 +14,9 @@ import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 
 		<IoMdClose
 		color='#fff' 
+		
 		className='absolute right-10 top-5 cursor-pointer rltr' 
+
 		onClick={handleClose}
 		size={20}/>
 		</div>

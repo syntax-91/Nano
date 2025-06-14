@@ -81,4 +81,26 @@ export const sendMsg = (
 		}
 		
 		setText('')
+}
+
+export const handleCloseCurrentChat = ()=>{
+	currentChatDataStore.reset()
+}
+
+export const handleKeyDownSendMsg = (
+	e:KeyboardEvent
+) => {
+	if(
+		e.ctrlKey && 
+		e.key === 'Enter' && 
+		text.length > 0
+	) {
+		sendMsg({
+			endRef,
+			roomID,
+			text,
+			setText
+		})
 	}
+
+}

@@ -16,16 +16,12 @@ import Ava from '../atoms/ava'
 		
 }:IChatProps	) {
 
-	
 	const currentChatDataJSON = toJS(currentChatDataStore)
 
 	const handleClick = () => {
-		
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
-		if(
-			currentChatDataJSON.username === username
-		) {
+		if(currentChatDataJSON.username === username) {
 			currentChatDataStore.reset()	
 			return;
 		}
@@ -39,14 +35,12 @@ import Ava from '../atoms/ava'
  
 		}
 		 else {
-		
 			currentChatDataStore.setIsFound(false);
 			currentChatDataStore.setData(ava, username, roomID);
 		}
 
 		currentChatDataStore.setSelectedCurrentChat(true)
 		currentChatDataStore.setLoading(true)
-
 	}
  
 	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200 || ltr-jump_ot"

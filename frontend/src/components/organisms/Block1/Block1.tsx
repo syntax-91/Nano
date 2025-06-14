@@ -14,21 +14,20 @@ import MenuMobile from '../menu/menuMobile'
 	<div className='w-[100%]  
 		h-[99vh]  rounded-2xl flex '>  
 			
-	<div className='w-[95%] mx-auto'>
-		<HeaderB1 />
-
+		<div className='w-[95%] mx-auto'>
+			<HeaderB1 />
+			
 			{isOpenStore.isOpenMap.menuMobile &&
-			<MenuMobile />}	
-										 			
+			<MenuMobile />}		 			
+			
 			{isOpenStore.isOpenMap.menuDesktop && 
 			<MenuDesktop />}
-								
+			
 			{searchQueryStore.query && 
 			<QueryResult />}
 			
 			<Chats />
-
-	</div>
+		</div>
 			
 	</div>
 	)

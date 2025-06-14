@@ -21,45 +21,41 @@ export interface IMsgsCurrentChatProps {
 	}, [currentChatDataStore.loading])
 
 	if(!currentChatDataStore.loading){
-		console.info('HUI loading > ',
+		console.info('loading > ',
 			currentChatDataStore.loading
 		)
 
 	}
  
 	return (
-		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
-			{!currentChatDataStore.isFound && 
-			<div className='w-[100%] h-[100%] flex justify-center items-center'>
-				пусто
-			</div>
-			}
+	<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
 
-			{currentChatDataStore.isFound && 
-			currentChatDataStore.msgs.map((msg, idx) => (
-				
-				<div key={idx} className='p-1'>
-					<Msg 
-					text={msg.text}
-					msgID={msg.msgID}
-					ava={msg.ava}
-					who={msg.who}
-					createAt={msg.createAt}
-					/> 
-				
-				</div> 
-			))} 
+	{!currentChatDataStore.isFound && 
+	<div className='w-[100%] h-[100%] flex justify-center items-center'>
+			пусто
+	</div>}
 
-				{/* Scroll Btn */}
-					{endRef.current?.scrollHeight == 10 && 
-					<div className='fixed right-10 bottom-30'>
-						<ScrollBtn ref={endRef} />
-					</div>}
+	{currentChatDataStore.isFound && 
+	currentChatDataStore.msgs.map((msg, idx) => (
+		<div key={idx} className='p-1'>
+			<Msg 
+			text={msg.text}
+			msgID={msg.msgID}
+			ava={msg.ava}
+			who={msg.who}
+			createAt={msg.createAt}
+			/> 	
+		</div> 
+	))} 
 
-				
+	{/* Scroll Btn */}
+	{endRef.current?.scrollHeight == 10 && 
+	<div className='fixed right-10 bottom-30'>
+		<ScrollBtn ref={endRef} />
+	</div>}
+			
 			<div ref={endRef} />
-		</div>
-		
+	</div>
 	)
 }
 

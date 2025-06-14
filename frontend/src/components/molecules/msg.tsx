@@ -7,19 +7,22 @@ import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 
  function MsgCurrentChat(msgData: IMsgProps){
 
-	const clsMsgC = 'gap-3 rounded-2xl flex items-center my-1 lg:max-w-[70%] ltr'
+	const clsMsgCompanion = 'gap-3 rounded-2xl flex items-center my-1 lg:max-w-[70%] ltr'
 
 	const clsMsgMe = 'gap-2  rounded-2xl max-w-[85%] flex  justify-end ml-auto lg:max-w-[70%] my-1 rtl'
 
-	const clsM = 'bg-[#fff]/5 py-7 px-8 rounded-2xl relative max-w-[100%]'
+	//default
+	const clsD = 'bg-[#fff]/5 py-7 px-8 rounded-2xl relative max-w-[100%]'
 
+	// проверка наше ли это сообщение
 	const isMsgMe = msgData.who == userDataStore.userName;
 
+	// навигация
 	const n = useNavigate();
 
 	return (
 	<div className={clsx(
-		isMsgMe ? clsMsgMe : clsMsgC, 
+		isMsgMe ? clsMsgMe : clsMsgCompanion, 
 	)}>
 			 
 		{/* AVA */}		 
@@ -38,7 +41,7 @@ import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 		isMsgMe ? 
 		'rounded-br-[6px]'  
 		:'rounded-bl-[6px]',
-		clsM
+		clsD
 	)}>
 
 		{/* username */}
@@ -63,14 +66,15 @@ import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 			
 	</div>
 
-	{/* meAVA */}
+			{/* meAVA */}
 		{/*msgMe && 
 			<div className='w-15 h-15 rounded-full  flex cursor-pointer shrink-0
 			justify-center items-center resize-none'>
 				
 				<Ava ava={msgData.ava} />
 				
-		</div>*/}
+		</div>*/
+		}
 
 	</div> 
 	) 

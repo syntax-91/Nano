@@ -19,20 +19,10 @@ interface ISendMsgProps {
 ){ 
  
 	const [text, setText] = useState('')
-
 	const isMobile = useMediaQuery({maxWidth:700})
 
-
-
 	const handleKeyDown = (e: React.KeyboardEvent) => {
-		if(e.ctrlKey && e.key === 'Enter' && text.length > 0){
-			sendMsg({
-				endRef,
-				roomID,
-				text,
-				setText
-			})
-		}
+		
 	}
 
 	const send = () => {
@@ -71,7 +61,6 @@ interface ISendMsgProps {
 			/>
 		</div>}
 		
-
 	</div>
 	)
 }

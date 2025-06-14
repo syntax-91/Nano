@@ -6,22 +6,17 @@ import { chatsStore } from '../../app/store/chatStore/chats'
 import type { IChatProps, INewChatProps, TMembers } from '../../shared/types/types'
 import Chat from '../molecules/chat'
 
-
  function Chats(){
  
 	useEffect(() => {
 		chatsStore.fetchChats()
- 
-				///////////////////////////
 
 		const handleNewChat = (data:INewChatProps) => {
 			
 			const members:TMembers = data.members;
 
 			const newChat = members.userA === userDataStore.userName;
-
-			console.info('new-chat', data)
-
+			//console.info('new-chat', data)
 
 			if(newChat){
 				 chatsStore.updateChats({
@@ -31,16 +26,14 @@ import Chat from '../molecules/chat'
 				 })
 			} 
 			else {
-				chatsStore.updateChats({ 
-					ava: 'sss',
-					roomID: data.roomID,
-					username: data.members.userA
-				 })
+			chatsStore.updateChats({ 
+				ava: 'sss',
+				roomID: data.roomID,
+				username: data.members.userA
+				})
 			}
 
 		} 
-
-		///////////////////////////
  
 		socket.on('new-chat', handleNewChat)
 		socket.emit('join', userDataStore.userName)
@@ -49,7 +42,6 @@ import Chat from '../molecules/chat'
 			socket.off('new-chat', handleNewChat)
 		}
 	}, [])
-
   
 	return (
 		<div className='chats mt-3 w-[100%] 
@@ -72,7 +64,6 @@ import Chat from '../molecules/chat'
 					у вас пока что нету чатов
 				</div>)
 			}
-
 
 		</div>
 	)
