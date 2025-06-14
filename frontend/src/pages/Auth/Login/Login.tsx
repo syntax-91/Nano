@@ -6,6 +6,7 @@ import { LoginFetch } from '../../../api/authAPI'
 import { modalStore } from '../../../app/store'
 import { loadingStore } from '../../../app/store/app/loadingStore'
 import { userDataStore } from '../../../app/store/app/userData'
+import { sharedStore } from '../../../app/store/shared/sharedStore'
 import { Button } from '../../../components/atoms/Button'
 import { Input } from '../../../components/atoms/Input'
 import Modal from '../../../components/molecules/modal'
@@ -56,6 +57,10 @@ function Login(){
 				style='full' 
 				placeholder='Enter username' 
 				{	...register("username", usernameSchema) }
+				theme={
+					sharedStore.currentTheme == 'dark' ?
+					'dark' : 'light'
+				}
 				/> 
 
 				{errors?.username?.message && 
@@ -94,6 +99,7 @@ function Login(){
 				style='full'
 				w={500}
 				max_w={100}
+				label='submit'
 				disabled={loadingStore.loading} />
 
 			</div>

@@ -2,10 +2,8 @@ import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import React, { useState } from 'react'
 import { IoMdSend } from 'react-icons/io'
-import { CreateChatAPI } from '../../api/create'
-import socket from '../../app/socket/socket'
-import { userDataStore } from '../../app/store/app/userData'
-import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
+import { useMediaQuery } from 'react-responsive'
+import { sendMsg } from '../../shared/utils/handlers/uiHandlers'
 import { TextArea } from '../atoms/TextArea'
 
 interface ISendMsgProps {
@@ -19,48 +17,31 @@ interface ISendMsgProps {
 		endRef
 	}:ISendMsgProps 
 ){ 
-
+ 
 	const [text, setText] = useState('')
 
-	const now = new Date;
-	const hours = now.getHours()
-	const minutes = now.getMinutes()
+	const isMobile = useMediaQuery({maxWidth:700})
 
-	const send = () => {
-	
-		endRef.current?.scrollIntoView({behavior: 'smooth'})
-		if(currentChatDataStore.isFound){
 
-			console.warn('roomID: ', currentChatDataStore.roomID)
-
-			socket.emit('sendMessage', {
-			roomID: roomID, 
-			
-				msg: {
-					msgID: new Date,
-					text: text,
-					ava: '', 
-					who: userDataStore.userName,
-					createAt: `${hours}:${minutes}`
-				}
-			})
-		} 
-		
-		else if(!currentChatDataStore.isFound || 	currentChatDataStore.isFound === null) {
-			CreateChatAPI({
-				userA: userDataStore.userName||'',
-				userB: currentChatDataStore.username,
-				firstMsg: text
-			})	
-		}
-		
-		setText('')
-	}
 
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if(e.ctrlKey && e.key === 'Enter' && text.length > 0){
-			send()
+			sendMsg({
+				endRef,
+				roomID,
+				text,
+				setText
+			})
 		}
+	}
+
+	const send = () => {
+		sendMsg({
+				endRef,
+				roomID,
+				text,
+				setText
+			})
 	}
 
 	return (
@@ -74,7 +55,7 @@ interface ISendMsgProps {
 		handleKeyDown={handleKeyDown}
 		/> 
 
-		{text.length > 0 && 
+		{text.length > 0 && isMobile && 
 		<div className={
 			clsx(
 				text.trim().length > 0

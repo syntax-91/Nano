@@ -45,24 +45,24 @@ import Ava from '../atoms/ava'
 		}
 
 		currentChatDataStore.setSelectedCurrentChat(true)
-		currentChatDataStore.setLoading(false)
+		currentChatDataStore.setLoading(true)
 
 	}
  
-	const cls = "w-[100%] mx-auto h-[53px] my-1 rounded-2xl flex items-center hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200 || ltr-jump"
+	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200 || ltr-jump_ot"
 
 	return (
 		<div className={clsx(
 			cls, 
 			`${currentChatDataStore.username 
-				=== username ? 'bg-[#2c3982]/20' : 'bg-gradient-to-r from-white/1  to-white/3' } 
+				=== username ? 'bg-[#98989a]/20' : 'bg-gradient-to-r from-white/1  to-white/3' } 
 				`,
 			``
 		)}
 		onClick={handleClick}>
 				
 			{/* AVA */}
-		<div className='w-[45px] h-[85%]'>
+		<div className='w-[49px] h-[85%]'>
 			<Ava w={30} h={15} ava={ava} username={username} />
 		</div>
 		

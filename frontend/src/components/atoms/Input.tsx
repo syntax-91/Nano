@@ -9,6 +9,7 @@ export function Input({
 	style = 'default',
 	required = false,
 	rhf = false, 
+	theme = 'dark',
 	className,
 	...rest
 }: InputProps) {
@@ -32,7 +33,8 @@ export function Input({
 
 			className={clsx(
 				s.default, 
-				s[style], 
+				s[style],  
+				s[theme],
 				className, 
 			)}
 				

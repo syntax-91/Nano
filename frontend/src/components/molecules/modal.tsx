@@ -4,7 +4,7 @@ import { modalStore } from '../../app/store'
 
  function Modal() {
 
-	const mCls = 'fixed top-0 left-10 w-[100vw] flex  mt-10 ltr-jump z-10';
+	const mCls = 'fixed top-0 left-10 w-[100vw] flex  mt-10 ltr-jump_ot z-10';
 
 	const cls = 'bg-[#000] shw px-20 py-5 rounded-2xl'
 

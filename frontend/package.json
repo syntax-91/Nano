@@ -7,7 +7,13 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^30.0.0",
+    "@swc/core": "^1.4.0",
+    "@swc/jest": "^0.2.29"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
@@ -29,6 +35,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@swc/core": "^1.12.1",
+    "@swc/jest": "^0.2.38",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.9.0",
@@ -36,6 +44,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "jest": "^30.0.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.3.5"

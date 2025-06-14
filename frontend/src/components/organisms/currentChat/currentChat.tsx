@@ -4,9 +4,9 @@ import { useEffect, useRef } from 'react'
 import socket from '../../../app/socket/socket'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import { sharedStore } from '../../../app/store/shared/sharedStore'
-import type { IMsgProps } from '../../../shared/types/types'
-import { Loader } from '../../atoms/Loader'
+import { handleKeyDownCurrentChat, handleNewMsg } from '../../../shared/utils/handlers/uiHandlers'
 import HeaderCurrentChat from '../../molecules/heaaderCurrentChat'
+import { ScreenLoaderMsgs } from '../screen/Loaders/msgsScreenLoader'
 import SendMsg from '../sendMsg'
 import MsgsCurrentChat from './../msgs'
 
@@ -26,16 +26,6 @@ interface ICurrentChatsProps {
  
 	const endRef = useRef<HTMLDivElement | null>(null) 
 
-	const handleKeyDown = (e:KeyboardEvent) => {
-		if(
-			e.ctrlKey === true &&
-			e.key === 'Escape' &&
-			currentChatDataStore.selectedCurrentChat
-		){
-			currentChatDataStore.reset()
-		}
-		
-	}
  
 	useEffect(() => {
 
@@ -43,19 +33,12 @@ interface ICurrentChatsProps {
 			console.log('connected socket')
 		}) 
  
-		const handleMsg = (msg: IMsgProps) => {
-			console.info('new-msg > ', msg)
-//			notification.play()
-			currentChatDataStore.setMsg(msg)
-		}  
- 
-		socket.on('msg', handleMsg)
+		socket.on('msg', handleNewMsg)
 		
 		socket.emit('joinRoom', currentChatDataStore.roomID)
 		
-		
 		return () => {
-			socket.off('msg', handleMsg)
+			socket.off('msg', handleNewMsg)
 		}
 	}, [currentChatDataStore.roomID]
 )
@@ -63,13 +46,13 @@ interface ICurrentChatsProps {
 	useEffect(() => {
 		document.addEventListener(
 			'keydown', 
-			handleKeyDown
+			handleKeyDownCurrentChat
 		)
 
 		return () => {
 			document.removeEventListener(
 				'keydown',
-				handleKeyDown
+				handleKeyDownCurrentChat
 			)
 		}
 	}, [])
@@ -91,14 +74,6 @@ interface ICurrentChatsProps {
 		)}
 
 		>для начала общение нажмите чат!</div>}
-
-		{currentChatDataStore.loading === true && 
-			<div 
-			className='w-[100%] h-[100vh] absolute left-0 top-0 z-10 flex justify-center items-center bg-[#111]'
-			>
-				<Loader />
-			</div>
-		}
 	
 	
 		{currentChatDataStore.selectedCurrentChat === true && 
@@ -107,12 +82,23 @@ interface ICurrentChatsProps {
 			<HeaderCurrentChat />
 			 
 			<div className={`w-[100%] h-[100%] md:border 
-			border-[#2a3367]  rounded-2xl mx-auto my-3 overflow-y-auto`}>
+			border-[#2a3367]  rounded-2xl mx-auto my-3 overflow-y-auto relative`}>
 				<div className=''>
 
+			{!currentChatDataStore.loading &&
 				<MsgsCurrentChat
 				roomID={currentChatDataStore.roomID} 
-				endRef={endRef}/> 				
+				endRef={endRef}/> 	
+			}
+
+				{currentChatDataStore.loading &&
+				 currentChatDataStore.isFound &&
+				<div
+					className='w-[100%] h-[100%]  absolute top-0'>
+				
+					<ScreenLoaderMsgs />
+						
+				</div>}			
 
 				</div>
 			</div>

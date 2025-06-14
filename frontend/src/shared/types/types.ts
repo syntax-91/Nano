@@ -113,3 +113,10 @@ export type TUser = {
 	username: string,
 	password: string
 }
+
+export interface ISendMsgProps  {
+	endRef:React.RefObject<HTMLDivElement | null>,
+	roomID:string,
+	text:string,
+	setText: (e: React.SetStateAction<string>) => void
+}

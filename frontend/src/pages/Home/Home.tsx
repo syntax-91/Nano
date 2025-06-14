@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { lazy, Suspense, useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
@@ -7,18 +7,15 @@ import { userDataStore } from '../../app/store/app/userData'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 import { sharedStore } from '../../app/store/shared/sharedStore'
-import GlobalLoader from '../../components/atoms/globalLoader'
 import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
+import Settings from './../../components/organisms/Settings/Settings'
 
 function Home(){
 
 	const nav = useNavigate();
 	
 	const isMobile = useMediaQuery({maxWidth: 700})
-
-	const SettingsLazy = 
-	lazy(() => import('./../../components/organisms/Settings/Settings') )
 
 	useLayoutEffect(() => {
 			if(!userDataStore.isAuth){
@@ -40,9 +37,7 @@ function Home(){
 
 			{/* settings */}
 		{isOpenStore.isOpenMap.settings && 
-		<Suspense fallback={<GlobalLoader />}>
-			<SettingsLazy />
-		</Suspense> }
+		<Settings /> }
  
 		{/* currentChat для Desktop'а */}
 		{!isMobile && 

@@ -20,24 +20,21 @@ export interface IMsgsCurrentChatProps {
 		}
 	}, [currentChatDataStore.loading])
 
+	if(!currentChatDataStore.loading){
+		console.info('HUI loading > ',
+			currentChatDataStore.loading
+		)
+
+	}
  
 	return (
-		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative '>
+		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
 			{!currentChatDataStore.isFound && 
 			<div className='w-[100%] h-[100%] flex justify-center items-center'>
 				пусто
 			</div>
 			}
 
-			{currentChatDataStore.loading == true &&
-			<div className='w-[100px] h-[100px] '>
-				Loading...	
-			</div>}
-
-				<div 
-			className='relative top-0 left-0 bg-white/20 w-[90%] h-[100%] '/>
-
-			
 			{currentChatDataStore.isFound && 
 			currentChatDataStore.msgs.map((msg, idx) => (
 				

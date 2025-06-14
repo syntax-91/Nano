@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 import { searchQueryStore } from '../../app/store/fetch/HeaderQuery'
+import { sharedStore } from '../../app/store/shared/sharedStore'
 import { useDebounce } from '../../shared/hooks/useDebounce'
 import { Input } from '../atoms/Input'
 
@@ -37,7 +38,12 @@ export function SearchMenu() {
 			 value={query}
 			 onChange={e => setQuery(e.target.value)} 
 			 style='full'
-			 placeholder='Enter search...'/>
+			 placeholder='Enter search...'
+			 theme={
+				sharedStore.currentTheme == 'dark' ?
+				'dark' : 'light'
+			}
+			 />
 
 		{isFocusInput && 
 		<div 

@@ -1,4 +1,3 @@
-import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { QueryAPI } from '../../api/data'
@@ -7,23 +6,20 @@ import Chat from '../molecules/chat'
 
  function QueryResult(){
 
-	const queryResJSON = toJS(searchQueryStore.queryRes)
-	console.log('Res: ', queryResJSON)
-
 	useEffect(() => {
 		QueryAPI()
 	}, [searchQueryStore.query]) 
 
+	const clsC = 'w-[100%] fn mx-auto mt-[20px] text-center px-3 py-1 rounded-2xl overflow-y-auto bg-[#060606]/[0.3] border ltr-jump_ot border-b-[#212020] border-[#000]'
 
 	return (
-		<div className='w-[100%] h-[100px]
-		fn mx-auto mt-[20px] text-center
-		border px-3 py-2 rounded-2xl border-[#444]  overflow-y-auto ltr-jump'>
+		<div className={clsC}>
 			
-			{searchQueryStore.queryRes.length 
-			=== 0 && 
-			<div className='pt-10'>
-				ничего не найдено
+			{!searchQueryStore.queryRes.length &&
+			<div className='py-10'>
+				<p
+				className='bg-[#333]/[0.1] inline p-2 px-5 rounded-2xl'
+				>ничего не найдено</p>
 			</div>}
 			
 		{searchQueryStore.queryRes.length > 0 && 

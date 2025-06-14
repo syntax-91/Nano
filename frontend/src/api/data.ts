@@ -8,8 +8,6 @@ import type { IChatProps, IUserData } from '../shared/types/types'
 
 export async function msgsAPI(roomID:string){
 
-	currentChatDataStore.setLoading(true)
-
 	 try {
 
 		const res = await axios.get('http://localhost:3000/historyChat',
@@ -18,11 +16,11 @@ export async function msgsAPI(roomID:string){
 
 	
 		currentChatDataStore.setMsgs(res.data.msgs)
-		currentChatDataStore.setLoading(false)
-
 
 	 } catch(err){
 		console.error('ERROR > ', err)
+	 } finally {
+			currentChatDataStore.setLoading(false)
 	 }
 }
 
