@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { v4 } from 'uuid'
 import { CreateChatAPI } from '../../../api/create'
 import socket from '../../../app/socket/socket'
 import { userDataStore } from '../../../app/store/app/userData'
@@ -42,7 +43,9 @@ export const handleNewMsg = (msg: IMsgProps) => {
 
 const now = new Date;
 const hours = now.getHours()
+
 const minutes = now.getMinutes()
+const createAt = now.toISOString();
 
 export const sendMsg = (
 	{
@@ -63,11 +66,12 @@ export const sendMsg = (
 			roomID: roomID, 
 			
 				msg: {
-					msgID: new Date,
+					msgID: v4(),
 					text: text,
 					ava: '', 
 					who: userDataStore.userName,
-					createAt: `${hours}:${minutes}`
+					time: `${hours}:${minutes}`,
+					createAt: createAt
 				}
 			})
 		} 
@@ -87,20 +91,3 @@ export const handleCloseCurrentChat = ()=>{
 	currentChatDataStore.reset()
 }
 
-export const handleKeyDownSendMsg = (
-	e:KeyboardEvent
-) => {
-	if(
-		e.ctrlKey && 
-		e.key === 'Enter' && 
-		text.length > 0
-	) {
-		sendMsg({
-			endRef,
-			roomID,
-			text,
-			setText
-		})
-	}
-
-}

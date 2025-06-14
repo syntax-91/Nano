@@ -86,7 +86,8 @@ export interface IMsgProps {
 	hours?: number,
 	minutes?: number,
 
-	createAt: string
+	createAt: string,
+	time: string
 }
 
 //

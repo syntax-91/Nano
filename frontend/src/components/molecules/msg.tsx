@@ -62,7 +62,7 @@ import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 		<span
 		className='absolute bottom-1 right-3 
 		text-[8px]'
-		>{msgData.createAt}</span>
+		>{msgData.time || '00:00'}</span>
 			
 	</div>
 

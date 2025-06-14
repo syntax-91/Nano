@@ -4,5 +4,6 @@ import mongoose from 'mongoose'
 		roomID: String,
 		who: String,
 		text: String,
-		createAt: String
+		createAt: String,
+		time: String
  })

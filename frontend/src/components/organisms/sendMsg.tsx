@@ -21,15 +21,28 @@ interface ISendMsgProps {
 	const [text, setText] = useState('')
 	const isMobile = useMediaQuery({maxWidth:700})
 
-	const handleKeyDown = (e: React.KeyboardEvent) => {
-		
+	const handleKeyDown = (
+		e:React.KeyboardEvent<HTMLTextAreaElement>
+	) => {
+	if(
+		e.ctrlKey && 
+		e.key === 'Enter' && 
+		text.length > 0
+	) {
+		sendMsg({
+			endRef,
+			roomID,
+			text,
+			setText
+		})
 	}
+}
 
 	const send = () => {
 		sendMsg({
 				endRef,
 				roomID,
-				text,
+				text, 
 				setText
 			})
 	}
@@ -45,13 +58,13 @@ interface ISendMsgProps {
 		handleKeyDown={handleKeyDown}
 		/> 
 
-		{text.length > 0 && isMobile && 
+		{text.length > 0  && 
 		<div className={
 			clsx(
 				text.trim().length > 0
 				? 'inline-block': 'hidden',
 				' ab_solute right-0 top-0')
-		}>
+		}> 
 			<IoMdSend 
 			color='#cfcbcb' 
 			size={40} 
