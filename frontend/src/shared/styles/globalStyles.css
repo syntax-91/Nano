@@ -106,3 +106,10 @@
 .oa {
 	overflow-wrap: anywhere;
 }
+
+/* bg blur */
+
+.bg-blur {
+	background-color: rgba(20, 20, 20, 0.3);
+	backdrop-filter: blur(10px);
+}

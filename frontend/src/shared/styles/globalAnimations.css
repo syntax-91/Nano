@@ -43,6 +43,21 @@
 	animation: ltr-jump_of 0.5s ease-in-out forwards;
 }
 
+.rtl {
+	animation: rtl 0.5s ease-in-out forwards;
+}
+
+@keyframes rtl {
+	from {
+		opacity: 0;
+		transform: translateX(50px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
 /*
 	ot - opacity true
 	of - opacity false
