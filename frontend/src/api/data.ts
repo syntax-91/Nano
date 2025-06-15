@@ -11,7 +11,10 @@ export async function msgsAPI(roomID:string){
 	 try {
 
 		const res = await axios.get('http://localhost:3000/historyChat',
-			{headers: {Authorization: `${roomID}`}}
+			{headers: {Authorization: `${roomID}`},
+				params: { limit: 20,  }
+			},
+			
 		)
 
 	
@@ -31,7 +34,6 @@ export async function QueryAPI(){
 			'http://localhost:3000/query',
 			{
 				headers: { 'x-query': searchQueryStore.query, 'username': userDataStore.userName }
-				
 			}
 		)
 
@@ -63,5 +65,11 @@ export async function userDataAPI(username:string){
 	} catch(err){
 		console.error("ERROR userDateAPI > ", err)
 	}
+
+}
+
+export function updateMsgs(
+	
+){
 
 }
