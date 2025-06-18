@@ -11,14 +11,11 @@ export async function msgsAPI(roomID:string){
 	 try {
 
 		const res = await axios.get('http://localhost:3000/historyChat',
-			{headers: {Authorization: `${roomID}`},
-				params: { limit: 20,  }
-			},
-			
+			{headers: {Authorization: `${roomID}`}}
 		)
 
-	
 		currentChatDataStore.setMsgs(res.data.msgs)
+		currentChatDataStore.setFirstMsgId(res.data.msgs[0]._id)
 
 	 } catch(err){
 		console.error('ERROR > ', err)
@@ -68,8 +65,27 @@ export async function userDataAPI(username:string){
 
 }
 
-export function updateMsgs(
+export async function updateMsgs()
+{
 	
-){
+	try {
+	
+		if(currentChatDataStore.msgs.length < 20)return
+		
+		const res = await axios.get(
+			'http://localhost:3000/paginationMsgs',
+			{ headers:{ 
+				'firstMsgId': currentChatDataStore.firstMsgId,
+				'roomID': currentChatDataStore.roomID
+			}}
+		)
+
+		console.info('получено > ', res.data)
+		
+		currentChatDataStore.setNewMsgs(res.data.msgs)
+		
+	} catch(err){
+		console.error('ERROR > ', err)
+	}
 
 }

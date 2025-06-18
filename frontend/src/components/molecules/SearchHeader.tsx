@@ -38,7 +38,7 @@ export function SearchMenu() {
 			 value={query}
 			 onChange={e => setQuery(e.target.value)} 
 			 style='full'
-			 placeholder='Enter search...'
+			 placeholder='поиск...'
 			 theme={
 				sharedStore.currentTheme == 'dark' ?
 				'dark' : 'light'

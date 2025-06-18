@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite'
 import { IoIosMenu } from 'react-icons/io'
 import { useMediaQuery } from 'react-responsive'
-import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
-import { SearchMenu } from '../molecules/SearchHeader'
+import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
+import { SearchMenu } from '../../molecules/SearchHeader'
 
  function HeaderB1(){
  

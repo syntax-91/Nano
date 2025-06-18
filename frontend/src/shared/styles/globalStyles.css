@@ -113,3 +113,8 @@
 	background-color: rgba(20, 20, 20, 0.3);
 	backdrop-filter: blur(10px);
 }
+
+.cp {
+	transition: all 0.2s ease;
+	cursor: pointer;
+}

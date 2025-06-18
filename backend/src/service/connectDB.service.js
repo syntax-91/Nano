@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 export async function connectDB() {
 	const URI = process.env.URI
 
-	try {
+	try { 
 		await mongoose.connect(URI)
 		console.log('Успех! (вроде)')
 	} catch (err) {

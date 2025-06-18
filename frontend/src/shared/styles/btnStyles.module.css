@@ -1,7 +1,7 @@
 .default {
 	border-radius: var(--globalDefaultRounded);
 	padding: var(--globalPaddingY) var(--globalPaddingX);
-	border: 1px solid #2e2d2d;
+	border: 1px solid #080808;
 	font-size: var(--globalDefaultFontSize);
 	margin-top: var(--globalDefaultMarginTop);
 	cursor: pointer;

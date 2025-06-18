@@ -43,13 +43,13 @@ import Ava from '../atoms/ava'
 		currentChatDataStore.setLoading(true)
 	}
  
-	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/10 active:bg-white/10 cp gradient-b-to from-red-900 to-red-200 || ltr-jump_ot"
+	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/5 active:bg-white/10 cp || ltr-jump_ot pl-1"
 
 	return (
 		<div className={clsx(
 			cls, 
 			`${currentChatDataStore.username 
-				=== username ? 'bg-[#98989a]/20' : 'bg-gradient-to-r from-white/1  to-white/3' } 
+				=== username ? 'bg-[#191919]/70' : 'bg-gradient-to-r from-white/2  to-white/5' } 
 				`,
 			``
 		)}

@@ -1,7 +1,10 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
+import { useCallback, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { updateMsgs } from '../../api/data'
 import { userDataStore } from '../../app/store/app/userData'
+import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import type { IMsgProps } from '../../shared/types/types'
 import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 
@@ -20,8 +23,45 @@ import { handleClickProfile } from '../../shared/utils/handlers/uiHandlers'
 	// навигация
 	const n = useNavigate();
 
+////
+
+	const firstMsgRef = useRef<IntersectionObserver|null>(null);
+	
+	const observeFirstMsg = 
+	useCallback((n:HTMLDivElement|null) => {	
+		
+		if(firstMsgRef.current){
+			firstMsgRef.current.disconnect()
+		}
+
+	if(n){
+		const ob = new IntersectionObserver(
+			// коллбэк при прокрутке
+			([e]) => {
+				if(e.isIntersecting){
+					updateMsgs()
+				}
+			},
+
+			// настройки
+			{
+				root: null,
+				threshold: 0.9 // сработать когда 90%
+			}
+		);
+
+		ob.observe(n);
+		firstMsgRef.current = ob;
+	}
+
+	}, [])	
+
+
 	return (
-	<div className={clsx(
+	<div
+	ref={ msgData._id === currentChatDataStore.firstMsgId ? observeFirstMsg : null } 
+
+	className={clsx(
 		isMsgMe ? clsMsgMe : clsMsgCompanion, 
 	)}>
 			 

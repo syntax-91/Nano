@@ -41,7 +41,7 @@ function Login(){
 	return (
 	<form 
 	onSubmit={handleSubmit(submit)} 
-	className='flex items-center justify-center w-[100%] h-[100vh] relative'>
+	className='flex items-center justify-center w-[100%] h-[100vh] relative || ltr-jump_ot'>
 
 		
 	{modalStore.isOpen === true && 
@@ -76,6 +76,7 @@ function Login(){
 			<Input rhf={true} 
 			placeholder='Enter password'
 			style='full'
+			theme='dark'
 			{...register("password", passwordSchema) } />
 			
 				{errors?.password?.message && 

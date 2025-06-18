@@ -23,7 +23,7 @@ import { logOutU } from '../../../shared/utils/LogOut'
 		logOutU()
 	}
 
-	const clsC = 'absolute top-20 w-[200px]      bg-[#050505] rounded-2xl z-10 ttb-jump cursor-pointer'
+	const clsC = 'absolute top-25 w-[200px]      bg-[#050505] rounded-2xl z-10 ltr-jump_ot cursor-pointer tr3'
 
 	return (
 	<div className={clsx(clsC, `menuDesktop_${sharedStore.currentTheme}` )}

@@ -189,7 +189,7 @@ body {
 .ws {
 	animation: ws 1.6s ease-in-out infinite;
 }
- 
+  
 @keyframes ws {
 
 	0% {

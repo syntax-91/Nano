@@ -1,13 +1,15 @@
 .default {
+	transition: all 0.2s ease-in-out;
 	border-radius: var(--globalDefaultRounded);
 	padding: var(--globalPaddingY) var(--globalPaddingX);
 	font-size: var(--globalDefaultFontSize);
 	margin-top: 0;
 	
 	border: 1px solid #0a0a0a;
-	background-color: #020202;
+	background-color: #0d0d0d;
 
 	outline: 0;
+	
 }
 
 .full {
@@ -24,7 +26,7 @@
 
 .dark {
 	color: var(--globalMainColor_dark);
-	background-color: var(--globalMainBgColor_dark);
+	background-color: #060606;
 }
 
 .light {
@@ -32,10 +34,21 @@
 	background-color: var(--globalMainBgColor_light);
 }
 
+/* hover */
+.dark:hover {
+	transition: all 0.3s ease;
+	border: 1px solid #212121;
+}
+
 /* focus */
-.default:focus {
+.dark:focus {
 	transition: all 0.3s ease;
 
 	background-color: #0a0a0a;
 	border: 1px solid #424141;
 }
+
+.default:focus {
+	transition: all 0.3s ease-in-out;
+	border: 1px solid #565555;
+} 

@@ -1,4 +1,4 @@
-import { RoomModel } from '../models/RoomModel.js'
+import { MsgsModel } from '../models/MsgsModel.js'
 
 export async function historyChatService(
 	roomID
@@ -6,16 +6,16 @@ export async function historyChatService(
 
 	try {	
 		
-		const room = await RoomModel.findOne(
-			{ roomID: roomID }
-		)
+		const msgs = await MsgsModel.find({
+			 roomID: roomID 
+		})
+		.sort({_id: 1}) // старые -> новые
+		.limit(20) // максимум 20
 
-		const lastMsgs = room.msgs.slice(-20);
-		
 		return {
 			success: true,
 			msg: 'всё ок (вроде)',
-			msgs: lastMsgs
+			msgs: msgs
 		}
 
 	} catch(err){

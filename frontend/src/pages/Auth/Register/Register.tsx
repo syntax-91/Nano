@@ -40,7 +40,7 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
 	return (
 	<form 
 	onSubmit={handleSubmit(submit)} 
-	className='flex items-center justify-center w-[100%] h-[100vh] relative'>
+	className='flex items-center justify-center w-[100%] h-[100vh] relative || ltr-jump_ot'>
  
 		{/* Modal */}
 	{modalStore.isOpen === true && 

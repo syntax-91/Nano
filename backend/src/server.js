@@ -8,6 +8,7 @@ import { AuthRouter } from './routes/auth.route.js'
 import { ChatsRouter } from './routes/chats.route.js'
 import { createChatRouter } from './routes/createChat.route.js'
 import { historyChatRouter } from './routes/historyChat.route.js'
+import { PgMsgsRoute } from './routes/paginationMsgs.route.js'
 import { QueryRouter } from './routes/query.route.js'
 import { connectDB } from './service/connectDB.service.js'
 import { connectIO } from './service/connectsIo.service.js'
@@ -45,6 +46,9 @@ app.use('/historyChat', historyChatRouter)
 
 // /query
 app.use('/query', QueryRouter)
+
+// pagination
+app.use('/paginationMsgs', PgMsgsRoute)
 
 // /createChat
 app.use('/createChat', createChatRouter)

@@ -1,4 +1,4 @@
-import { makeAutoObservable, reaction } from 'mobx'
+import { makeAutoObservable, reaction, toJS } from 'mobx'
 import type { IMsgProps } from '../../../shared/types/types'
 
 export interface IMsgsCurrentChatProps {
@@ -12,6 +12,8 @@ class currentChatDataClass {
 	username = ''
 	roomID = ''
 
+	firstMsgId:string = '';
+
 	loading: boolean = false
 
 	isFound = false
@@ -23,7 +25,10 @@ class currentChatDataClass {
 
 		reaction(
 			() => this.loading,
-			() => console.log('currentChatData loading > ', this.loading)
+			() => { 
+				const json = toJS(this.msgs) 
+				 console.info('>>> ', json)
+			}
 		)
 
 	}
@@ -58,6 +63,14 @@ class currentChatDataClass {
 	setLoading(value:boolean){
 		this.loading = value
 	}
+
+	setFirstMsgId(value:string){
+		this.firstMsgId = value
+	}
+
+	setNewMsgs(msgs:IMsgProps[]){
+		this.msgs.unshift(...msgs)
+	} 
 
 }
 

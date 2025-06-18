@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
+import { msgSchema } from './msgSchema.js'
 
   export const roomSchema = mongoose.Schema({
 		roomID: String,
 		//roomType
-		msgs: Array,
+		msgs: [msgSchema],
 		createAt: String
 	})

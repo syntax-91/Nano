@@ -1,11 +1,12 @@
 import clsx from 'clsx'
 
 interface props {
-	location: 'left'|'right'
+	location: 'left'|'right',
+	w: number
 } 
 
 export function ScreenLoaderMsg(
-	{ location }:props
+	{ location, w = 290 }:props
 ){
 
 	return (
@@ -16,11 +17,11 @@ export function ScreenLoaderMsg(
 	)}>
 
 		<div 
-		className='bg-white/5 w-[290px] h-12 my-2
-		rounded-full relative flex items-center justify-cent_er animate-pulse max-w-[80%]'
+		style={{width: w}}
+		className='bg-white/10 h-12 my-5 rounded-full relative flex items-center justify-cent_er animate-pulse max-w-[80%]'
 		>
 						
-		<div className='w-[100%] rounded-4xl flex items-center bg-white/30 ws h-[90%]'>
+		<div className='w-[100%] rounded-4xl flex items-center bg-whit/20 ws h-[90%]'>
 			<h5 className='text-[#c3c3c3] p-2'/>
 		</div> 		
 		

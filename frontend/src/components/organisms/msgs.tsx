@@ -13,20 +13,19 @@ export interface IMsgsCurrentChatProps {
 	{ endRef }:IMsgsCurrentChatProps
  ){
 
-
 	useEffect(() => {
 		if(!currentChatDataStore.loading == true){
-			endRef.current?.scrollIntoView({ behavior: 'smooth' })
+			endRef.current?.scrollIntoView({ behavior: 'auto' })
 		}
 	}, [currentChatDataStore.loading])
 
+	
 	if(!currentChatDataStore.loading){
 		console.info('loading > ',
 			currentChatDataStore.loading
 		)
-
 	}
- 
+
 	return (
 	<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
 
@@ -39,8 +38,10 @@ export interface IMsgsCurrentChatProps {
 	currentChatDataStore.msgs.map((msg, idx) => (
 		<div key={idx} className='p-1'>
 			<Msg 
+			_id={msg._id}
 			text={msg.text}
 			msgID={msg.msgID}
+			time={msg.time}
 			ava={msg.ava}
 			who={msg.who}
 			createAt={msg.createAt}

@@ -44,9 +44,9 @@ import Chat from '../molecules/chat'
 	}, [])
   
 	return (
-		<div className='chats mt-3 w-[100%] 
-		bg-[#040404]/[0.5] p-2 rounded-2xl'>
-			 
+		<div className='chats my-3 w-[100%] 
+		bg-[#090909]/10 p-2 rounded-2xl'>
+			  
 			{chatsStore.chats.length > 0 && 
 			chatsStore.chats.map(
 				(chat:IChatProps) => (
@@ -60,7 +60,7 @@ import Chat from '../molecules/chat'
 			)) }
 
 			{chatsStore.chats.length === 0 && (
-				<div className='text-center mt-5'>
+				<div className='text-center my-5'>
 					у вас пока что нету чатов
 				</div>)
 			}

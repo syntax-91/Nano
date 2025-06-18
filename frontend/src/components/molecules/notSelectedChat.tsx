@@ -15,7 +15,7 @@ export function NotSelectedChat(){
 			sharedStore.currentTheme === 'light' && 'bg-black/80 text-[#fbf4f4]'
 
 		)}>
-				для начала общение нажмите чат!
+				для начала общение нажмите на чат!
 		</div>
 
 	</div>

@@ -1,4 +1,4 @@
-import { RoomModel } from './../models/RoomModel.js'
+import { MsgsModel } from './../models/MsgsModel.js'
 
 export async function SaveMsgDB(data){
 
@@ -6,29 +6,23 @@ export async function SaveMsgDB(data){
 		
 		console.log('ROOMID > ', data.roomID)
 
-		const room = await RoomModel.findOne({
-			roomID: data.roomID
-		})
-
-
-		if(!room || room === null){
-			console.log('не удалось получить roomID')
-		}
-
-		console.log('saveMsgService data > ', data)
-
-		room.msgs.push({
+		const msgs = await MsgsModel.create({
 			roomID: data.roomID,
-			msgID: new Date,
+			
 			text: data.msg.text,
 			ava: '1488',
 			who: data.msg.who,
 			createAt: data.msg.createAt
 		})
 
-		room.save()
 
-		if(room){
+		if(!msgs || msgs === null){
+			console.log('не удалось добавить сообщение!')
+		}
+
+		console.log('saveMsgService data > ', data)
+
+		if(msgs){
 			console.log('сообщение добавлено!')
 		}
 

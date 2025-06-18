@@ -49,7 +49,7 @@ interface ISendMsgProps {
 
 	return (
 	<div className='w-[100%] h-17
-	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'>
+	flex gap-2 delay-1000 items-center  rounded-[5px] relative_ tr3'>
 		 
 		<TextArea 
 		value={text}

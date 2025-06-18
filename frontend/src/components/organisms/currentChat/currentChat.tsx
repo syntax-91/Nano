@@ -18,9 +18,6 @@ interface ICurrentChatsProps {
  function CurrentChat({typeDevice}:ICurrentChatsProps) {
 
 //	const notification = new Audio('./../../../assets/notification.mp3')
-
-	
-
 	
  
 	const endRef = useRef<HTMLDivElement | null>(null) 

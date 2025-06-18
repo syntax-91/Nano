@@ -61,8 +61,9 @@ export function TextArea(
 			maxHeight: `${lineHeight * MAX_ROWS}`
 		}}
 		
-		className='border border-[#283369] rounded-2xl outline-0'
+		className='border border-[#4c4d4d] rounded-2xl outline-0'
 		>
+		{/* #283369 */}
 		
 
 		</textarea>

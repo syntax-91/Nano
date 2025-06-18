@@ -76,6 +76,7 @@ export interface INewChatProps {
 } 
 
 export interface IMsgProps {
+	_id?: string,
 	msgID: string, 
 	text: string,
 	ava: string,

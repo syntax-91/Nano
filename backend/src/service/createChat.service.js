@@ -1,4 +1,5 @@
 import { v4 } from 'uuid'
+import { MsgsModel } from '../models/MsgsModel.js'
 import { RoomModel } from '../models/RoomModel.js'
 import { UserModel } from './../models/UserModel.js'
 import { NotifyNewChatService } from './notifyNewChat.service.js'
@@ -11,14 +12,17 @@ export async function createChatService(data){
 		
 		const res = await RoomModel.insertOne({
 			roomID: roomID,
-			roomType: '',
+			roomType: 'xz',
 			members: [data.userA, data.userB],
 			createdAt: new Date,
-			
-			msgs: [
-				{msgID: Date.now(), text: data.firstMsg, ava: '' }
-			]
+		}) 
 
+		const addMsg = MsgsModel.insertOne({
+			roomID:roomID,
+			
+			ava:'',
+			text: data.firsMsg,
+			who: data.userA
 		})
 
 		const UserAData = {
@@ -39,9 +43,6 @@ export async function createChatService(data){
 			{ upsert: true }
 		)
 
-		const checkChats = await UserModel.findOne({
-			username: data.userA
-		})
 
 		const addChatUserB = await UserModel.updateOne(
 			{username: data.userB},
