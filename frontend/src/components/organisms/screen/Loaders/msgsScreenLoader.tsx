@@ -3,7 +3,7 @@ import { ScreenLoaderMsg } from './ScreenLoaderMsg'
 export function ScreenLoaderMsgs(){
 
 	return (
-	<div className='w-[100%] h-[100%] bg-black  flex items-end pb-10'>
+	<div className='w-[100%] h-[100%] bg-black flex items-end pb-10'>
 
 		<div className='w-[95%] mx-auto'>
 			<ScreenLoaderMsg location='left' 
