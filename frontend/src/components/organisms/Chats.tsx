@@ -42,7 +42,7 @@ import Chat from '../molecules/chat'
 			socket.off('new-chat', handleNewChat)
 		}
 	}, [])
-  
+   
 	return (
 		<div className='chats my-3 w-[100%] 
 		bg-[#090909]/10 p-2 rounded-2xl'>

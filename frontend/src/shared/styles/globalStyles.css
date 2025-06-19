@@ -65,7 +65,6 @@
 /**/
 
 .bf-10 {
-	
 	backdrop-filter: blur(10px);
 }
 
@@ -76,6 +75,11 @@
 }
 
 /** transitions **/
+
+.tr {
+	transition: all 0.1s;
+}
+
 
 .tr2 {
 	transition: all 0.2s ease-in-out;
@@ -112,9 +116,4 @@
 .bg-blur {
 	background-color: rgba(20, 20, 20, 0.3);
 	backdrop-filter: blur(10px);
-}
-
-.cp {
-	transition: all 0.2s ease;
-	cursor: pointer;
 }

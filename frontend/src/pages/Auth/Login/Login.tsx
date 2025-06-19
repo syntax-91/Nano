@@ -41,7 +41,7 @@ function Login(){
 	return (
 	<form 
 	onSubmit={handleSubmit(submit)} 
-	className='flex items-center justify-center w-[100%] h-[100vh] relative || ltr-jump_ot'>
+	className='flex items-center justify-center w-[100%] h-[100vh] fixed || ltr-jump_ot'>
 
 		
 	{modalStore.isOpen === true && 

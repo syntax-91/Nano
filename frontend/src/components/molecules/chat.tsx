@@ -43,7 +43,7 @@ import Ava from '../atoms/ava'
 		currentChatDataStore.setLoading(true)
 	}
  
-	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/5 active:bg-white/10 cp || ltr-jump_ot pl-1"
+	const cls = "w-[100%] mx-auto h-[59px]      my-[2px] rounded-2xl flex items-center hover:bg-white/5 active:bg-white/10 cp || ltr-jump_ot pl-1 tr"
 
 	return (
 		<div className={clsx(

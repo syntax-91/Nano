@@ -6,7 +6,7 @@
 	margin-top: 0;
 	
 	border: 1px solid #0a0a0a;
-	background-color: #0d0d0d;
+	background-color: #0a0a0a;
 
 	outline: 0;
 	
@@ -26,7 +26,7 @@
 
 .dark {
 	color: var(--globalMainColor_dark);
-	background-color: #060606;
+	background-color: #0a0a0a;
 }
 
 .light {

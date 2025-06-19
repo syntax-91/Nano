@@ -17,7 +17,7 @@ import HeaderB1 from './HeaderB1'
 	return (
 	<div className='w-[100%] h-[100vh] rounded-2xl flex'>  
 		<div className='mx-auto w-[90%]'>
-			<HeaderB1 />
+			<HeaderB1 /> 
 			
 			{isOpenStore.isOpenMap.menuMobile &&
 			 isMobile && <MenuMobile />}		 			

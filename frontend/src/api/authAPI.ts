@@ -7,13 +7,16 @@ import type { IUserDataSubmit } from '../shared/types/types'
 export async function LoginFetch(data: IUserDataSubmit) {
 	try {
 	 
-		const res = await axios.post('http://localhost:3000/auth/login', data)
+		const res = await axios.post('http://192.168.100.58:3000/auth/login', data)
+
+		alert(';')
 
 		console.info("req.body > ", data)
 
 		console.info("ответ dataAPI > ", res.data)
 
 		if (res.data.success) {
+			
 			Cookies.set('isAuth_nano', res.data.success, { expires: 7 })
 
 			Cookies.set('userName_nano', data.username, { expires: 7 })

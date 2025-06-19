@@ -40,7 +40,7 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
 	return (
 	<form 
 	onSubmit={handleSubmit(submit)} 
-	className='flex items-center justify-center w-[100%] h-[100vh] relative || ltr-jump_ot'>
+	className='flex items-center justify-center w-[100%] h-[100vh] || ltr-jump_ot fixed'>
  
 		{/* Modal */}
 	{modalStore.isOpen === true && 
@@ -49,11 +49,9 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
 			
 		<div className='w-[80%] md:w-[300px]'>
 			<h2 className='text-center text-3xl py-5'>Register</h2>
-	
-
 
 				{/* UserName */}
-		<div className='mb-2 mx-auto w-[80%]'>
+		<div className='mb-2 w-[80%]'>
 				
 			<Input rhf={true} 
 				placeholder='Enter username' 
@@ -69,7 +67,7 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
  
 
 			{/* Register */}
-		<div className='mb-2 mx-auto w-[80%]'>
+		<div className='mb-2 _border'>
 			
 			<Input rhf={true} 
 			placeholder='Enter password'
@@ -89,9 +87,11 @@ import type { IUserDataSubmit } from '../../../shared/types/types'
 			</div>
 
 			{/* btn to data submit */}
-		<div className='mb-2 mx-auto w-[80%]'>
-			<Button isBlock={false} max_w={80} w={315} 
-			disabled={loadingStore.loading} />
+		<div className='mb-2 w-[80%]'>
+			<Button 
+			isBlock={false} max_w={80} w={315} 
+			disabled={loadingStore.loading} 
+			label='submit' />
 		</div>
  
 		</div>
