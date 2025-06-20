@@ -19,7 +19,7 @@ class ChatsStore {
 	async fetchChats(){
 		
 		try {
-			const res = await axios.get('http://localhost:3000/chats', { headers: { Authorization: 
+			const res = await axios.get('http://192.168.100.58:3000/chats', { headers: { Authorization: 
 				userDataStore.userName
 			 } })
 

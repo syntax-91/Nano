@@ -8,55 +8,43 @@ import Modal from '../../components/molecules/modal'
 import socket from './../../app/socket/socket'
 
 export interface IStatusChangeProps {
-	username: string,
-	status:'offline'|'online'
-} 
+	username: string
+	status: 'offline' | 'online'
+}
 
- function Layout(){
-
-
+function Layout() {
 	useEffect(() => {
-
-		socket.emit('change-status', {
-				username: userDataStore.userName,
-				status: 'online'
-			}
-		)
-
-		socket.on('change-status', (data:IStatusChangeProps) => {
-			const dataArr = [data];
+		const handleStatus = (data: IStatusChangeProps) => {
+			const dataArr = [data]
 			console.info('changeStatus >  ', dataArr)
 			statusFriendsStore.setChats(dataArr)
-
-			
-		})
-
-
-		window.addEventListener('beforeunload', ()=>{
-			socket.emit('change-status', {
-				username: userDataStore.userName,
-				status: 'offline'
-			})
-
-		})
-		
-
-		return () => {
-			socket.off('change-status')
 		}
 
+		const handleBeforeunLoad = () => {
+			socket.emit('change-status', {
+				username: userDataStore.userName,
+				status: 'offline',
+			})
+		}
+
+		socket.on('change-status', handleStatus)
+
+		window.addEventListener('beforeunload', handleBeforeunLoad)
+
+		return () => {
+			socket.off('change-status', handleStatus)
+
+			window.removeEventListener('beforeunload', handleBeforeunLoad)
+		}
 	}, [])
 
 	return (
-		<div> 
- 
-			{modalStore.isOpen === true && 
-			<Modal />}
+		<div>
+			{modalStore.isOpen === true && <Modal />}
 
 			<div>
-				<Outlet /> 
+				<Outlet />
 			</div>
-
 		</div>
 	)
 }

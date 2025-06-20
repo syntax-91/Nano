@@ -1,29 +1,29 @@
 import type React from 'react'
 import type { UseFormRegisterReturn } from 'react-hook-form'
 
-type TBtn = 'button' | 'submit' | 'reset'|'danger'
+type TBtn = 'button' | 'submit' | 'reset' | 'danger'
 
 export interface IBtnProps {
-	label?: string,
-	type?: TBtn,
-	style?: 'default'|'danger'|'disabled'|'mini'|'full',
-	location?: string,
-	theme?: string,
-	isBlock?: boolean,
-	max_w?: number,
-	w?: number,
-	disabled?: boolean,
-	onClick?: () => void,
+	label?: string
+	type?: TBtn
+	style?: 'default' | 'danger' | 'disabled' | 'mini' | 'full'
+	location?: string
+	theme?: string
+	isBlock?: boolean
+	max_w?: number
+	w?: number
+	disabled?: boolean
+	onClick?: () => void
 	className?: string
 }
 
 //userDataSubmit
 export interface IUserDataSubmit {
-	username: string,
+	username: string
 	password: string
 }
 
-/* Input */ 
+/* Input */
 type InpType = 'text' | 'password' | 'email' | ''
 
 export interface InputProps {
@@ -33,9 +33,9 @@ export interface InputProps {
 	placeholder?: string
 	value?: string
 	onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-	style?: 'укажите свои кастомные типы, и опишите в css' | 'default'|'full'
-	theme?: 'dark' | 'light',
-	
+	style?: 'укажите свои кастомные типы, и опишите в css' | 'default' | 'full'
+	theme?: 'dark' | 'light'
+
 	rhf: boolean // react-hook-form
 	register?: UseFormRegisterReturn
 
@@ -45,80 +45,76 @@ export interface InputProps {
 }
 
 export interface IModalProps {
-	msg: string,
-	success: boolean,
-} 
-
+	msg: string
+	success: boolean
+}
 
 // IChatsProps
 export interface IChatProps {
-	ava: string,
-	username: string,
-	roomID: string,
+	ava: string
+	username: string
+	roomID: string
 
-	isFound?: boolean,
-	latestMsg?: string,
-
-} 
+	isFound?: boolean
+	latestMsg?: string
+}
 
 export type TMembers = {
-	userA: string,
-	userB: string
+	userA: { username: string }
+	userB: { username: string }
 }
 
 // INewChatProps
 export interface INewChatProps {
-	ava: string,
-	username: string,
-	roomID: string,
+	ava: string
+	username: string
+	roomID: string
 
 	members: TMembers
-} 
+}
 
 export interface IMsgProps {
-	_id?: string,
-	msgID: string, 
-	text: string,
-	ava: string,
-	who: string,
+	_id?: string
+	msgID: string
+	text: string
+	ava: string
+	who: string
 
-	roomID?: string,
+	roomID?: string
 
-	hours?: number,
-	minutes?: number,
+	hours?: number
+	minutes?: number
 
-	createAt: string,
+	createAt: string
 	time: string
 }
 
 //
 export interface ICreateChatProps {
-	userA: string,
-	userB: string,
+	userA: string
+	userB: string
 	firstMsg: string
 }
 
 //theme
 
-export type TTheme = [
-	type: 'light'|'dark'
-]
+export type TTheme = [type: 'light' | 'dark']
 
 export interface IUserData {
-	username: string,
-	ava: string,
-	description: string,
+	username: string
+	ava: string
+	description: string
 	age: number
 }
 
 export type TUser = {
-	username: string,
+	username: string
 	password: string
 }
 
-export interface ISendMsgProps  {
-	endRef:React.RefObject<HTMLDivElement | null>,
-	roomID:string,
-	text:string,
+export interface ISendMsgProps {
+	endRef: React.RefObject<HTMLDivElement | null>
+	roomID: string
+	text: string
 	setText: (e: React.SetStateAction<string>) => void
 }

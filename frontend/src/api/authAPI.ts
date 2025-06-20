@@ -3,20 +3,16 @@ import Cookies from 'js-cookie'
 import { modalStore } from '../app/store'
 import { loadingStore } from '../app/store/app/loadingStore'
 import type { IUserDataSubmit } from '../shared/types/types'
- 
+
 export async function LoginFetch(data: IUserDataSubmit) {
 	try {
-	 
 		const res = await axios.post('http://192.168.100.58:3000/auth/login', data)
 
-		alert(';')
+		console.info('req.body > ', data)
 
-		console.info("req.body > ", data)
-
-		console.info("ответ dataAPI > ", res.data)
+		console.info('ответ dataAPI > ', res.data)
 
 		if (res.data.success) {
-			
 			Cookies.set('isAuth_nano', res.data.success, { expires: 7 })
 
 			Cookies.set('userName_nano', data.username, { expires: 7 })
@@ -28,7 +24,6 @@ export async function LoginFetch(data: IUserDataSubmit) {
 			return res.data.success
 		}
 
- 
 		modalStore.run(res.data.msg, res.data.success, 3000)
 		loadingStore.setLoading(false)
 
@@ -42,12 +37,11 @@ export async function LoginFetch(data: IUserDataSubmit) {
 
 export async function RegisterFetch(data: IUserDataSubmit) {
 	try {
-	 
 		const res = await axios.post('http://localhost:3000/auth/register', data)
 
-		console.info("req.body > ", data)
+		console.info('req.body > ', data)
 
-		console.info("ответ dataAPI > ", res.data)
+		console.info('ответ dataAPI > ', res.data)
 
 		if (res.data.success) {
 			Cookies.set('isAuth_nano', res.data.success, { expires: 7 })
@@ -61,7 +55,6 @@ export async function RegisterFetch(data: IUserDataSubmit) {
 			return res.data.success
 		}
 
- 
 		modalStore.run(res.data.msg, res.data.success, 3000)
 		loadingStore.setLoading(false)
 
@@ -74,21 +67,23 @@ export async function RegisterFetch(data: IUserDataSubmit) {
 }
 
 /* create ACCESS */
-export async function createACCESS(){
+export async function createACCESS() {
 	try {
-		const REFRESH_TOKEN = Cookies.get('syntax_chat_REFRESH_TOKEN');
-		
-		console.log("DD: ", REFRESH_TOKEN)
+		const REFRESH_TOKEN = Cookies.get('syntax_chat_REFRESH_TOKEN')
 
-		const res = await axios.post('http://localhost:3000/createACCESS', REFRESH_TOKEN)
+		console.log('DD: ', REFRESH_TOKEN)
 
-		console.info("ответ dataAPI > ", res.data)
+		const res = await axios.post(
+			'http://localhost:3000/createACCESS',
+			REFRESH_TOKEN
+		)
 
-		if(!res.data.accessValid){
+		console.info('ответ dataAPI > ', res.data)
+
+		if (!res.data.accessValid) {
 			console.error('refresh истёк...')
 		}
-
-	} catch(err){
-		console.error("ERROR > ", err)
+	} catch (err) {
+		console.error('ERROR > ', err)
 	}
 }
