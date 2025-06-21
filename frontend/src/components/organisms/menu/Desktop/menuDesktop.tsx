@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
-import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
-import { sharedStore } from '../../../app/store/shared/sharedStore'
-import { logOutU } from '../../../shared/utils/LogOut'
+import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
+import { sharedStore } from '../../../../app/store/shared/sharedStore'
+import { logOutU } from '../../../../shared/utils/LogOut'
 
 function MenuDesktop() {
 	const handleSettings = () => {
