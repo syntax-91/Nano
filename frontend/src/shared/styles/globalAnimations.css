@@ -163,8 +163,19 @@ body {
 
 .fn-blur,
 .fnb {
-	transition: all 0.1s ease;
 	animation: fnb 0.1s ease forwards;
+}
+
+.fnb-3 {
+	animation: fnb 0.3s ease forwards;
+}
+
+.fnb-4 {
+	animation: fnb 0.4s ease forwards;
+}
+
+.fnb-5 {
+	animation: fnb 0.5s ease forwards;
 }
 
 @keyframes fnb {

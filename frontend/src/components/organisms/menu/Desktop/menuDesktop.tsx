@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
 import { sharedStore } from '../../../../app/store/shared/sharedStore'
 import { logOutU } from '../../../../shared/utils/LogOut'
+import { LTR_anim } from '../../../animations/lr'
 
 function MenuDesktop() {
 	const handleSettings = () => {
@@ -21,11 +22,14 @@ function MenuDesktop() {
 		logOutU()
 	}
 
+	const ltr_jump = LTR_anim()
+
 	const clsC =
-		'absolute top-25 w-[200px]      bg-[#050505] rounded-2xl z-10 ltr-jump_ot cursor-pointer tr'
+		'absolute top-25 w-[200px] bg-[#050505] rounded-2xl z-10 ltr-jump_of_ cursor-pointer  shw'
 
 	return (
 		<div
+			ref={ltr_jump}
 			className={clsx(clsC, `menuDesktop_${sharedStore.currentTheme}`)}
 			onClick={handleClick}
 		>

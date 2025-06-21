@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 
 /* left -> right - animate */
 
-export function LR_anim() {
+export function LTR_anim() {
 	const ref = useRef(null)
 
 	useEffect(() => {
