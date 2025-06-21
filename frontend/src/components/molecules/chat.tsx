@@ -34,7 +34,7 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 	}
 
 	const cls =
-		'w-[100%] mx-auto h-[59px] my-[2px] rounded-2xl flex items-center hover:bg-white/20 active:bg-white/10 cp || ltr-jump_ot pl-1 tr'
+		'w-[100%] mx-auto h-[59px] my-[2px] rounded-2xl flex items-center hover:bg-white/20 active:bg-white/3 cp || ltr-jump_ot pl-1 tr'
 
 	return (
 		<div
@@ -43,8 +43,8 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 				`${
 					currentChatDataStore.username === username
 						? 'bg-[#191919]/70'
-						: 'bg-gradient-to-r from-white/2  to-white/5'
-				} 
+						: 'bg-[#fff]/2'
+				}
 				`,
 				``
 			)}

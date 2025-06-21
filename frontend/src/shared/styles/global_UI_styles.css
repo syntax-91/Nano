@@ -5,13 +5,12 @@
 
 	/* background_color */
 	--globalMainBgColor_light: #353537;
-	--globalMainBgColor_dark: #1a1919;
-
+	--globalMainBgColor_dark:  #691094;
 	/* rounded */
 	--globalDefaultRounded: 35px;
 
 	/* padding X */
-	--globalPaddingX: 35px;
+	--globalPaddingX: 30px;
 
 	/* padding Y */
 	--globalPaddingY: 10px;
