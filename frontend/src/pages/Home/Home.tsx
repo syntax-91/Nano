@@ -11,53 +11,45 @@ import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
 import Settings from './../../components/organisms/Settings/Settings'
 
-function Home(){
+function Home() {
+	const nav = useNavigate()
 
-	const nav = useNavigate();
-	
-	const isMobile = useMediaQuery({maxWidth: 700})
+	const isMobile = useMediaQuery({ maxWidth: 700 })
 
 	useLayoutEffect(() => {
-			if(!userDataStore.isAuth){
-				nav('/login');
-			}
+		if (!userDataStore.isAuth) {
+			nav('/login')
+		}
 	}, [])
 
- 
 	return (
-		<div 
-		className={`w-[100%]  h-[100vh] flex fixed
+		<div
+			className={`w-[100%]  h-[100vh] flex fixed
 		 ${sharedStore.currentTheme} gap-0 items-center`}
 		>
-
 			{/* Block 1 */}
-		<div className='w-[100%] md:w-[400px] mx-2  shrink-0'>
-			<Block1 />
-		</div>
+			<div className='w-[100%] md:w-[400px] sm:mx-2  shrink-0'>
+				<Block1 />
+			</div>
 
 			{/* settings */}
-		{isOpenStore.isOpenMap.settings && 
-		<Settings /> }
- 
-		{/* currentChat для Desktop'а */}
-		{!isMobile && 
-		<div className=' w-full bg-green-90'> 
-			<CurrentChat 
-			typeDevice='desktop' />
-		</div> 
-		}
+			{isOpenStore.isOpenMap.settings && <Settings />}
 
-		{/* currentChat mobile */}
-		{isMobile && 
-		currentChatDataStore.selectedCurrentChat && 
-			<div className=''>
-				<CurrentChat 
-				typeDevice='mobile'
-			/>
-		</div> }
- 
-		</div>  
+			{/* currentChat для Desktop'а */}
+			{!isMobile && (
+				<div className=' w-full bg-green-90'>
+					<CurrentChat typeDevice='desktop' />
+				</div>
+			)}
+
+			{/* currentChat mobile */}
+			{isMobile && currentChatDataStore.selectedCurrentChat && (
+				<div className=''>
+					<CurrentChat typeDevice='mobile' />
+				</div>
+			)}
+		</div>
 	)
 }
 
-export default observer(Home);
+export default observer(Home)

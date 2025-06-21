@@ -15,7 +15,7 @@ function Block1() {
 
 	return (
 		<div className='w-[100%] h-[100vh] rounded-2xl flex'>
-			<div className='mx-auto w-[90%]'>
+			<div className='mx-auto w-[95%]      sm:w-[90%'>
 				<HeaderB1 />
 
 				{isOpenStore.isOpenMap.menuMobile && isMobile && <MenuMobile />}

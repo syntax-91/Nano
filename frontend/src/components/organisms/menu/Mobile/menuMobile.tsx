@@ -20,12 +20,12 @@ function MenuMobile() {
 				<Ava ava='sss' />
 			</div>
 
-			<div className='bg-white/5 w-[80%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px]'>
+			<div className='bg-white/5 w-[90%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px]'>
 				<h2>settings</h2>
 			</div>
 
 			<div
-				className='bg-white/5 w-[80%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px] mt-1 active:bg-white/10'
+				className='bg-white/5 w-[90%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px] mt-1 active:bg-white/10'
 				onClick={logOutU}
 			>
 				<h2>LogOut</h2>
