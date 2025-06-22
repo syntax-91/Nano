@@ -118,3 +118,8 @@ export interface ISendMsgProps {
 	text: string
 	setText: (e: React.SetStateAction<string>) => void
 }
+
+// config
+export interface IConfigProps {
+	theme: string
+}

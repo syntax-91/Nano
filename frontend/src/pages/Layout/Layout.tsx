@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { modalStore } from '../../app/store'
+import { configStore } from '../../app/store/app/configStore'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
 import { userDataStore } from '../../app/store/app/userData'
 import Modal from '../../components/molecules/modal'
@@ -36,6 +37,10 @@ function Layout() {
 
 			window.removeEventListener('beforeunload', handleBeforeunLoad)
 		}
+	}, [])
+
+	useEffect(() => {
+		configStore.FetchConfig()
 	}, [])
 
 	return (

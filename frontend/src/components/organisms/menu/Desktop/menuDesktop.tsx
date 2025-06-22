@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
+import { configStore } from '../../../../app/store/app/configStore'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
-import { sharedStore } from '../../../../app/store/shared/sharedStore'
 import { logOutU } from '../../../../shared/utils/LogOut'
 import { LTR_anim } from '../../../animations/lr'
 
@@ -15,7 +15,7 @@ function MenuDesktop() {
 	}
 
 	const toggleTheme = () => {
-		sharedStore.toggleTheme()
+		configStore.toggleTheme()
 	}
 
 	const handleLogOut = () => {
@@ -30,7 +30,7 @@ function MenuDesktop() {
 	return (
 		<div
 			ref={ltr_}
-			className={clsx(clsC, `menuDesktop_${sharedStore.currentTheme}`)}
+			className={clsx(clsC, `menuDesktop_${configStore.currentTheme}_2`)}
 			onClick={handleClick}
 		>
 			<div
@@ -60,7 +60,7 @@ function MenuDesktop() {
  		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
 				onClick={toggleTheme}
 			>
-				<h3>{sharedStore.currentTheme} mode</h3>
+				<h3>{configStore.currentTheme} mode</h3>
 			</div>
 
 			<div

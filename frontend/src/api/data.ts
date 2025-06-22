@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { modalStore } from '../app/store'
+import { configStore } from '../app/store/app/configStore'
 import { userDataStore } from '../app/store/app/userData'
 import { currentChatDataStore } from '../app/store/chatStore/currentChatDataStore'
 import { searchQueryStore } from '../app/store/fetch/HeaderQuery'
@@ -74,5 +76,23 @@ export async function updateMsgs() {
 		}
 	} catch (err) {
 		console.error('ERROR > ', err)
+	}
+}
+
+export async function configAPI() {
+	try {
+		const res = await axios.get('http://192.168.100.58:3000/config', {
+			headers: { username: userDataStore.userName },
+		})
+
+		if (res.status !== 200 || !res.data.config) {
+			modalStore.run('что-то пошло не так!', false, 3000)
+		}
+
+		console.info('config > ', res.data)
+
+		configStore.setConfig(res.data.config)
+	} catch (err) {
+		console.error('ERR > ', err)
 	}
 }

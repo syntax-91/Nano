@@ -4,12 +4,10 @@
 	padding: var(--globalPaddingY) var(--globalPaddingX);
 	font-size: var(--globalDefaultFontSize);
 	margin-top: 0;
-	
-	border: 1px solid #0a0a0a;
-	background-color: #0a0a0a;
+
+	border: 1px solid #111111;
 
 	outline: 0;
-	
 }
 
 .full {
@@ -26,10 +24,11 @@
 
 .dark {
 	color: var(--globalMainColor_dark);
-	background-color: #121212;
+	background-color: rgb(21, 21, 21);
 }
 
 .light {
+	border: 1px solid #b4b0b0;
 	color: var(--globalMainBgColor_light);
 	background-color: var(--globalMainBgColor_light);
 }
@@ -37,18 +36,18 @@
 /* hover */
 .dark:hover {
 	transition: all 0.3s ease;
-	border: 1px solid #212121;
+	border: 1px solid rgb(52, 51, 51);
 }
 
 /* focus */
 .dark:focus {
 	transition: all 0.3s ease;
 
-	background-color: #0a0a0a;
+	background-color: rgb(28, 27, 27);
 	border: 1px solid #424141;
 }
 
 .default:focus {
 	transition: all 0.3s ease-in-out;
 	border: 1px solid #565555;
-} 
+}

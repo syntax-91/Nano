@@ -1,4 +1,3 @@
-
 .desktop {
 	height: 99vh;
 	padding: 0px 14px;
@@ -12,7 +11,7 @@
 	width: 100%;
 	height: 100%;
 
-	background-color: #000;
+	background-color: #020202;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,4 +25,3 @@
 	right: 0;
 	bottom: 0;
 }
-

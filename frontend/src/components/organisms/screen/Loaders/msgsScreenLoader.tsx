@@ -1,31 +1,21 @@
-import { ScreenLoaderMsg } from './ScreenLoaderMsg'
+import { ScreenBlock } from './ScreenBlock'
 
-export function ScreenLoaderMsgs(){
-
+export function ScreenMsgs() {
 	return (
-	<div className='w-[100%] h-[100%] bg-black flex items-end pb-10'>
+		<div className='w-[100%] h-[100%] flex items-end pb-10'>
+			<div className='w-[95%] mx-auto'>
+				<ScreenBlock location='left' w={270} />
 
-		<div className='w-[95%] mx-auto'>
-			<ScreenLoaderMsg location='left' 
-				w={270} />
-		
-		<ScreenLoaderMsg location='left' 
-				w={100} />
+				<ScreenBlock location='left' w={100} />
 
-		<ScreenLoaderMsg location='right' 
-				w={250} />
+				<ScreenBlock location='right' w={250} />
 
-		<ScreenLoaderMsg location='left' 
-				w={220} />
-		
-		<ScreenLoaderMsg location='left' 
-				w={240} />
+				<ScreenBlock location='left' w={220} />
 
-		<ScreenLoaderMsg location='right' 
-				w={200} />
-								
+				<ScreenBlock location='left' w={240} />
+
+				<ScreenBlock location='right' w={200} />
+			</div>
 		</div>
-
-	</div>
 	)
 }

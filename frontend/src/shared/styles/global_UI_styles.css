@@ -1,11 +1,11 @@
 :root {
 	/* color */
-	--globalMainColor_light: #d4d1d4;
+	--globalMainColor_light: #000000;
 	--globalMainColor_dark: #e4e4e4;
 
 	/* background_color */
-	--globalMainBgColor_light: #353537;
-	--globalMainBgColor_dark:  #691094;
+	--globalMainBgColor_light: #98989b;
+	--globalMainBgColor_dark: #691094;
 	/* rounded */
 	--globalDefaultRounded: 35px;
 

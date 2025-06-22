@@ -4,9 +4,9 @@ import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
 
+import { configStore } from '../../app/store/app/configStore'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
-import { sharedStore } from '../../app/store/shared/sharedStore'
 import Block1 from '../../components/organisms/Block1/Block1'
 import CurrentChat from '../../components/organisms/currentChat/currentChat'
 import Settings from './../../components/organisms/Settings/Settings'
@@ -25,7 +25,7 @@ function Home() {
 	return (
 		<div
 			className={`w-[100%]  h-[100vh] flex fixed
-		 ${sharedStore.currentTheme} gap-0 items-center`}
+		 ${configStore.currentTheme} gap-0 items-center`}
 		>
 			{/* Block 1 */}
 			<div className='w-[100%] md:w-[410px] sm:mx-2  shrink-0'>
