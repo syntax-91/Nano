@@ -8,7 +8,7 @@ import type { IChatProps, IUserData } from '../shared/types/types'
 
 export async function msgsAPI(roomID: string) {
 	try {
-		const res = await axios.get('http://localhost:3000/historyChat', {
+		const res = await axios.get('http://192.168.100.58:3000/historyChat', {
 			headers: { Authorization: `${roomID}` },
 		})
 
@@ -23,7 +23,7 @@ export async function msgsAPI(roomID: string) {
 
 export async function QueryAPI() {
 	try {
-		const res = await axios.get('http://localhost:3000/query', {
+		const res = await axios.get('http://192.168.100.58:3000/query', {
 			headers: {
 				'x-query': searchQueryStore.query,
 				username: userDataStore.userName,
@@ -42,7 +42,7 @@ export async function QueryAPI() {
 
 export async function userDataAPI(username: string) {
 	try {
-		const res = await axios.get('http://localhost:3000/userInfo', {
+		const res = await axios.get('http://192.168.100.58:3000/userInfo', {
 			headers: { username: username },
 		})
 
@@ -58,7 +58,7 @@ export async function updateMsgs() {
 	try {
 		if (currentChatDataStore.msgs.length < 20) return
 
-		const res = await axios.get('http://localhost:3000/paginationMsgs', {
+		const res = await axios.get('http://192.168.100.58:3000/paginationMsgs', {
 			headers: {
 				firstMsgId: currentChatDataStore.firstMsgId,
 				roomID: currentChatDataStore.roomID,

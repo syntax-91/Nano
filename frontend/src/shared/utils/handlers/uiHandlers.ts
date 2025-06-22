@@ -8,86 +8,70 @@ import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
 import type { IMsgProps, ISendMsgProps } from '../../types/types'
 
 export const handleClickProfile = (
-	username:string,
+	username: string,
 	navigate: ReturnType<typeof useNavigate>
 ) => {
-	
-
-		if(username === userDataStore.userName){
-			isOpenStore.setIsOpen('settings',true)
-		} else {
-			navigate(`/u/${username}`)
-		} 
+	if (username === userDataStore.userName) {
+		isOpenStore.setIsOpen('settings', true)
+	} else {
+		navigate(`/u/${username}`)
+	}
 }
 
-export const handleKeyDownCurrentChat =(
-	e:KeyboardEvent
-) => 
-{
-
-		if(
-			e.ctrlKey === true &&
-			e.key === 'Escape' &&
-			currentChatDataStore.selectedCurrentChat
-		){
-			currentChatDataStore.reset()
-		}
-	
+export const handleKeyDownCurrentChat = (e: KeyboardEvent) => {
+	if (
+		e.ctrlKey === true &&
+		e.key === 'Escape' &&
+		currentChatDataStore.selectedCurrentChat
+	) {
+		currentChatDataStore.reset()
+	}
 }
 
 export const handleNewMsg = (msg: IMsgProps) => {
-			console.info('new-msg > ', msg)
-//			notification.play()
-			currentChatDataStore.setMsg(msg)
-}  
+	console.info('new-msg > ', msg)
+	//			notification.play()
+	currentChatDataStore.setMsg(msg)
+}
 
-const now = new Date;
+const now = new Date()
 const hours = now.getHours()
 
 const minutes = now.getMinutes()
-const createAt = now.toISOString();
+const createAt = now.toISOString()
 
-export const sendMsg = (
-	{
-		endRef,
-		roomID,
-		text,
-		setText,
-	}:ISendMsgProps
-) => {
-	
-		endRef.current?.scrollIntoView({behavior: 'smooth'})
-		
-		if(currentChatDataStore.isFound){
+export const sendMsg = ({ endRef, roomID, text, setText }: ISendMsgProps) => {
+	endRef.current?.scrollIntoView({ behavior: 'smooth' })
 
-			console.warn('roomID: ', currentChatDataStore.roomID)
+	if (currentChatDataStore.isFound) {
+		console.warn('roomID: ', currentChatDataStore.roomID)
 
-			socket.emit('sendMessage', {
-			roomID: roomID, 
-			
-				msg: {
-					msgID: v4(),
-					text: text,
-					ava: '', 
-					who: userDataStore.userName,
-					time: `${hours}:${minutes}`,
-					createAt: createAt
-				}
-			})
-		} 
-		
-		else if(!currentChatDataStore.isFound || 	currentChatDataStore.isFound === null) {
-			CreateChatAPI({
-				userA: userDataStore.userName||'',
-				userB: currentChatDataStore.username,
-				firstMsg: text
-			})	
-		}
-		
-		setText('')
+		socket.emit('sendMessage', {
+			roomID: roomID,
+
+			msg: {
+				msgID: v4(),
+				text: text,
+				ava: '',
+				who: userDataStore.userName,
+				time: `${hours}:${minutes}`,
+				createAt: createAt,
+			},
+		})
+	} else if (
+		!currentChatDataStore.isFound ||
+		currentChatDataStore.isFound === null
+	) {
+		CreateChatAPI({
+			userA: userDataStore.userName || '',
+			userB: currentChatDataStore.username,
+			firstMsg: text,
+		})
+	}
+
+	setText('')
 }
 
-export const handleCloseCurrentChat = ()=>{
+export const handleCloseCurrentChat = () => {
 	currentChatDataStore.reset()
 }
-
