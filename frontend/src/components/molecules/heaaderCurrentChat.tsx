@@ -17,7 +17,7 @@ function HeaderCurrentChat() {
 	return (
 		<div
 			className='w-[100%] h-[75px] 
-		flex items-center px-[3px] md:border border-[#535252] rounded-full headerCurrentChat'
+		flex items-center px-[3px] md:border border-gray-800 rounded-full headerCurrentChat'
 		>
 			<div
 				className='hidden_el cursor-pointer'

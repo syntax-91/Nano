@@ -1,71 +1,54 @@
 import type React from 'react'
 
 interface ITextAreaProps {
-	value?: string,
-	
-	setState?: 
-	(e: React.ChangeEvent<HTMLTextAreaElement>) => void,
+	value?: string
 
-	handleInput?: () => void,
-	handleKeyDown?: 
-	(e:React.KeyboardEvent<HTMLTextAreaElement>) => void
+	setState?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 
-	resize?: 'none'|'block'|'inline'|'vertical',
-	
-	overflow?: 'auto'|'hidden'|'vertical'|'horizontal',
+	handleInput?: () => void
+	handleKeyDown?: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void
 
-	lineHeight?: number,
+	resize?: 'none' | 'block' | 'inline' | 'vertical'
+
+	overflow?: 'auto' | 'hidden' | 'vertical' | 'horizontal'
+
+	lineHeight?: number
 	placeholder?: string
-	padding?: number,
+	padding?: number
 
-	onChange: (
-		e:React.ChangeEvent<HTMLTextAreaElement>
-	) => void
+	onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-export function TextArea(
-	{
-		value,
-		setState, 
-		resize = 'none',
-		overflow = 'auto',
-		lineHeight = 18,
-		padding = 8,
-		placeholder = 'Enter text...',
-		...rest
-	}:ITextAreaProps
-){
-
-	const MAX_ROWS = 5;
+export function TextArea({
+	value,
+	setState,
+	resize = 'none',
+	overflow = 'auto',
+	lineHeight = 18,
+	padding = 8,
+	placeholder = 'Enter text...',
+	...rest
+}: ITextAreaProps) {
+	const MAX_ROWS = 5
 
 	return (
-		<textarea 
-		value={value}
-		onChange={ rest.onChange }
-
-		placeholder={placeholder}
-
-		
-		onInput={rest.handleInput && rest.handleInput}
-		
-		onKeyDown={rest.handleKeyDown && 
-			rest.handleKeyDown
-		}
-		
-		style={{
-			width: '100%',
-			resize: resize,
-			overflow: overflow,
-			lineHeight: `${lineHeight}px`,
-			padding: `${padding}px`,
-			maxHeight: `${lineHeight * MAX_ROWS}`
-		}}
-		
-		className='border border-[#1e3e8a] rounded-2xl outline-0'
+		<textarea
+			value={value}
+			onChange={rest.onChange}
+			placeholder={placeholder}
+			onInput={rest.handleInput && rest.handleInput}
+			onKeyDown={rest.handleKeyDown && rest.handleKeyDown}
+			style={{
+				width: '100%',
+				resize: resize,
+				overflow: overflow,
+				lineHeight: `${lineHeight}px`,
+				padding: `${padding}px`,
+				maxHeight: `${lineHeight * MAX_ROWS}`,
+			}}
+			className='border border-gray-800 rounded-2xl outline-0'
 		>
-		{/* #283369 */}
-		
-
+			{/* #283369 */}
 		</textarea>
 	)
 }

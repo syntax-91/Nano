@@ -21,7 +21,7 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 	}
 
 	return (
-		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative'>
+		<div className='p-5 w-[100%] h-[100%]    rounded-2xl relative border border-gray-800'>
 			{!currentChatDataStore.isFound && (
 				<div className='w-[100%] h-[100%] flex justify-center items-center'>
 					пусто

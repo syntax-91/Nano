@@ -25,7 +25,7 @@ function MenuDesktop() {
 	const ltr_ = LTR_anim()
 
 	const clsC =
-		'absolute top-25 w-[200px] bg-[#050505] rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw _bg-blur5'
+		'absolute top-25 px-15 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw bg-blur5'
 
 	return (
 		<div
@@ -35,7 +35,7 @@ function MenuDesktop() {
 		>
 			<div
 				className='flex justify-center 
- 		py-4  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 		py-4 px-6 hover:bg-white/5 rounded-2xl font-light text-2xl'
 			>
 				<h3>profile</h3>
 			</div>

@@ -5,7 +5,8 @@
 	font-size: var(--globalDefaultFontSize);
 	margin-top: 0;
 
-	border: 1px solid #111111;
+	/* чтоб border был плавным */
+	border: 1px solid #0a0a0a;
 
 	outline: 0;
 }
@@ -49,5 +50,5 @@
 
 .default:focus {
 	transition: all 0.3s ease-in-out;
-	border: 1px solid #565555;
+	border: 1px solid var(--globalMainGamma);
 }
