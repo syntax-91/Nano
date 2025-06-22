@@ -1,30 +1,26 @@
 import { Router } from 'express'
-import { paginationMsgsService } from '../service/paginationMsgs.service.js'
+import { paginationMsgsService } from '../service/data/paginationMsgs.service.js'
 
-export const PgMsgsRoute = Router();
+export const PgMsgsRoute = Router()
 
 // paginationMsgs
 
 PgMsgsRoute.get('/', (req, res) => {
-
-	
 	const roomID = req.headers['roomid']
 	const firstMsgId = req.headers['firstmsgid']
 
-	const data = { 
+	const data = {
 		roomID: roomID,
-		firstMsgId: firstMsgId
-	 }
+		firstMsgId: firstMsgId,
+	}
 
 	console.log('><> ', data)
 
 	console.log('запрос на пагинацию сообщений')
 
-	paginationMsgsService(data)
-	.then(e => {
+	paginationMsgsService(data).then(e => {
 		res.json({
-			msgs:e.msgs
+			msgs: e.msgs,
 		})
 	})
-
 })

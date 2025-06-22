@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { MsgsModel } from '../models/MsgsModel.js'
+import { MsgsModel } from '../../models/MsgsModel.js'
 
 export async function paginationMsgsService(data) {
 	try {

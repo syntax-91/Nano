@@ -1,8 +1,8 @@
 import { v4 } from 'uuid'
-import { MsgsModel } from '../models/MsgsModel.js'
-import { RoomModel } from '../models/RoomModel.js'
-import { UserModel } from './../models/UserModel.js'
-import { NotifyNewChatService } from './notifyNewChat.service.js'
+import { MsgsModel } from '../../models/MsgsModel.js'
+import { RoomModel } from '../../models/RoomModel.js'
+import { UserModel } from '../../models/UserModel.js'
+import { NotifyNewChatService } from '../../service/socket/notifyNewChat.service.js'
 
 export async function createChatService(data) {
 	try {

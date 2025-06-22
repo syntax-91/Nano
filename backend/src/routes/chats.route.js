@@ -1,21 +1,17 @@
 import { Router } from 'express'
-import { ChatsService } from '../service/chats.service.js'
+import { ChatsService } from '../service/data/chats.service.js'
 
- 
- export const ChatsRouter = Router()
+export const ChatsRouter = Router()
 
-// /chats 
+// /chats
 ChatsRouter.get('/', async (req, res) => {
-	const username = req.headers.authorization;
+	const username = req.headers.authorization
 
-	ChatsService(username)
-	.then(e => {
+	ChatsService(username).then(e => {
 		res.json({
 			success: e.success,
 			msg: e.msg,
-			chats: e.chats
+			chats: e.chats,
 		})
 	})
-
-		
 })

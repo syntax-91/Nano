@@ -28,7 +28,7 @@ function Home() {
 		 ${sharedStore.currentTheme} gap-0 items-center`}
 		>
 			{/* Block 1 */}
-			<div className='w-[100%] md:w-[400px] sm:mx-2  shrink-0'>
+			<div className='w-[100%] md:w-[410px] sm:mx-2  shrink-0'>
 				<Block1 />
 			</div>
 

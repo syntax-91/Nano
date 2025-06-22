@@ -1,5 +1,5 @@
 import { compare } from 'bcryptjs'
-import { UserModel } from './../models/UserModel.js'
+import { UserModel } from '../../models/UserModel.js'
 
 export async function LoginService(data) {
 	try {

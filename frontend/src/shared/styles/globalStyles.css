@@ -108,7 +108,20 @@
 
 /* bg blur */
 
-.bg-blur {
+.bg-blur,
+.bgb {
 	background-color: rgba(20, 20, 20, 0.3);
 	backdrop-filter: blur(10px);
+}
+
+.bg-blur5,
+.bgb5 {
+	background-color: rgba(20, 20, 20, 0.3);
+	backdrop-filter: blur(5px);
+}
+
+.bg-blur3,
+.bgb3 {
+	background-color: rgba(20, 20, 20, 0.3);
+	backdrop-filter: blur(3px);
 }

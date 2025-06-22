@@ -47,7 +47,7 @@ function Chats() {
 	return (
 		<div
 			className='chats my-3 w-[100%] 
-		bg-[#050505] p-2 rounded-2xl'
+		bg-[#050505]_ p-2 rounded-2xl'
 		>
 			{chatsStore.chats.length > 0 &&
 				chatsStore.chats.map((chat: IChatProps) => (

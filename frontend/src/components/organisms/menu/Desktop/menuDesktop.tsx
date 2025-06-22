@@ -22,20 +22,20 @@ function MenuDesktop() {
 		logOutU()
 	}
 
-	const ltr_jump = LTR_anim()
+	const ltr_ = LTR_anim()
 
 	const clsC =
-		'absolute top-25 w-[200px] bg-[#050505] rounded-2xl z-10 ltr-jump_of_ cursor-pointer  shw'
+		'absolute top-25 w-[200px] bg-[#050505] rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw _bg-blur5'
 
 	return (
 		<div
-			ref={ltr_jump}
+			ref={ltr_}
 			className={clsx(clsC, `menuDesktop_${sharedStore.currentTheme}`)}
 			onClick={handleClick}
 		>
 			<div
 				className='flex justify-center 
- 		py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 		py-4  hover:bg-white/5 rounded-2xl font-light text-2xl'
 			>
 				<h3>profile</h3>
 			</div>
@@ -65,7 +65,7 @@ function MenuDesktop() {
 
 			<div
 				className='flex justify-center 
- 			py-3  hover:bg-white/5 rounded-2xl font-light text-2xl'
+ 			py-4  hover:bg-white/5 rounded-2xl font-light text-2xl'
 				onClick={handleLogOut}
 			>
 				<h3>logOut</h3>

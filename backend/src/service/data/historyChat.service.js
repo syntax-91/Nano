@@ -1,4 +1,4 @@
-import { MsgsModel } from '../models/MsgsModel.js'
+import { MsgsModel } from '../../models/MsgsModel.js'
 
 export async function historyChatService(roomID) {
 	try {

@@ -11,8 +11,8 @@ import { historyChatRouter } from './routes/historyChat.route.js'
 import { PgMsgsRoute } from './routes/paginationMsgs.route.js'
 import { QueryRouter } from './routes/query.route.js'
 import { connectDB } from './service/connectDB.service.js'
-import { connectIO } from './service/connectsIo.service.js'
-import { setupSocket } from './service/socket.service.js'
+import { connectSocket } from './service/socket/connectSocket.service.js'
+import { setupSocket } from './service/socket/socket.service.js'
 
 const app = express()
 app.use(express.json())
@@ -63,7 +63,7 @@ const run = async () => {
 	await connectDB()
 
 	setupSocket(io)
-	connectIO(io)
+	connectSocket(io)
 
 	await server.listen(PORT, (req, res) => {
 		console.log(`Server running as http://localhost:${PORT}`)
