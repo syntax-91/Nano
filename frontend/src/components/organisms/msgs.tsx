@@ -10,6 +10,7 @@ export interface IMsgsCurrentChatProps {
 }
 
 function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
+	//
 	useEffect(() => {
 		if (!currentChatDataStore.loading == true) {
 			endRef.current?.scrollIntoView({ behavior: 'auto' })
@@ -17,7 +18,7 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 	}, [currentChatDataStore.loading])
 
 	return (
-		<div className='p-5 w-[100%] h-[100%]  rounded-2xl relative border border-gray-800 overflow-y-auto'>
+		<div className='p-5 w-[100%] h-[100%]  rounded-2xl relative overflow-y-auto bbd'>
 			{!currentChatDataStore.isFound && (
 				<div className='w-[100%] h-[100%] flex justify-center items-center'>
 					пусто

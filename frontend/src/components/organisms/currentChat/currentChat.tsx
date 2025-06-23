@@ -1,7 +1,11 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect, useRef } from 'react'
+import { useParams } from 'react-router-dom'
+import { msgsAPI } from '../../../api/data'
 import socket from '../../../app/socket/socket'
+import { chatsStore } from '../../../app/store/chatStore/chats'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
+import type { IChatProps } from '../../../shared/types/types'
 import {
 	handleKeyDownCurrentChat,
 	handleNewMsg,
@@ -13,12 +17,14 @@ import s from './../../../shared/styles/currentChatStyles.module.css'
 import MsgsCurrentChat from './../msgs'
 import { clsCurrentChat, clsMsgsC } from './cls'
 
-interface ICurrentChatsProps {
+interface ICurrentChatsProps extends IChatProps {
 	typeDevice: 'mobile' | 'desktop'
 }
 
 function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 	//	const notification = new Audio('./../../../assets/notification.mp3')
+
+	const { roomID } = useParams<string>()
 
 	const endRef = useRef<HTMLDivElement | null>(null)
 
@@ -43,6 +49,22 @@ function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 			document.removeEventListener('keydown', handleKeyDownCurrentChat)
 		}
 	}, [])
+
+	useEffect(() => {
+		const isFound = chatsStore.chats.find(
+			u => u.username === currentChatDataStore.username
+		)
+
+		if (isFound) {
+			currentChatDataStore.setLoading(true)
+			currentChatDataStore.setIsFound(true)
+		} else {
+			currentChatDataStore.setIsFound(false)
+		}
+
+		msgsAPI(roomID || '')
+		currentChatDataStore.setLoading(true)
+	}, [roomID])
 
 	console.warn('HI, currentChat')
 

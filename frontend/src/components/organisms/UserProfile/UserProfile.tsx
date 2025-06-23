@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom'
+import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import { Button } from '../../atoms/Button'
 import Ava from '../../atoms/ava'
 
@@ -6,7 +7,9 @@ export default function UserProfile() {
 	const { username } = useParams<string>()
 	const n = useNavigate()
 
-	const handleClickBtn = () => {}
+	const handleClickBtn = () => {
+		n(`/chat/${currentChatDataStore.roomID}`)
+	}
 
 	return (
 		<div className='w-[100vw] h-[100vh]  mx-auto flex justify-center items-center ltr-jump_ot'>
@@ -31,12 +34,14 @@ export default function UserProfile() {
 				</div>
 
 				<div className='my-8'>
-					<Button
-						isBlock={true}
-						location='center'
-						label='написать'
-						onClick={handleClickBtn}
-					/>
+					{currentChatDataStore.username === username && (
+						<Button
+							isBlock={true}
+							location='center'
+							label='написать'
+							onClick={handleClickBtn}
+						/>
+					)}
 				</div>
 			</div>
 		</div>

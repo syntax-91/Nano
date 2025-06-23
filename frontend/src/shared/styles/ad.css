@@ -1,0 +1,7 @@
+/* adaptive */
+
+@media (min-width: 700px) {
+	.md_borderP {
+		border: 1px solid var(--globalPrimaryColor);
+	}
+}

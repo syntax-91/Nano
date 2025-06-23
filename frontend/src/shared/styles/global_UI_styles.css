@@ -9,6 +9,7 @@
 
 	/* Primary */
 	--globalPrimaryColor: #691094;
+	--globalPrimaryColor2: #3d0957;
 
 	/* accent */
 	--globalAccentColor: #1f2937;
@@ -30,7 +31,8 @@
 }
 
 .BgPrimary,
-.bgPrimary .BgP {
+.bgPrimary .BgP,
+.bgP {
 	background-color: var(--globalPrimaryColor);
 }
 
@@ -43,6 +45,10 @@
 
 .borderAccent {
 	border: 1px solid #372a1f;
+}
+
+.bgP2 {
+	background-color: var(--globalPrimaryColor2);
 }
 
 .bgA,
@@ -60,4 +66,11 @@
 
 .o8:hover {
 	opacity: 0.8;
+}
+
+/**/
+
+.bbd,
+.blockBgDark {
+	background-color: #070707;
 }

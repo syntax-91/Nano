@@ -2,17 +2,16 @@ import { makeAutoObservable, reaction, toJS } from 'mobx'
 import type { IMsgProps } from '../../../shared/types/types'
 
 export interface IMsgsCurrentChatProps {
-	roomID:string
+	roomID: string
 }
 
 class currentChatDataClass {
-	
 	selectedCurrentChat: boolean = false
-	ava = '' 
+	ava = ''
 	username = ''
 	roomID = ''
 
-	firstMsgId:string = '';
+	firstMsgId: string = ''
 
 	loading: boolean = false
 
@@ -21,57 +20,54 @@ class currentChatDataClass {
 	latestMsg = ''
 
 	constructor() {
-		makeAutoObservable(this)	
+		makeAutoObservable(this)
 
 		reaction(
 			() => this.loading,
-			() => { 
-				const json = toJS(this.msgs) 
-				 console.info('>>> ', json)
+			() => {
+				const json = toJS(this.msgs)
+				console.info('>>> ', json)
 			}
 		)
-
 	}
 
 	setSelectedCurrentChat(value: boolean) {
 		this.selectedCurrentChat = value
 	}
 
-	setData(ava: string, username: string, roomID: string ){ 
+	setData(ava: string, username: string) {
 		this.ava = ava
 		this.username = username
-		this.roomID = roomID
 	}
 
-	setMsgs(msgs: IMsgProps[]){
+	setMsgs(msgs: IMsgProps[]) {
 		this.msgs = msgs
 	}
 
-	setMsg(msg: IMsgProps){
+	setMsg(msg: IMsgProps) {
 		this.msgs.push(msg)
 	}
 
-	reset(){
+	reset() {
 		this.selectedCurrentChat = false
 		this.username = ''
 	}
 
-	setIsFound(value:boolean){
+	setIsFound(value: boolean) {
 		this.isFound = value
 	}
 
-	setLoading(value:boolean){
+	setLoading(value: boolean) {
 		this.loading = value
 	}
 
-	setFirstMsgId(value:string){
+	setFirstMsgId(value: string) {
 		this.firstMsgId = value
 	}
 
-	setNewMsgs(msgs:IMsgProps[]){
+	setNewMsgs(msgs: IMsgProps[]) {
 		this.msgs.unshift(...msgs)
-	} 
-
+	}
 }
 
 export const currentChatDataStore = new currentChatDataClass()
