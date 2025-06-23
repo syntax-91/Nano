@@ -1,5 +1,6 @@
 .desktop {
 	height: 99vh;
+	width: 100%;
 	padding: 0px 14px;
 	display: flex;
 	justify-content: center;

@@ -22,7 +22,7 @@ function Home() {
 
 	return (
 		<div
-			className={` flex fixed
+			className={`w-full flex fixed
 		 ${configStore.currentTheme} gap-0 items-center`}
 		>
 			{/* Block 1 */}
