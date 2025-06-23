@@ -2,7 +2,7 @@ import { MsgsModel } from '../../models/MsgsModel.js'
 
 export async function SaveMsgDB(data) {
 	try {
-		console.log('ROOMID > ', data.roomID)
+		console.log('ROOMID > ', data)
 
 		const addMsg = await MsgsModel.create({
 			roomID: data.roomID,

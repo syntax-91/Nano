@@ -19,7 +19,7 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 			return
 		}
 
-		currentChatDataStore.setData(ava, username)
+		currentChatDataStore.setData(ava, username, roomID)
 		n(`chat/${roomID}`)
 	}
 

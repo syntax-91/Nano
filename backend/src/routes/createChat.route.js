@@ -1,7 +1,10 @@
 import { Router } from 'express'
+import { mweCreateChat } from '../middlewares/createChatMiddleware.js'
 import { createChatService } from '../service/shared/createChat.service.js'
 
 export const createChatRouter = Router()
+
+createChatRouter.use('/', mweCreateChat)
 
 // /createChat
 createChatRouter.post('/', (req, res) => {

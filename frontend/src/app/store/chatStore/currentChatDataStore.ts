@@ -35,9 +35,10 @@ class currentChatDataClass {
 		this.selectedCurrentChat = value
 	}
 
-	setData(ava: string, username: string) {
+	setData(ava: string, username: string, roomID: string) {
 		this.ava = ava
 		this.username = username
+		this.roomID = roomID
 	}
 
 	setMsgs(msgs: IMsgProps[]) {
