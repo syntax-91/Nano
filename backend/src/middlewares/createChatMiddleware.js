@@ -24,6 +24,7 @@ export const mweCreateChat = async (req, res, next) => {
 	} else {
 		console.log('уже сгенерировано..')
 		res.json({
+			success: false,
 			msg: 'попробуйте перезагрузить страницу!',
 		})
 	}
