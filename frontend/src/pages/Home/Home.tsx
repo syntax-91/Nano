@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { useLayoutEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
 
 import { configStore } from '../../app/store/app/configStore'
@@ -37,16 +37,15 @@ function Home() {
 
 			{/* currentChat для Desktop'а */}
 			{!isMobile && (
-				<div className=' w-full bg-green-90'>
-					<CurrentChat typeDevice='desktop' />
+				<div className='w-full bg-green-90'>
+					{/*<CurrentChat typeDevice='desktop' */}
+					<Outlet />
 				</div>
 			)}
 
 			{/* currentChat mobile */}
 			{isMobile && currentChatDataStore.selectedCurrentChat && (
-				<div className=''>
-					<CurrentChat typeDevice='mobile' />
-				</div>
+				<div className=''>{<CurrentChat typeDevice='mobile' />}</div>
 			)}
 		</div>
 	)

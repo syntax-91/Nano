@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
+import { useNavigate } from 'react-router-dom'
 import { msgsAPI } from '../../api/data'
 import { configStore } from '../../app/store/app/configStore'
 import { chatsStore } from '../../app/store/chatStore/chats'
@@ -9,12 +10,16 @@ import type { IChatProps } from '../../shared/types/types'
 import Ava from '../atoms/ava'
 
 function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
+	const n = useNavigate()
+
 	const currentChatDataJSON = toJS(currentChatDataStore)
 
 	const handleClick = () => {
+		n(`chat/${roomID}`)
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
 		if (currentChatDataJSON.username === username) {
+			n('/')
 			currentChatDataStore.reset()
 			return
 		}

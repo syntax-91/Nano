@@ -7,7 +7,6 @@ import {
 	handleNewMsg,
 } from '../../../shared/utils/handlers/uiHandlers'
 import HeaderCurrentChat from '../../molecules/heaaderCurrentChat'
-import { NotSelectedChat } from '../../molecules/notSelectedChat'
 import { ScreenMsgs } from '../screen/Loaders/msgsScreenLoader'
 import SendMsg from '../sendMsg'
 import s from './../../../shared/styles/currentChatStyles.module.css'
@@ -45,6 +44,8 @@ function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 		}
 	}, [])
 
+	console.warn('HI, currentChat')
+
 	return (
 		<div
 			className={`
@@ -53,32 +54,28 @@ function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 			${typeDevice == 'mobile' && s.mobile} 
 		 `}
 		>
-			{!currentChatDataStore.selectedCurrentChat && <NotSelectedChat />}
+			<div className={clsCurrentChat}>
+				<HeaderCurrentChat />
 
-			{currentChatDataStore.selectedCurrentChat === true && (
-				<div className={clsCurrentChat}>
-					<HeaderCurrentChat />
+				<div className={clsMsgsC}>
+					{!currentChatDataStore.loading && (
+						<MsgsCurrentChat
+							roomID={currentChatDataStore.roomID}
+							endRef={endRef}
+						/>
+					)}
 
-					<div className={clsMsgsC}>
-						{!currentChatDataStore.loading && (
-							<MsgsCurrentChat
-								roomID={currentChatDataStore.roomID}
-								endRef={endRef}
-							/>
-						)}
-
-						{currentChatDataStore.loading && currentChatDataStore.isFound && (
-							<div className='w-[100%] h-[100%]  absolute top-0'>
-								<ScreenMsgs />
-							</div>
-						)}
-					</div>
-
-					<div className='w-[100%]'>
-						<SendMsg roomID={currentChatDataStore.roomID} endRef={endRef} />
-					</div>
+					{currentChatDataStore.loading && currentChatDataStore.isFound && (
+						<div className='w-[100%] h-[100%]  absolute top-0'>
+							<ScreenMsgs />
+						</div>
+					)}
 				</div>
-			)}
+
+				<div className='w-[100%]'>
+					<SendMsg roomID={currentChatDataStore.roomID} endRef={endRef} />
+				</div>
+			</div>
 		</div>
 	)
 }

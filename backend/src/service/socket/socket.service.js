@@ -14,10 +14,9 @@ export function setupSocket(io) {
 		})
 
 		socket.on('sendMessage', data => {
-			const { msg, roomID } = data
-			console.log('/sendMSG > ', msg, roomID)
+			console.log('/sendMSG > ', data)
 
-			io.to(data.roomID).emit('msg', msg)
+			io.to(data.roomID).emit('msg', data.msg)
 			SaveMsgDB(data)
 		})
 

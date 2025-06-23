@@ -16,10 +16,6 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 		}
 	}, [currentChatDataStore.loading])
 
-	if (!currentChatDataStore.loading) {
-		console.info('loading > ', currentChatDataStore.loading)
-	}
-
 	return (
 		<div className='p-5 w-[100%] h-[100%]  rounded-2xl relative border border-gray-800 overflow-y-auto'>
 			{!currentChatDataStore.isFound && (

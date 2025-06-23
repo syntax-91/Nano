@@ -1,12 +1,15 @@
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { FaArrowLeft } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { handleCloseCurrentChat } from '../../shared/utils/handlers/uiHandlers'
 import Ava from '../atoms/ava'
 
 function HeaderCurrentChat() {
+	const n = useNavigate()
+
 	const friendsJSON = toJS(statusFriendsStore)
 	const dataJSON = toJS(currentChatDataStore)
 
@@ -14,15 +17,17 @@ function HeaderCurrentChat() {
 		friend => friend.username === dataJSON.username
 	)
 
+	const handleClose = () => {
+		handleCloseCurrentChat()
+		n('/')
+	}
+
 	return (
 		<div
 			className='w-[100%] h-[75px] 
 		flex items-center px-[3px] md:border border-gray-800 rounded-full headerCurrentChat'
 		>
-			<div
-				className='hidden_el cursor-pointer'
-				onClick={handleCloseCurrentChat}
-			>
+			<div className='hidden_el cursor-pointer' onClick={handleClose}>
 				<FaArrowLeft color='#fff' size={16} />
 			</div>
 
