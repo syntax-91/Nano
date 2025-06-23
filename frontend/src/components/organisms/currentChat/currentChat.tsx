@@ -5,7 +5,6 @@ import { msgsAPI } from '../../../api/data'
 import socket from '../../../app/socket/socket'
 import { chatsStore } from '../../../app/store/chatStore/chats'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
-import type { IChatProps } from '../../../shared/types/types'
 import {
 	handleKeyDownCurrentChat,
 	handleNewMsg,
@@ -17,7 +16,7 @@ import s from './../../../shared/styles/currentChatStyles.module.css'
 import MsgsCurrentChat from './../msgs'
 import { clsCurrentChat, clsMsgsC } from './cls'
 
-interface ICurrentChatsProps extends IChatProps {
+interface ICurrentChatsProps {
 	typeDevice: 'mobile' | 'desktop'
 }
 

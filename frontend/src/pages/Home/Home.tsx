@@ -5,10 +5,8 @@ import { Outlet, useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
 
 import { configStore } from '../../app/store/app/configStore'
-import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
 import Block1 from '../../components/organisms/Block1/Block1'
-import CurrentChat from '../../components/organisms/currentChat/currentChat'
 import Settings from './../../components/organisms/Settings/Settings'
 
 function Home() {
@@ -24,7 +22,7 @@ function Home() {
 
 	return (
 		<div
-			className={`w-[100%]  h-[100vh] flex fixed
+			className={` flex fixed
 		 ${configStore.currentTheme} gap-0 items-center`}
 		>
 			{/* Block 1 */}
@@ -44,9 +42,7 @@ function Home() {
 			)}
 
 			{/* currentChat mobile */}
-			{isMobile && currentChatDataStore.selectedCurrentChat && (
-				<div className=''>{<CurrentChat typeDevice='mobile' />}</div>
-			)}
+			{isMobile && <Outlet />}
 		</div>
 	)
 }

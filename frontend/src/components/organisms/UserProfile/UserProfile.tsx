@@ -15,7 +15,7 @@ export default function UserProfile() {
 		<div className='w-[100vw] h-[100vh]  mx-auto flex justify-center items-center ltr-jump_ot'>
 			<div className='borderMG rounded-2xl'>
 				{/* arrow */}
-				<p className='mx-8 my-4 cp' onClick={() => n(-1)}>
+				<p className='mx-8 my-4 cp font-black' onClick={() => n(-1)}>
 					назад
 				</p>
 
@@ -23,7 +23,7 @@ export default function UserProfile() {
 				<h2 className='text-center my-7 text-2xl font-black'>{username}</h2>
 
 				{/* AVA */}
-				<div className='w-[130px] h-[130px] mx-auto hover:bg-gray-800 rounded-full'>
+				<div className='w-[130px] h-[130px] mx-auto o8 rounded-full'>
 					<Ava ava='-' />
 				</div>
 

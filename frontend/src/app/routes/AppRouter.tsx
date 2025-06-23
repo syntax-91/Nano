@@ -30,10 +30,10 @@ export function AppRouter() {
 						path={routesConfig.Chat.path}
 						element={
 							<Suspense fallback={<Loader />}>
-								{!isMobile ? (
-									<routesConfig.Chat.element typeDevice='desktop' />
-								) : (
+								{isMobile ? (
 									<routesConfig.Chat.element typeDevice='mobile' />
+								) : (
+									<routesConfig.Chat.element typeDevice='desktop' />
 								)}
 							</Suspense>
 						}
