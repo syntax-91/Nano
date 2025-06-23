@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { msgsAPI } from '../../api/data'
+import { configStore } from '../../app/store/app/configStore'
 import { chatsStore } from '../../app/store/chatStore/chats'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import type { IChatProps } from '../../shared/types/types'
@@ -33,17 +34,26 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 		currentChatDataStore.setLoading(true)
 	}
 
-	const cls =
-		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center hover:bg-white/20 active:bg-white/3 cp || ltr-jump_ot pl-1 tr'
+	const clsDark =
+		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center hover:bg-white/20 active:bg-white/5 cp || ltr-jump_ot pl-1 tr'
+
+	const clsLight =
+		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center cp || ltr-jump_ot pl-1 tr  o7'
+
+	const selectedChatLight = 'bg-black/10'
+
+	const selectedChatDark = 'bg-white/5'
 
 	return (
 		<div
 			className={clsx(
-				cls,
+				configStore.currentTheme == 'dark' ? clsDark : clsLight,
 				`${
 					currentChatDataStore.username === username
-						? 'bg-[#191919]/70'
-						: 'bg-[#fff]/2'
+						? configStore.currentTheme == 'dark'
+							? selectedChatDark
+							: selectedChatLight
+						: ''
 				}
 				`,
 				``

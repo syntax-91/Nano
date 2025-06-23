@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { sharedStore } from '../../app/store/shared/sharedStore'
+import { configStore } from '../../app/store/app/configStore'
 
 export function NotSelectedChat() {
 	const cls = 'px-5 py-3 rounded-2xl relative z-9 text-[14px]'
@@ -10,8 +10,8 @@ export function NotSelectedChat() {
 				className={clsx(
 					cls,
 					'font-normal',
-					sharedStore.currentTheme === 'dark' && 'bg-white/5',
-					sharedStore.currentTheme === 'light' && 'bg-black/80 text-[#fbf4f4]'
+					configStore.currentTheme === 'dark' && 'bg-white/5',
+					configStore.currentTheme === 'light' && 'bg-white/15 text-[#000]'
 				)}
 			>
 				для начала общение нажмите на чат!

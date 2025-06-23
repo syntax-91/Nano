@@ -30,7 +30,7 @@
 }
 
 .BgPrimary,
-.BgP {
+.bgPrimary .BgP {
 	background-color: var(--globalPrimaryColor);
 }
 
@@ -42,10 +42,22 @@
 }
 
 .borderAccent {
-	border: 1px solid #1f2937;
+	border: 1px solid #372a1f;
 }
 
 .bgA,
 .bgAccent {
 	background-color: var(--globalAccentColor);
+}
+
+.o6:hover {
+	opacity: 0.6;
+}
+
+.o7:hover {
+	opacity: 0.7;
+}
+
+.o8:hover {
+	opacity: 0.8;
 }
