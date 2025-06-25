@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
+import { modalStore } from '../../app/store'
 import { configStore } from '../../app/store/app/configStore'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import type { IChatProps } from '../../shared/types/types'
@@ -19,6 +20,7 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 			return
 		}
 
+		modalStore.run('*', false, 5000)
 		currentChatDataStore.setData(ava, username, roomID)
 		n(`chat/${roomID}`)
 	}

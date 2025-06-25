@@ -12,12 +12,7 @@ function Modal() {
 
 	return (
 		<div className={mCls}>
-			<div
-				className={clsx(
-					cls,
-					modalStore.success == true ? 'shp' : 'border border-red-900'
-				)}
-			>
+			<div className={clsx(cls)}>
 				<p>{modalStore.msg || 'text not found'}</p>
 
 				<IoCloseOutline
