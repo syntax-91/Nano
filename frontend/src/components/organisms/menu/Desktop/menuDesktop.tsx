@@ -52,7 +52,7 @@ function MenuDesktop() {
 			</div>
 
 			<div
-				className='flex justify-center 
+				className='flex justify-center_
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 			>
 				<FcAbout />
@@ -60,7 +60,7 @@ function MenuDesktop() {
 			</div>
 
 			<div
-				className='flex justify-center 
+				className='flex justify-center_ 
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={toggleTheme}
 			>
@@ -72,7 +72,7 @@ function MenuDesktop() {
 			</div>
 
 			<div
-				className='flex justify-center 
+				className='flex 
  				py-4  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={handleLogOut}
 			>

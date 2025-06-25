@@ -36,6 +36,10 @@
 
 /* hover */
 
+.default:hover {
+	border: 1px solid var(--globalPrimaryColor2);
+}
+
 /* focus */
 
 .default:focus {
