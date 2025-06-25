@@ -6,6 +6,7 @@ import { userDataStore } from '../../../app/store/app/userData'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
 import type { IMsgProps, ISendMsgProps } from '../../types/types'
+import { logOutU } from '../LogOut'
 
 export const handleClickProfile = (
 	username: string,
@@ -74,4 +75,12 @@ export const sendMsg = ({ endRef, roomID, text, setText }: ISendMsgProps) => {
 
 export const handleCloseCurrentChat = () => {
 	currentChatDataStore.reset()
+}
+
+export const handleSettings = () => {
+	isOpenStore.setIsOpen('settings', true)
+}
+
+export const handleLogOut = () => {
+	logOutU()
 }

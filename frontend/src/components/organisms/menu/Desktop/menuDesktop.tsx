@@ -2,14 +2,11 @@ import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { configStore } from '../../../../app/store/app/configStore'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
+import { handleSettings } from '../../../../shared/utils/handlers/uiHandlers'
 import { logOutU } from '../../../../shared/utils/LogOut'
 import { LTR_anim } from '../../../animations/lr'
 
 function MenuDesktop() {
-	const handleSettings = () => {
-		isOpenStore.setIsOpen('settings', true)
-	}
-
 	const handleClick = () => {
 		isOpenStore.setIsOpen('menuDesktop', false)
 	}
