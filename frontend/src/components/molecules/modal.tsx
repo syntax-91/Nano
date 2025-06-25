@@ -8,7 +8,7 @@ function Modal() {
 	const mCls = 'fixed top-0 left-8 w-[100vw] flex  mt-10 ltr-jump_ot z-10'
 
 	const cls =
-		'bg-[#000] shw_ px-20 py-5 rounded-2xl font-normal text-[14px] flex justify-between'
+		'bg-[#000] shw_ px-10 py-5 rounded-2xl font-normal text-[14px] flex justify-between gap-20'
 
 	return (
 		<div className={mCls}>
@@ -17,7 +17,7 @@ function Modal() {
 
 				<IoCloseOutline
 					size={20}
-					className='ml-auto cp h_rltr'
+					className='cp h_rltr'
 					onClick={handleCloseModal}
 				/>
 			</div>

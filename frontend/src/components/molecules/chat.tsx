@@ -20,7 +20,7 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 			return
 		}
 
-		modalStore.run('*', false, 5000)
+		modalStore.run('*', false, 99000)
 		currentChatDataStore.setData(ava, username, roomID)
 		n(`chat/${roomID}`)
 	}
