@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { v4 } from 'uuid'
 import { CreateChatAPI } from '../../../api/create'
 import socket from '../../../app/socket/socket'
+import { modalStore } from '../../../app/store'
 import { userDataStore } from '../../../app/store/app/userData'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import { isOpenStore } from '../../../app/store/isOpen/isOpenSettingsStore'
@@ -83,4 +84,8 @@ export const handleSettings = () => {
 
 export const handleLogOut = () => {
 	logOutU()
+}
+
+export const handleCloseModal = () => {
+	modalStore.closeModal()
 }

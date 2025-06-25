@@ -2,7 +2,7 @@ import { makeAutoObservable, reaction } from 'mobx'
 
 class ModalStore {
 	isOpen = false
-//	title = ''
+	//	title = ''
 	msg = 'Добро пожаловать'
 	delay = 3000
 	success = false
@@ -25,11 +25,11 @@ class ModalStore {
 		this.isOpen = false
 	}
 
-	run(msg: string, success: boolean, delay:number) {
+	run(msg: string, success: boolean, delay: number) {
 		;(this.isOpen = true), //
-			(this.msg = msg || ''),
-			(this.success = success || false),
-			(this.delay = delay)
+			(this.msg = msg || '')
+		this.success = success || false
+		this.delay = delay
 	}
 }
 

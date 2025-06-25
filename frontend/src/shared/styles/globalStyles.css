@@ -125,3 +125,14 @@
 	background-color: rgba(20, 20, 20, 0.3);
 	backdrop-filter: blur(3px);
 }
+
+.h_rltr:hover {
+	transition: all 0.3s ease;
+	animation: h_rrtl 0.3s ease forwards;
+}
+
+@keyframes h_rrtl {
+	to {
+		transform: rotate(20deg);
+	}
+}
