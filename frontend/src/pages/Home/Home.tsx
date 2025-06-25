@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
@@ -20,6 +20,11 @@ function Home() {
 		if (!userDataStore.isAuth) {
 			nav('/login')
 		}
+	}, [])
+
+	useEffect(() => {
+		console.warn('*')
+		modalStore.run('добро пожаловать!', true, 4000)
 	}, [])
 
 	return (
