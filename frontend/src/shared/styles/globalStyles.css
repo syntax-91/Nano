@@ -51,13 +51,6 @@
 	scrollbar-width: none;
 }
 
-/* shw - shadow White */
-
-.shw {
-	border: 1px solid #696767;
-	box-shadow: 0 0 3px #797777;
-}
-
 /**/
 
 .bf-10 {
@@ -135,4 +128,18 @@
 	to {
 		transform: rotate(20deg);
 	}
+}
+
+/* shw - shadow White */
+
+.shw {
+	border: 1px solid #696767;
+	box-shadow: 0 0 3px #797777;
+}
+
+/* shp - shadow primary */
+
+.shw {
+	border: 1px solid var(--globalPrimaryColor);
+	box-shadow: 0 0 3px var(--globalPrimaryColor);
 }

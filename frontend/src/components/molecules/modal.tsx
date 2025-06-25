@@ -15,7 +15,7 @@ function Modal() {
 			<div
 				className={clsx(
 					cls,
-					modalStore.success == true ? 'shw' : 'border border-red-900'
+					modalStore.success == true ? 'shp' : 'border border-red-900'
 				)}
 			>
 				<p>{modalStore.msg || 'text not found'}</p>
