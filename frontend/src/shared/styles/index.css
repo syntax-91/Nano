@@ -52,7 +52,8 @@ h1 {
 }
 
 ::selection {
-	color: #87898c;
+	color: #d4d5d7;
+	background-color: var(--main-gamma-color);
 }
 
 ._1488 {
