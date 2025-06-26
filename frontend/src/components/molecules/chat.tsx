@@ -3,6 +3,7 @@ import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { useNavigate } from 'react-router-dom'
 import { configStore } from '../../app/store/app/configStore'
+import { chatsStore } from '../../app/store/chatStore/chats'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import type { IChatProps } from '../../shared/types/types'
 import Ava from '../atoms/ava'
@@ -18,9 +19,15 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 			currentChatDataStore.reset()
 			return
 		}
+		const isFound = chatsStore.chats.find(u => u.username === username)
 
-		currentChatDataStore.setData(ava, username, roomID)
-		n(`chat/${roomID}`)
+		if (isFound) {
+			currentChatDataStore.setData(ava, username, roomID)
+			n(`/chat/${isFound.roomID}`)
+			return
+		}
+
+		n(`chat/not`)
 	}
 
 	const clsDark =
@@ -44,8 +51,7 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 							: selectedChatLight
 						: ''
 				}
-				`,
-				``
+				`
 			)}
 			onClick={handleClick}
 		>
