@@ -35,7 +35,7 @@ function MenuDesktop() {
 			onClick={handleClick}
 		>
 			<div
-				className='flex justify-center px-4
+				className='flex justify-center px-5
  				py-3 hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-2'
 			>
 				<CgProfile size={20} />
