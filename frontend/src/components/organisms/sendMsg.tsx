@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import React, { useState } from 'react'
 import { IoMdSend } from 'react-icons/io'
-import { useMediaQuery } from 'react-responsive'
 import { sendMsg } from '../../shared/utils/handlers/uiHandlers'
 import { TextArea } from '../atoms/TextArea'
 
@@ -13,7 +12,6 @@ interface ISendMsgProps {
 
 function SendMsg({ roomID, endRef }: ISendMsgProps) {
 	const [text, setText] = useState('')
-	const isMobile = useMediaQuery({ maxWidth: 700 })
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
 		if (e.ctrlKey && e.key === 'Enter' && text.length > 0) {
