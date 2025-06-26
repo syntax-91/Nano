@@ -55,7 +55,7 @@ function MenuDesktop() {
 				className='flex justify-center
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 			>
-				<FcAbout />
+				<FcAbout size={20} />
 				<h3>about</h3>
 			</div>
 
@@ -64,9 +64,9 @@ function MenuDesktop() {
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={toggleTheme}
 			>
-				{configStore.currentTheme == 'dark' && <MdDarkMode size={25} />}
+				{configStore.currentTheme == 'dark' && <MdDarkMode size={20} />}
 
-				{configStore.currentTheme == 'light' && <MdLightMode size={25} />}
+				{configStore.currentTheme == 'light' && <MdLightMode size={20} />}
 
 				<h2>{configStore.currentTheme}</h2>
 			</div>
