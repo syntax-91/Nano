@@ -1,5 +1,7 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
+import { configStore } from '../../app/store/app/configStore'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import { ScrollBtn } from '../atoms/scrollButton'
 import Msg from '../molecules/msg'
@@ -18,7 +20,14 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 	}, [currentChatDataStore.loading])
 
 	return (
-		<div className='p-5 w-[100%] h-[100%]  rounded-2xl relative overflow-y-auto bbd'>
+		<div
+			className={clsx(
+				'p-5 w-[100%] h-[100%]  rounded-2xl relative overflow-y-auto z-5',
+				configStore.bgCurrentChat == 'not'
+					? 'bbd'
+					: `bg-[url('${configStore.bgCurrentChat}')]`
+			)}
+		>
 			{!currentChatDataStore.isFound && (
 				<div className='w-[100%] h-[100%] flex justify-center items-center'>
 					пусто

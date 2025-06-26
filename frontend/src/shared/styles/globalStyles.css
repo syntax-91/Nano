@@ -143,3 +143,8 @@
 	border: 1px solid var(--globalPrimaryColor);
 	box-shadow: 0 0 3px var(--globalPrimaryColor);
 }
+
+.defaultBgCurrentChat,
+.dBgCC {
+	background-color: var(--globalBlockBgDark);
+}

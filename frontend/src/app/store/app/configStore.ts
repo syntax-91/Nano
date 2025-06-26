@@ -12,8 +12,15 @@ class ConfigStoreClass {
 
 	currentTheme = this.config.theme
 
+	bgCurrentChat = localStorage.getItem('bgCurrentChatURL') || 'not'
+
 	constructor() {
 		makeAutoObservable(this)
+	}
+
+	setBgCurrentChat(value: string) {
+		this.bgCurrentChat = value
+		localStorage.setItem('bgCurrentChatURL', value)
 	}
 
 	toggleTheme() {
