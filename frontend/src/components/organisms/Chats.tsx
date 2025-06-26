@@ -19,19 +19,19 @@ function Chats() {
 
 			console.info('new-chat', data)
 
-			const newChat = members.userA.username === userDataStore.userName
+			const newChat = members.userA === userDataStore.userName
 
 			if (newChat) {
 				chatsStore.updateChats({
 					ava: 'sss',
 					roomID: data.roomID,
-					username: data.members.userB.username,
+					username: data.members.userB,
 				})
 			} else {
 				chatsStore.updateChats({
 					ava: 'sss',
 					roomID: data.roomID,
-					username: data.members.userA.username,
+					username: data.members.userA,
 				})
 			}
 		}
@@ -54,7 +54,7 @@ function Chats() {
 					<div key={chat.username}>
 						<Chat
 							ava={chat.ava}
-							username={chat.username}
+							username={chat.username || 'error'}
 							roomID={chat.roomID}
 						/>
 					</div>

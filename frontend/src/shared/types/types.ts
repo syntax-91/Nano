@@ -60,8 +60,8 @@ export interface IChatProps {
 }
 
 export type TMembers = {
-	userA: { username: string }
-	userB: { username: string }
+	userA: string
+	userB: string
 }
 
 // INewChatProps

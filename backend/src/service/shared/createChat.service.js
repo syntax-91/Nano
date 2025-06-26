@@ -63,7 +63,7 @@ export async function createChatService(data) {
 
 		const chatData = {
 			roomID: roomID,
-			members: { userA: UserAData.username, username: UserBData.username },
+			members: { userA: UserAData.username, userB: UserBData.username },
 		}
 
 		NotifyNewChatService([data.userA, data.userB], chatData)
