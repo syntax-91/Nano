@@ -1,8 +1,10 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { msgsAPI } from '../../../api/data'
 import socket from '../../../app/socket/socket'
+import { configStore } from '../../../app/store/app/configStore'
 import { chatsStore } from '../../../app/store/chatStore/chats'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import {
@@ -78,7 +80,14 @@ function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 			<div className={clsCurrentChat}>
 				<HeaderCurrentChat />
 
-				<div className={clsMsgsC}>
+				<div
+					className={clsx(
+						configStore.bgCurrentChat == 'not'
+							? 'bbd'
+							: `bg-[url('${configStore.bgCurrentChat}')]`,
+						clsMsgsC
+					)}
+				>
 					{!currentChatDataStore.loading && (
 						<MsgsCurrentChat
 							roomID={currentChatDataStore.roomID}
