@@ -13,10 +13,10 @@ function MsgCurrentChat(msgData: IMsgProps) {
 		'gap-3 rounded-2xl flex items-center my-1 lg:max-w-[70%] ltr'
 
 	const clsMsgMe =
-		'gap-2  rounded-2xl max-w-[85%] flex  justify-end ml-auto lg:max-w-[70%] my-1 rtl'
+		'gap-2  rounded-2xl max-w-[85%] flex my-1 justify-end ml-auto lg:max-w-[70%] rtl'
 
 	//default
-	const clsD = 'bgP2 py-7 px-8 rounded-2xl relative max-w-[100%]'
+	const clsD = 'bgP2 py-7 px-10 rounded-2xl relative max-w-[100%]'
 
 	// проверка наше ли это сообщение
 	const isMsgMe = msgData.who == userDataStore.userName
