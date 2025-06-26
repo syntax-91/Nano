@@ -8,7 +8,7 @@ function Settings() {
 	h-[100%] flex justify-center items-center z-10 bg-blur3'
 		>
 			<div
-				className='w-[100%] h-[100%] md:w-[550px] md:h-[450px] bbd borderP
+				className='w-[100%] h-[100%] md:w-[550px] md:h-[450px] bbd md_borderP
 		md:rounded-2xl || fn-3'
 			>
 				<HeaderSettings />

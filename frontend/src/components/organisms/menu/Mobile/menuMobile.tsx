@@ -5,6 +5,7 @@ import { FcAbout } from 'react-icons/fc'
 import { IoMdSettings } from 'react-icons/io'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 import { configStore } from '../../../../app/store/app/configStore.ts'
+import { userDataStore } from '../../../../app/store/app/userData.ts'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
 import {
 	handleLogOut,
@@ -31,6 +32,10 @@ function MenuMobile() {
 
 			<div className='w-25 h-25 mx-auto relative bottom-15 p-1 bg-black rounded-full'>
 				<Ava ava='sss' />
+			</div>
+
+			<div className='relative bottom-10 font-bold text-2xl'>
+				<h2 className='text-center'>{userDataStore.userName}</h2>
 			</div>
 
 			<div className='bg-white/5 w-[90%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px] gap-2 mb-1'>
