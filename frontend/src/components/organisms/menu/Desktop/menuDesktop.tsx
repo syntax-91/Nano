@@ -26,7 +26,7 @@ function MenuDesktop() {
 	const ltr_ = LTR_anim()
 
 	const clsC =
-		'absolute top-25 px-15 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw bg-blur5'
+		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw bbd'
 
 	return (
 		<div
@@ -35,7 +35,7 @@ function MenuDesktop() {
 			onClick={handleClick}
 		>
 			<div
-				className='flex justify-center 
+				className='flex justify-center px-4
  				py-3 hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-2'
 			>
 				<CgProfile size={20} />
@@ -52,7 +52,7 @@ function MenuDesktop() {
 			</div>
 
 			<div
-				className='flex justify-center_
+				className='flex justify-center
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 			>
 				<FcAbout />
@@ -60,7 +60,7 @@ function MenuDesktop() {
 			</div>
 
 			<div
-				className='flex justify-center_ 
+				className='flex justify-center
  				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={toggleTheme}
 			>
@@ -73,7 +73,7 @@ function MenuDesktop() {
 
 			<div
 				className='flex 
- 				py-4  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
+ 				py-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
 				onClick={handleLogOut}
 			>
 				<CiLogout size={20} />

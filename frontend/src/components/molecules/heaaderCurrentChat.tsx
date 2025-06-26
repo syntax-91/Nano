@@ -4,7 +4,10 @@ import { FaArrowLeft } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
-import { handleCloseCurrentChat } from '../../shared/utils/handlers/uiHandlers'
+import {
+	handleClickProfile,
+	handleCloseCurrentChat,
+} from '../../shared/utils/handlers/uiHandlers'
 import Ava from '../atoms/ava'
 
 function HeaderCurrentChat() {
@@ -22,6 +25,10 @@ function HeaderCurrentChat() {
 		n('/')
 	}
 
+	const handleClickProfile_ = () => {
+		handleClickProfile(currentChatDataStore.username, n)
+	}
+
 	return (
 		<div
 			className='w-[100%] h-[75px] 
@@ -32,15 +39,18 @@ function HeaderCurrentChat() {
 			</div>
 
 			{/* AVA */}
-			<div className='w-[50px] h-[50px] _bg-white/30 rounded-[50%] ml-2 mr-3 flex justify-center items-center border-[#333]'>
+			<div
+				onClick={handleClickProfile_}
+				className='w-[50px] h-[50px] _bg-white/30 rounded-[50%] ml-1.5 mr-3 flex justify-center items-center border-[#333] cp'
+			>
 				<Ava
 					ava={currentChatDataStore.ava}
 					username={currentChatDataStore.username}
 				/>
 			</div>
 
-			<div className='ml-3'>
-				<p>{currentChatDataStore.username}</p>
+			<div onClick={handleClickProfile_} className='ml-3 cp'>
+				<p>{currentChatDataStore.username || 'ошибка, попробуйте ещё раз'}</p>
 
 				<div className='flex items-center'>
 					<p>{isFriend?.status || 'offline'}</p>

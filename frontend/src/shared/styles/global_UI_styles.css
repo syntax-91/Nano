@@ -43,10 +43,6 @@
 	border: 1px solid var(--globalPrimaryColor);
 }
 
-.borderAccent {
-	border: 1px solid #372a1f;
-}
-
 .bgP2 {
 	background-color: var(--globalPrimaryColor2);
 }
