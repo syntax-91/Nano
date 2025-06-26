@@ -10,6 +10,7 @@
 	/* Primary */
 	--globalPrimaryColor: #691094;
 	--globalPrimaryColor2: #3d0957;
+	--globalPrimaryColor3: #771b9e;
 
 	--globalBlockBgDark: #070707;
 
@@ -71,4 +72,8 @@
 .bbd,
 .blockBgDark {
 	background-color: #070707;
+}
+
+.bgP3 {
+	background-color: var(--globalPrimaryColor3);
 }
