@@ -23,9 +23,9 @@ function Settings() {
 			>
 				<HeaderSettings />
 
-				<h2 className='text-center my-8 text-2xl'>фон для чата</h2>
+				<h2 className='text-center my-10 text-2xl'>фон для чата</h2>
 
-				<div className='w-[70%] mx-auto'>
+				<div className='w-[60%]  mx-auto'>
 					<Input
 						rhf={false}
 						value={url}
@@ -39,7 +39,7 @@ function Settings() {
 					location='center'
 					label='сохранить..'
 					w={520}
-					max_w={70}
+					max_w={60}
 					onClick={saveSettingsBgCurrentChat}
 				/>
 			</div>

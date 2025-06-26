@@ -148,3 +148,8 @@
 .dBgCC {
 	background-color: var(--globalBlockBgDark);
 }
+
+.img {
+	background-repeat: no-repeat;
+	background-size: cover;
+}

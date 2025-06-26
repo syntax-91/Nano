@@ -1,6 +1,6 @@
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import { makeAutoObservable } from 'mobx'
+import { makeAutoObservable, reaction } from 'mobx'
 import type { IConfigProps } from '../../../shared/types/types'
 import { modalStore } from '../shared/modalStore'
 import { userDataStore } from './userData'
@@ -16,6 +16,10 @@ class ConfigStoreClass {
 
 	constructor() {
 		makeAutoObservable(this)
+		reaction(
+			() => this.bgCurrentChat,
+			() => console.info('bgCurrentChat > ', this.bgCurrentChat)
+		)
 	}
 
 	setBgCurrentChat(value: string) {

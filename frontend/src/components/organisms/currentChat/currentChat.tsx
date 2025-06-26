@@ -81,12 +81,15 @@ function CurrentChat({ typeDevice }: ICurrentChatsProps) {
 				<HeaderCurrentChat />
 
 				<div
-					className={clsx(
-						configStore.bgCurrentChat == 'not'
-							? 'bbd'
-							: `bg-[url('${configStore.bgCurrentChat}')]`,
-						clsMsgsC
-					)}
+					className={clsx(clsMsgsC, 'img')}
+					style={{
+						background:
+							configStore.bgCurrentChat == 'not'
+								? 'bbd'
+								: `url('${configStore.bgCurrentChat}')`,
+						backgroundRepeat: 'no-repeat',
+						backgroundSize: 'cover',
+					}}
 				>
 					{!currentChatDataStore.loading && (
 						<MsgsCurrentChat
