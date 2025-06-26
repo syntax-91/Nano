@@ -1,5 +1,6 @@
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import socket from '../../app/socket/socket'
 import { userDataStore } from '../../app/store/app/userData'
 import { chatsStore } from '../../app/store/chatStore/chats'
@@ -11,6 +12,8 @@ import type {
 import Chat from '../molecules/chat'
 
 function Chats() {
+	const n = useNavigate()
+
 	useEffect(() => {
 		chatsStore.fetchChats()
 
@@ -34,6 +37,8 @@ function Chats() {
 					username: data.members.userA,
 				})
 			}
+
+			n(`/chat/${data.roomID}`)
 		}
 
 		socket.on('new-chat', handleNewChat)
