@@ -14,6 +14,8 @@ class ConfigStoreClass {
 
 	bgCurrentChat = localStorage.getItem('bgCurrentChatURL') || 'not'
 
+	bgBlurCurrentChat = false
+
 	constructor() {
 		makeAutoObservable(this)
 		reaction(
@@ -25,6 +27,15 @@ class ConfigStoreClass {
 	setBgCurrentChat(value: string) {
 		this.bgCurrentChat = value
 		localStorage.setItem('bgCurrentChatURL', value)
+	}
+
+	toggleBlurCurrentChat = () => {
+		console.log('***')
+		if (this.bgBlurCurrentChat === true) {
+			this.bgBlurCurrentChat = false
+		} else {
+			this.bgBlurCurrentChat = true
+		}
 	}
 
 	toggleTheme() {

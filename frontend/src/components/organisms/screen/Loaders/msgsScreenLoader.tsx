@@ -1,8 +1,15 @@
+import clsx from 'clsx'
+import { configStore } from '../../../../app/store/app/configStore'
 import { ScreenBlock } from './ScreenBlock'
 
 export function ScreenMsgs() {
 	return (
-		<div className='w-[100%] h-[100%] flex items-end pb-10'>
+		<div
+			className={clsx(
+				`w-[100%] h-[100%] flex items-end pb-10$`,
+				configStore.bgBlurCurrentChat && 'backdrop-blur'
+			)}
+		>
 			<div className='w-[95%] mx-auto'>
 				<ScreenBlock location='left' w={270} />
 

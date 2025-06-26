@@ -23,6 +23,7 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 		<div
 			className={clsx(
 				'p-5 w-[100%] h-[100%]  rounded-2xl relative overflow-y-auto z-5',
+				configStore.bgBlurCurrentChat && 'backdrop-blur',
 				configStore.bgCurrentChat == 'not'
 					? 'bbd'
 					: `bg-[url('${configStore.bgCurrentChat}')]`

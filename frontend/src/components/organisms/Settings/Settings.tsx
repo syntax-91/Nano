@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { configStore } from '../../../app/store/app/configStore'
 import { Button } from '../../atoms/Button'
 import { Input } from '../../atoms/Input'
+import { Switch } from '../../atoms/Switch'
 import HeaderSettings from './../../molecules/HeaderSettings'
 
 function Settings() {
@@ -42,6 +43,17 @@ function Settings() {
 					max_w={60}
 					onClick={saveSettingsBgCurrentChat}
 				/>
+
+				<div className='flex items-center justify-center gap-2'>
+					<h2 className='text-center my-4 text-2xl '>блюр: </h2>
+					<Switch
+						on={configStore.bgBlurCurrentChat}
+						toggle={configStore.toggleBlurCurrentChat}
+					/>
+				</div>
+				<p className='text-red-700 text-center font-black text-[14px]'>
+					* осторожно с блюром так как устройство может лагать!
+				</p>
 			</div>
 		</div>
 	)
