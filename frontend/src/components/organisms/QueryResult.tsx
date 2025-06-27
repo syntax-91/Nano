@@ -25,9 +25,7 @@ function QueryResult() {
 		>
 			{!searchQueryStore.queryRes.length && (
 				<div className='py-10'>
-					<p className='bg-[#333]/[0.1] inline p-2 px-5 rounded-2xl'>
-						ничего не найдено
-					</p>
+					<p className='inline p-2 px-5 rounded-2xl'>ничего не найдено</p>
 				</div>
 			)}
 
