@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 import HeaderSettings from './../../molecules/HeaderSettings'
-import { BgCurrentChat } from './components/bgCurrentChat'
+import BgCurrentChat from './components/bgCurrentChat'
 
 function Settings() {
 	const [isOpenBgCurrentChat, setIsOpenBgCurrentChat] = useState(false)

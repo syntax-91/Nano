@@ -1,10 +1,11 @@
+import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 import { configStore } from '../../../../app/store/app/configStore'
 import { Button } from '../../../atoms/Button'
 import { Input } from '../../../atoms/Input'
 import { Switch } from '../../../atoms/Switch'
 
-export function BgCurrentChat() {
+function BgCurrentChat() {
 	const [url, setUrl] = useState('')
 
 	const saveSettingsBgCurrentChat = () => {
@@ -46,3 +47,5 @@ export function BgCurrentChat() {
 		</div>
 	)
 }
+
+export default observer(BgCurrentChat)
