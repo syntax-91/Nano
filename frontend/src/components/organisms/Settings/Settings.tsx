@@ -1,16 +1,17 @@
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
-import { configStore } from '../../../app/store/app/configStore'
-import { Button } from '../../atoms/Button'
-import { Input } from '../../atoms/Input'
-import { Switch } from '../../atoms/Switch'
 import HeaderSettings from './../../molecules/HeaderSettings'
+import { BgCurrentChat } from './components/bgCurrentChat'
 
 function Settings() {
-	const [url, setUrl] = useState('')
+	const [isOpenBgCurrentChat, setIsOpenBgCurrentChat] = useState(false)
 
-	const saveSettingsBgCurrentChat = () => {
-		configStore.setBgCurrentChat(url)
+	const handleClickBgCC = () => {
+		if (isOpenBgCurrentChat == true) {
+			setIsOpenBgCurrentChat(false)
+		} else {
+			setIsOpenBgCurrentChat(true)
+		}
 	}
 
 	return (
@@ -19,41 +20,19 @@ function Settings() {
 	h-[100%] flex justify-center items-center z-10 bg-blur3'
 		>
 			<div
-				className='w-[100%] h-[100%] md:w-[550px] md:h-[450px] bbd md_borderP
-		md:rounded-2xl || fn-3'
+				className='w-[100%] h-[100%] md:w-[550px] md:h-[450px] bbd
+				md:rounded-2xl || fn-3'
 			>
 				<HeaderSettings />
 
-				<h2 className='text-center my-10 text-2xl'>фон для чата</h2>
-
-				<div className='w-[60%]  mx-auto'>
-					<Input
-						rhf={false}
-						value={url}
-						onChange={e => setUrl(e.target.value)}
-						style='full'
-						placeholder='введите URL на изображение..'
-					/>
+				<div
+					onClick={handleClickBgCC}
+					className='bg-white/5 w-[50%] mx-auto flex justify-center p-2 rounded-2xl cp tr-6 my-10'
+				>
+					<h2>фон для чата </h2>
 				</div>
 
-				<Button
-					location='center'
-					label='сохранить..'
-					w={520}
-					max_w={60}
-					onClick={saveSettingsBgCurrentChat}
-				/>
-
-				<div className='flex items-center justify-center gap-2'>
-					<h2 className='text-center my-4 text-2xl '>блюр: </h2>
-					<Switch
-						on={configStore.bgBlurCurrentChat}
-						toggle={configStore.toggleBlurCurrentChat}
-					/>
-				</div>
-				<p className='text-red-700 text-center font-black text-[14px]'>
-					* осторожно с блюром так как устройство может лагать!
-				</p>
+				{isOpenBgCurrentChat && <BgCurrentChat />}
 			</div>
 		</div>
 	)
