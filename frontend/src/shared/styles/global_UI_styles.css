@@ -4,7 +4,7 @@
 	--globalMainColor_dark: #e4e4e4;
 
 	/* background_color */
-	--globalMainBgColor_light: #b7b7bc;
+	--globalMainBgColor_light: #cfcfd2;
 	--globalMainBgColor_dark: #691094;
 
 	/* Primary */
@@ -16,6 +16,7 @@
 
 	/* accent */
 	--globalAccentColor: #1f2937;
+	--globalAccentColorLight: #e5e7eb;
 
 	/* rounded */
 	--globalDefaultRounded: 35px;
@@ -55,6 +56,16 @@
 	background-color: var(--globalAccentColor);
 }
 
+/* bgAccentLight */
+.BAL {
+	border: 1px solid var(--globalAccentColorLight);
+}
+
+/* border accent dark */
+.BAD {
+	border: 1px solid var(--globalAccentColor);
+}
+
 .o6:hover {
 	opacity: 0.6;
 }
@@ -72,6 +83,11 @@
 .bbd,
 .blockBgDark {
 	background-color: #070707;
+}
+
+.bbl,
+.blockBgLight {
+	background-color: #d5d2d2;
 }
 
 .bgP3 {

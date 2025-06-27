@@ -5,9 +5,6 @@
 	font-size: var(--globalDefaultFontSize);
 	margin-top: 0;
 
-	/* чтоб border был плавным */
-	border: 1px solid #0a0a0a;
-
 	outline: 0;
 }
 
@@ -24,25 +21,33 @@
 }
 
 .dark {
+	border: 1px solid #504f4f;
 	color: var(--globalMainColor_dark);
-	background-color: rgb(21, 21, 21);
 }
 
 .light {
-	border: 1px solid #b4b0b0;
-	color: var(--globalMainBgColor_light);
+	border: 1px solid #c9c8c8;
+	color: var(--globalMainColor_light);
 	background-color: var(--globalMainBgColor_light);
 }
 
 /* hover */
 
-.default:hover {
+.dark:hover {
 	border: 1px solid var(--globalPrimaryColor2);
+}
+
+.light:hover {
+	border: 1px solid var(--globalAccentColorLight);
 }
 
 /* focus */
 
-.default:focus {
+.light:focus {
+	border: 1px solid var(--globalAccentColorLight);
+}
+
+.dark:focus {
 	transition: all 0.3s ease-in-out;
 	border: 1px solid var(--globalPrimaryColor);
 }

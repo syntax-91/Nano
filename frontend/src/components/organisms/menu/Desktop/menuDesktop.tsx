@@ -26,12 +26,16 @@ function MenuDesktop() {
 	const ltr_ = LTR_anim()
 
 	const clsC =
-		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw bbd'
+		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw'
 
 	return (
 		<div
 			ref={ltr_}
-			className={clsx(clsC, `menuDesktop_${configStore.currentTheme}_2`)}
+			className={clsx(
+				clsC,
+				`menuDesktop_${configStore.currentTheme}_2`,
+				configStore.currentTheme == 'dark' ? 'bbd' : 'bbl'
+			)}
 			onClick={handleClick}
 		>
 			<div

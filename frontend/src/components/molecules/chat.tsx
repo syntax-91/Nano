@@ -34,9 +34,9 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center hover:bg-white/20 active:bg-white/5 cp || ltr-jump_ot pl-1 tr'
 
 	const clsLight =
-		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center cp || ltr-jump_ot pl-1 tr  o7'
+		'w-[100%] mx-auto h-[60px] my-[2px] rounded-2xl flex items-center cp || ltr-jump_ot pl-1 tr hover:bg-white/20'
 
-	const selectedChatLight = 'bg-black/10'
+	const selectedChatLight = 'bg-white/20'
 
 	const selectedChatDark = 'bg-white/5'
 

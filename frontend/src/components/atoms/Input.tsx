@@ -8,41 +8,32 @@ export function Input({
 	value = '',
 	style = 'default',
 	required = false,
-	rhf = false, 
+	rhf = false,
 	theme = 'dark',
 	className,
 	...rest
 }: InputProps) {
-	return (
-		rhf ? (
-			<input 
+	return rhf ? (
+		<input
 			required={required}
 			placeholder={placeholder}
-			className={`${s[style]} ${s.default}`}
-			type={type} 
-			{...rest} 
+			className={`${s[style]} ${s.default} ${s[theme]}`}
+			type={type}
+			{...rest}
 		/>
-		):(
-			<input
+	) : (
+		<input
 			required={required}
 			ref={rest.ref && rest.ref}
-			style={{ 
+			style={{
 				background: `${rest.bg && rest.bg}`,
-				borderRadius: `${rest.rounded && rest.rounded}px`
+				borderRadius: `${rest.rounded && rest.rounded}px`,
 			}}
-
-			className={clsx(
-				s.default, 
-				s[style],  
-				s[theme],
-				className, 
-			)}
-				
+			className={clsx(s.default, s[style], s[theme], className)}
 			type={type}
 			placeholder={placeholder}
 			value={value}
 			onChange={rest.onChange}
 		/>
-		)
 	)
 }

@@ -1,7 +1,9 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import socket from '../../app/socket/socket'
+import { configStore } from '../../app/store/app/configStore'
 import { userDataStore } from '../../app/store/app/userData'
 import { chatsStore } from '../../app/store/chatStore/chats'
 import type {
@@ -51,8 +53,10 @@ function Chats() {
 
 	return (
 		<div
-			className='chats my-3 w-[100%] 
-			bbd p-2 rounded-2xl md_borderP'
+			className={clsx(
+				'chats my-3 w-[100%] p-2 rounded-2xl md_borderP',
+				configStore.currentTheme == 'light' ? 'bbl BAL' : 'bbd'
+			)}
 		>
 			{chatsStore.chats.length > 0 &&
 				chatsStore.chats.map((chat: IChatProps) => (

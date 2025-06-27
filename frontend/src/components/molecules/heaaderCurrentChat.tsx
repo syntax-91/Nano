@@ -1,7 +1,9 @@
+import clsx from 'clsx'
 import { toJS } from 'mobx'
 import { observer } from 'mobx-react-lite'
 import { FaArrowLeft } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom'
+import { configStore } from '../../app/store/app/configStore'
 import { statusFriendsStore } from '../../app/store/app/statusUsers'
 import { currentChatDataStore } from '../../app/store/chatStore/currentChatDataStore'
 import {
@@ -31,8 +33,10 @@ function HeaderCurrentChat() {
 
 	return (
 		<div
-			className='w-[100%] h-[75px] 
-		flex items-center px-[3px] md:border border-gray-800 rounded-full headerCurrentChat'
+			className={clsx(
+				'w-[100%] h-[75px] flex items-center px-[3px] md:border rounded-full headerCurrentChat',
+				configStore.currentTheme == 'dark' ? 'BAD' : 'BAL'
+			)}
 		>
 			<div className='hidden_el cursor-pointer' onClick={handleClose}>
 				<FaArrowLeft color='#fff' size={16} />
