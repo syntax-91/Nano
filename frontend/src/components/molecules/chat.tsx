@@ -21,13 +21,8 @@ function Chat({ ava, username, roomID, latestMsg }: IChatProps) {
 		}
 		const isFound = chatsStore.chats.find(u => u.username === username)
 
-		if (isFound) {
-			currentChatDataStore.setData(ava, username, roomID)
-			n(`/chat/${isFound.roomID}`)
-			return
-		}
-
-		n(`chat/not`)
+		currentChatDataStore.setData(ava, username, roomID)
+		n(`/chat/${isFound?.roomID}`)
 	}
 
 	const clsDark =

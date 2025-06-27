@@ -8,7 +8,9 @@ import Chat from '../molecules/chat'
 
 function QueryResult() {
 	useEffect(() => {
-		QueryAPI()
+		if (searchQueryStore.query.length > 0) {
+			QueryAPI()
+		}
 	}, [searchQueryStore.query])
 
 	const clsC =
