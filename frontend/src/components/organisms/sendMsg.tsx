@@ -49,16 +49,12 @@ function SendMsg({ roomID, endRef }: ISendMsgProps) {
 				<div
 					className={clsx(
 						text.trim().length > 0 ? 'inline-block' : 'hidden',
-						' ab_solute right-0 top-0'
+						'ab_solute right-0 top-0 bgP rounded-full || w-[45px] h-[40px] cp'
 					)}
 				>
-					<IoMdSend
-						color='#cfcbcb'
-						size={40}
-						onClick={send}
-						className='hover:rotate-x-[-30deg] 
-			text-[#cfcbcb]'
-					/>
+					<div className='flex justify-center items-center h-[100%]'>
+						<IoMdSend color='#cfcbcb' size={30} onClick={send} />
+					</div>
 				</div>
 			)}
 		</div>

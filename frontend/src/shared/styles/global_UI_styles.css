@@ -77,3 +77,7 @@
 .bgP3 {
 	background-color: var(--globalPrimaryColor3);
 }
+
+.bgP:hover {
+	background-color: var(--globalPrimaryColor3);
+}
