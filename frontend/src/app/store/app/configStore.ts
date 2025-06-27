@@ -7,7 +7,7 @@ import { userDataStore } from './userData'
 
 class ConfigStoreClass {
 	config: IConfigProps = {
-		theme: 'dark',
+		theme: localStorage.getItem('currentTheme') || 'light',
 	}
 
 	currentTheme = this.config.theme

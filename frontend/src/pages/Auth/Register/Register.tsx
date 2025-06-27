@@ -1,9 +1,11 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { RegisterFetch } from '../../../api/authAPI'
 import { modalStore } from '../../../app/store'
+import { configStore } from '../../../app/store/app/configStore'
 import { loadingStore } from '../../../app/store/app/loadingStore'
 import { userDataStore } from '../../../app/store/app/userData'
 import { Button } from '../../../components/atoms/Button'
@@ -42,7 +44,10 @@ function Login() {
 	return (
 		<form
 			onSubmit={handleSubmit(submit)}
-			className='flex items-center justify-center w-[100%] h-[100vh] || ltr-jump_ot fixed'
+			className={clsx(
+				'flex items-center justify-center w-[100%] h-[100vh] || ltr-jump_ot fixed',
+				configStore.currentTheme == 'dark' ? '' : 'light'
+			)}
 		>
 			{/* Modal */}
 			{modalStore.isOpen === true && <Modal />}
@@ -56,6 +61,7 @@ function Login() {
 						style='full'
 						rhf={true}
 						placeholder='имя пользователя'
+						theme={configStore.currentTheme == 'dark' ? 'dark' : 'light'}
 						{...register('username', usernameSchema)}
 					/>
 
@@ -75,6 +81,7 @@ function Login() {
 						style='full'
 						rhf={true}
 						placeholder='пароль'
+						theme={configStore.currentTheme == 'dark' ? 'dark' : 'light'}
 						{...register('password', passwordSchema)}
 					/>
 

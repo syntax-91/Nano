@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -43,14 +44,15 @@ function Login() {
 	return (
 		<form
 			onSubmit={handleSubmit(submit)}
-			className='flex items-center justify-center w-[100%] h-[100vh] fixed || ltr-jump_ot'
+			className={clsx(
+				`flex items-center justify-center w-[100%] h-[100vh] fixed || ltr-jump_ot`,
+				configStore.currentTheme == 'dark' ? '' : 'light '
+			)}
 		>
 			{modalStore.isOpen === true && <Modal />}
 
-			<div className=' w-[85%] sm:w-[320px]'>
-				<h2 className='text-center text-3xl py-5 font-black text-[#fff]/80'>
-					Вход
-				</h2>
+			<div className='w-[85%] sm:w-[320px]'>
+				<h2 className='text-center text-3xl py-5 font-black'>Вход</h2>
 
 				{/* username */}
 				<div className='my-2 mx-auto w-[80%] '>
@@ -75,7 +77,7 @@ function Login() {
 						rhf={true}
 						placeholder='пароль'
 						style='full'
-						theme='dark'
+						theme={configStore.currentTheme == 'dark' ? 'dark' : 'light'}
 						{...register('password', passwordSchema)}
 					/>
 
