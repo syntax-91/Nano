@@ -16,7 +16,7 @@ function MsgCurrentChat(msgData: IMsgProps) {
 		'gap-2  rounded-2xl max-w-[85%] flex my-1 justify-end ml-auto lg:max-w-[70%] rtl'
 
 	//default
-	const clsD = 'bgP py-7 px-10 rounded-2xl relative max-w-[100%]'
+	const clsD = 'bgP py-7 px-10 rounded-2xl relative max-w-[100%] text-[#cccbcb]'
 
 	// проверка наше ли это сообщение
 	const isMsgMe = msgData.who == userDataStore.userName
@@ -79,7 +79,7 @@ function MsgCurrentChat(msgData: IMsgProps) {
 				<p
 					onClick={() => handleClickProfile(msgData.who, n)}
 					className='absolute top-2 left-4 
-					text-[10px] text-[#cccbcb] hover:text-[#5e5d5d] cursor-pointer font-bold'
+					text-[10px] hover:text-[#5e5d5d] cursor-pointer font-bold'
 				>
 					{msgData.who}
 				</p>

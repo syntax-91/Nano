@@ -33,7 +33,7 @@ function Settings() {
 
 				<div
 					onClick={handleClickBgCC}
-					className='bg-white/5 w-[50%] mx-auto flex justify-center p-2 rounded-2xl cp tr-6 my-10'
+					className='bg-white/5 w-[50%] mx-auto flex justify-center p-2 rounded-2xl cp tr-6 my-10 borderP'
 				>
 					<h2>фон для чата </h2>
 				</div>

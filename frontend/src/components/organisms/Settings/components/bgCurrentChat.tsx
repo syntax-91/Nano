@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 import { configStore } from '../../../../app/store/app/configStore'
@@ -13,7 +14,12 @@ function BgCurrentChat() {
 	}
 
 	return (
-		<div className='bbd borderP rounded-2xl my-5 p-5 w-[70%] mx-auto ltr-jump_ot'>
+		<div
+			className={clsx(
+				'rounded-2xl my-5 p-5 w-[70%] mx-auto ltr-jump_ot',
+				configStore.currentTheme == 'dark' ? 'bbd borderP' : 'bbl'
+			)}
+		>
 			<h2 className='text-center mb-10 text-2xl '>фон для чата</h2>
 
 			<div className='mx-auto'>
@@ -23,6 +29,7 @@ function BgCurrentChat() {
 					onChange={e => setUrl(e.target.value)}
 					style='full'
 					placeholder='введите URL на изображение..'
+					theme={configStore.currentTheme == 'dark' ? 'dark' : 'light'}
 				/>
 			</div>
 
