@@ -24,9 +24,17 @@ function MsgsCurrentChat({ endRef }: IMsgsCurrentChatProps) {
 			className={clsx(
 				'p-5 w-[100%] h-[100%]  rounded-2xl relative overflow-y-auto z-5',
 				configStore.bgBlurCurrentChat && 'backdrop-blur',
+
 				configStore.bgCurrentChat == 'not' &&
 					`bg-[url('${configStore.bgCurrentChat}')]`,
-				configStore.currentTheme == 'dark' ? 'bbd' : 'bbl'
+
+				configStore.currentTheme == 'dark' &&
+					configStore.bgCurrentChat == 'not' &&
+					'bbd',
+
+				configStore.currentTheme == 'light' &&
+					configStore.bgCurrentChat == 'not' &&
+					'bbl'
 			)}
 		>
 			{!currentChatDataStore.isFound && (
