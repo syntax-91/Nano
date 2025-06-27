@@ -1,13 +1,14 @@
 import axios from 'axios'
-import Cookies from 'js-cookie'
+import cs from 'js-cookie'
 import { makeAutoObservable, reaction } from 'mobx'
 import type { IConfigProps } from '../../../shared/types/types'
 import { modalStore } from '../shared/modalStore'
 import { userDataStore } from './userData'
 
 class ConfigStoreClass {
+	//
 	config: IConfigProps = {
-		theme: localStorage.getItem('currentTheme') || 'light',
+		theme: cs.get('currentTheme') || 'light',
 	}
 
 	currentTheme = this.config.theme
@@ -41,10 +42,10 @@ class ConfigStoreClass {
 	toggleTheme() {
 		if (this.currentTheme == 'dark') {
 			this.currentTheme = 'light'
-			Cookies.set('currentTheme', 'light')
+			cs.set('currentTheme', 'light')
 		} else {
 			this.currentTheme = 'dark'
-			Cookies.set('currentTheme', 'dark')
+			cs.set('currentTheme', 'dark')
 		}
 	}
 
