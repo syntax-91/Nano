@@ -1,5 +1,7 @@
+import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
+import { configStore } from '../../../app/store/app/configStore'
 import HeaderSettings from './../../molecules/HeaderSettings'
 import BgCurrentChat from './components/bgCurrentChat'
 
@@ -16,12 +18,16 @@ function Settings() {
 
 	return (
 		<div
-			className='fixed top-0 left-0  w-[100%] 
-	h-[100%] flex justify-center items-center z-10 bg-blur3'
+			className={clsx(
+				'fixed top-0 left-0  w-[100%] h-[100%] flex justify-center items-center z-10 bg-blur3'
+			)}
 		>
 			<div
-				className='w-[100%] h-[100%] md:w-[550px] md:h-[450px] bbd
-				md:rounded-2xl || fn-3'
+				className={clsx(
+					`w-[100%] h-[100%] md:w-[550px] md:h-[450px]
+				md:rounded-2xl || fn-3 $`,
+					configStore.currentTheme == 'dark' ? 'bbd' : 'bbl'
+				)}
 			>
 				<HeaderSettings />
 
