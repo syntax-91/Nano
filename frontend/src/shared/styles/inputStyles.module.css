@@ -21,7 +21,8 @@
 }
 
 .dark {
-	border: 1px solid #0a0a0a;
+	background: #121111;
+	border: 1px solid #070707;
 	color: var(--globalMainColor_dark);
 }
 
