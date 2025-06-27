@@ -36,7 +36,7 @@ function SendMsg({ roomID, endRef }: ISendMsgProps) {
 	return (
 		<div
 			className='w-[100%] h-17
-	flex gap-2 delay-1000 items-center  rounded-[5px] relative_ tr3'
+	flex gap-2 delay-1000 items-center  rounded-[5px] relative_'
 		>
 			<TextArea
 				value={text}
@@ -49,7 +49,7 @@ function SendMsg({ roomID, endRef }: ISendMsgProps) {
 				<div
 					className={clsx(
 						text.trim().length > 0 ? 'inline-block' : 'hidden',
-						'ab_solute right-0 top-0 bgP rounded-full || w-[45px] h-[40px] cp'
+						'ab_solute right-0 top-0 bgP rounded-full || w-[45px] h-[40px] cp tr6 fnb-3'
 					)}
 				>
 					<div className='flex justify-center items-center h-[100%]'>
