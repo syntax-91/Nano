@@ -16,7 +16,7 @@ function BgCurrentChat() {
 	return (
 		<div
 			className={clsx(
-				'rounded-2xl my-5 p-5 w-[70%] mx-auto ltr-jump_ot',
+				'rounded-2xl my-5 p-5 w-[70%] mx-auto ttb',
 				configStore.currentTheme == 'dark' ? 'bbd borderP' : 'bbl'
 			)}
 		>

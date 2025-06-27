@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite'
-import { useLayoutEffect } from 'react'
+import { Suspense, useLayoutEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { userDataStore } from '../../app/store/app/userData'
@@ -7,9 +7,10 @@ import { userDataStore } from '../../app/store/app/userData'
 import { modalStore } from '../../app/store'
 import { configStore } from '../../app/store/app/configStore'
 import { isOpenStore } from '../../app/store/isOpen/isOpenSettingsStore'
+import { FullDisplayLoader } from '../../components/atoms/fullDisplayLoader'
 import Modal from '../../components/molecules/modal'
 import Block1 from '../../components/organisms/Block1/Block1'
-import Settings from './../../components/organisms/Settings/Settings'
+import { settingsLazy } from '../../components/organisms/Settings/SettingsLazy'
 
 function Home() {
 	const nav = useNavigate()
@@ -21,6 +22,8 @@ function Home() {
 			nav('/login')
 		}
 	}, [])
+
+	const SettingsLazy = settingsLazy
 
 	return (
 		<div
@@ -36,7 +39,11 @@ function Home() {
 			</div>
 
 			{/* settings */}
-			{isOpenStore.isOpenMap.settings && <Settings />}
+			{isOpenStore.isOpenMap.settings && (
+				<Suspense fallback={<FullDisplayLoader />}>
+					<SettingsLazy />
+				</Suspense>
+			)}
 
 			{/* currentChat для Desktop'а */}
 			{!isMobile && (
