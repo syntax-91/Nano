@@ -1,4 +1,6 @@
+import clsx from 'clsx'
 import { useNavigate, useParams } from 'react-router-dom'
+import { configStore } from '../../../app/store/app/configStore'
 import { currentChatDataStore } from '../../../app/store/chatStore/currentChatDataStore'
 import { Button } from '../../atoms/Button'
 import Ava from '../../atoms/ava'
@@ -12,7 +14,12 @@ export default function UserProfile() {
 	}
 
 	return (
-		<div className='w-[100vw] h-[100vh]  mx-auto flex justify-center items-center ltr-jump_ot'>
+		<div
+			className={clsx(
+				'w-[100vw] h-[100vh]  mx-auto flex justify-center items-center ltr-jump_ot',
+				configStore.currentTheme == 'dark' ? 'dark' : 'light'
+			)}
+		>
 			<div className='borderMG rounded-2xl'>
 				{/* arrow */}
 				<p className='mx-8 my-4 cp font-black' onClick={() => n(-1)}>
