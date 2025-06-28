@@ -1,9 +1,11 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
+import { BiTestTube } from 'react-icons/bi'
 import { CgProfile } from 'react-icons/cg'
 import { CiLogout } from 'react-icons/ci'
 import { FcAbout } from 'react-icons/fc'
 import { MdDarkMode, MdLightMode, MdSettings } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import { configStore } from '../../../../app/store/app/configStore'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
 import { handleSettings } from '../../../../shared/utils/handlers/uiHandlers'
@@ -11,6 +13,8 @@ import { logOutU } from '../../../../shared/utils/LogOut'
 import { LTR_anim } from '../../../animations/lr'
 
 function MenuDesktop() {
+	const n = useNavigate()
+
 	const handleClick = () => {
 		isOpenStore.setIsOpen('menuDesktop', false)
 	}
@@ -24,6 +28,10 @@ function MenuDesktop() {
 	}
 
 	const ltr_ = LTR_anim()
+
+	const handleTest = () => {
+		n('/test')
+	}
 
 	const clsC =
 		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw'
@@ -82,6 +90,16 @@ function MenuDesktop() {
 			>
 				<CiLogout size={20} />
 				<h3>logOut</h3>
+			</div>
+
+			{/* test */}
+			<div
+				className='flex 
+ 				py-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
+				onClick={handleTest}
+			>
+				<BiTestTube size={20} />
+				<h3>test</h3>
 			</div>
 		</div>
 	)
