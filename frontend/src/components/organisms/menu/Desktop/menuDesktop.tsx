@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { observer } from 'mobx-react-lite'
 import { BiTestTube } from 'react-icons/bi'
-import { CgProfile } from 'react-icons/cg'
 import { CiLogout } from 'react-icons/ci'
 import { FcAbout } from 'react-icons/fc'
 import { MdDarkMode, MdLightMode, MdSettings } from 'react-icons/md'
@@ -47,16 +46,8 @@ function MenuDesktop() {
 			onClick={handleClick}
 		>
 			<div
-				className='flex justify-center px-5
- 				py-3 hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-2'
-			>
-				<CgProfile size={20} />
-				<h3>profile</h3>
-			</div>
-
-			<div
 				className='flex justify-center 
- 				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
+ 				p-4  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={handleSettings}
 			>
 				<MdSettings size={20} />
@@ -65,7 +56,7 @@ function MenuDesktop() {
 
 			<div
 				className='flex justify-center
- 				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
+ 				p-4  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 			>
 				<FcAbout size={20} />
 				<h3>about</h3>
@@ -73,7 +64,7 @@ function MenuDesktop() {
 
 			<div
 				className='flex justify-center
- 				py-3  hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
+ 				p-4 hover:bg-white/5 rounded-2xl font-light text-2xl items-center gap-1'
 				onClick={toggleTheme}
 			>
 				{configStore.currentTheme == 'dark' && <MdDarkMode size={20} />}
@@ -85,7 +76,7 @@ function MenuDesktop() {
 
 			<div
 				className='flex 
- 				py-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
+ 				p-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
 				onClick={handleLogOut}
 			>
 				<CiLogout size={20} />
@@ -95,7 +86,7 @@ function MenuDesktop() {
 			{/* test */}
 			<div
 				className='flex 
- 				py-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
+ 				p-4  hover:bg-white/5 rounded-2xl justify-center font-light text-2xl items-center gap-1'
 				onClick={handleTest}
 			>
 				<BiTestTube size={20} />

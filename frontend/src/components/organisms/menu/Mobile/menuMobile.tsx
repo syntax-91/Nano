@@ -1,5 +1,4 @@
 import { observer } from 'mobx-react-lite'
-import { CgProfile } from 'react-icons/cg'
 import { CiLogout } from 'react-icons/ci'
 import { FcAbout } from 'react-icons/fc'
 import { IoMdSettings } from 'react-icons/io'
@@ -36,11 +35,6 @@ function MenuMobile() {
 
 			<div className='relative bottom-10 font-bold text-2xl'>
 				<h2 className='text-center'>{userDataStore.userName}</h2>
-			</div>
-
-			<div className='bg-white/5 w-[90%] h-15 rounded-2xl mx-auto flex items-center px-5 text-[15px] gap-2 mb-1'>
-				<CgProfile size={25} />
-				<h2>profile</h2>
 			</div>
 
 			<div
