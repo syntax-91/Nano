@@ -11,7 +11,7 @@ import { FullDisplayLoader } from '../../components/atoms/fullDisplayLoader'
 import Modal from '../../components/molecules/modal'
 import Block1 from '../../components/organisms/Block1/Block1'
 import { settingsLazy } from '../../components/organisms/Settings/SettingsLazy'
-import { TestLazy } from '../test/testLazy'
+import { TestLazy } from '../../components/organisms/test/testLazy'
 
 function Home() {
 	const nav = useNavigate()

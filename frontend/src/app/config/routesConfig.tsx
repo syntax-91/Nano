@@ -4,8 +4,8 @@ import _404Lazy from '../../pages/_404/NotFoundLazy'
 import LoginLazy from '../../pages/Auth/Login/LoginLazy'
 import { RegisterLazy } from '../../pages/Auth/Register/RegisterLazy'
 //import LoginLazy from '../../pages/auth/Login/LoginLazy'
+import { TestLazy } from '../../components/organisms/test/testLazy'
 import HomeLazy from '../../pages/Home/HomeLazy'
-import { TestLazy } from '../../pages/test/testLazy'
 //import LayoutLazy from '../../pages/Layout/LayoutLazy'
 
 export const routesConfig = {
