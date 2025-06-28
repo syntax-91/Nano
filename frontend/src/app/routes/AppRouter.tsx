@@ -81,17 +81,6 @@ export function AppRouter() {
 						</Suspense>
 					}
 				/>
-
-				{/* test */}
-
-				<Route
-					path={routesConfig.test.path}
-					element={
-						<Suspense fallback={<p>Loading...</p>}>
-							<routesConfig.test.element />
-						</Suspense>
-					}
-				/>
 			</Routes>
 		</BrowserRouter>
 	)

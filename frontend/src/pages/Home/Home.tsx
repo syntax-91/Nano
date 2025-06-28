@@ -11,6 +11,7 @@ import { FullDisplayLoader } from '../../components/atoms/fullDisplayLoader'
 import Modal from '../../components/molecules/modal'
 import Block1 from '../../components/organisms/Block1/Block1'
 import { settingsLazy } from '../../components/organisms/Settings/SettingsLazy'
+import { TestLazy } from '../test/testLazy'
 
 function Home() {
 	const nav = useNavigate()
@@ -42,6 +43,13 @@ function Home() {
 			{isOpenStore.isOpenMap.settings && (
 				<Suspense fallback={<FullDisplayLoader />}>
 					<SettingsLazy />
+				</Suspense>
+			)}
+
+			{/* test */}
+			{isOpenStore.isOpenMap.test && (
+				<Suspense fallback={<FullDisplayLoader />}>
+					<TestLazy />
 				</Suspense>
 			)}
 

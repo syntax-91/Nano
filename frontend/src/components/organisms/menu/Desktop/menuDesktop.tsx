@@ -30,7 +30,7 @@ function MenuDesktop() {
 	const ltr_ = LTR_anim()
 
 	const handleTest = () => {
-		n('/test')
+		isOpenStore.setIsOpen('test', true)
 	}
 
 	const clsC =
