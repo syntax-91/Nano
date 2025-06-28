@@ -5,6 +5,7 @@ import LoginLazy from '../../pages/Auth/Login/LoginLazy'
 import { RegisterLazy } from '../../pages/Auth/Register/RegisterLazy'
 //import LoginLazy from '../../pages/auth/Login/LoginLazy'
 import HomeLazy from '../../pages/Home/HomeLazy'
+import { TestLazy } from '../../pages/test/testLazy'
 //import LayoutLazy from '../../pages/Layout/LayoutLazy'
 
 export const routesConfig = {
@@ -19,4 +20,7 @@ export const routesConfig = {
 
 	// user
 	u: { path: 'u/:username', element: UserProfileLazy },
+
+	// test
+	test: { path: '/test', element: TestLazy },
 }
