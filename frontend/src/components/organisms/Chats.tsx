@@ -54,7 +54,7 @@ function Chats() {
 	return (
 		<div
 			className={clsx(
-				'chats my-3 w-[100%] p-2 rounded-2xl md_borderP',
+				'chats my-3 w-[100%] p-2 rounded-2xl md_borderP tr-6 up',
 				configStore.currentTheme == 'light' ? 'bbl BAL' : 'bbd'
 			)}
 		>
