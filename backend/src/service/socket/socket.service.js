@@ -1,3 +1,4 @@
+import { UserModel } from '../../models/UserModel.js'
 import { SaveMsgDB } from '../data/saveMsgDB.service.js'
 
 export function setupSocket(io) {
@@ -27,6 +28,18 @@ export function setupSocket(io) {
 				username: data.username,
 				status: data.status,
 			})
+		})
+
+		// change
+		socket.on('change', data => {
+			console.log('change > ', data)
+
+			if (data.type == 'ava') {
+				UserModel.updateOne(
+					{ username: data.username },
+					{ $set: { ava: data.url } }
+				)
+			}
 		})
 
 		socket.on('disconnect', () => {

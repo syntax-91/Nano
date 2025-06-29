@@ -11,7 +11,8 @@ interface IAva {
 }
 
 function Ava({ ava, w = 15, h = 15, ...rest }: IAva) {
-	const clsAVA = `ava  rounded-[50%]           w-[100%] h-[100%] flex items-center relative justify-center border-[#464545] shrink-0 grow-0`
+	const clsAVA = `ava  rounded-full 
+	 w-[100%] h-[100%] flex items-center relative justify-center border-[#464545] shrink-0 grow-0`
 
 	const friendsJSON = toJS(statusFriendsStore)
 
@@ -24,10 +25,10 @@ function Ava({ ava, w = 15, h = 15, ...rest }: IAva) {
 			className={clsx(
 				clsAVA,
 				`bg-gradient-to-r flex shrink-0
-		 from-white/5 to-white/15`
+		 	from-white/5 to-white/15`
 			)}
 		>
-			{ava.length > 0 && <img src={ava} alt='' />}
+			{ava.length > 0 && <img src={ava} alt='' className='rounded-full' />}
 
 			<div
 				className={clsx(
