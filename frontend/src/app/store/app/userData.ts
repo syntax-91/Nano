@@ -6,7 +6,7 @@ class userDataStoreClass {
 	isAuth = cs.get('isAuth_nano') || false
 
 	dataMap = {
-		ava: cs.get('ava_nano') || '',
+		ava: localStorage.getItem('ava_nano') || '',
 	}
 
 	constructor() {
@@ -15,7 +15,7 @@ class userDataStoreClass {
 
 	setUserData(type: keyof typeof this.dataMap, value: string) {
 		this.dataMap[type] = value
-		cs.set(`${type}_nano`, value)
+		localStorage.setItem(`${type}_nano`, value)
 	}
 }
 

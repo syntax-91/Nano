@@ -12,9 +12,9 @@ function ChangeAva() {
 
 	const [url, setUrl] = useState('')
 
-	const clsC = ''
-
 	const handleChangeAva = () => {
+		console.info('change-ava..')
+
 		userDataStore.setUserData('ava', url)
 
 		socket.emit('change', {

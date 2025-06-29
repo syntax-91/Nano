@@ -32,10 +32,10 @@ export function setupSocket(io) {
 
 		// change
 		socket.on('change', data => {
-			console.log('change > ', data)
+			console.log('change > ', data.type)
 
 			if (data.type == 'ava') {
-				UserModel.updateOne(
+				const u = UserModel.updateOne(
 					{ username: data.username },
 					{ $set: { ava: data.url } }
 				)
