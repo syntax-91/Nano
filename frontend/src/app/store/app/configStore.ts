@@ -42,10 +42,10 @@ class ConfigStoreClass {
 	toggleTheme() {
 		if (this.currentTheme == 'dark') {
 			this.currentTheme = 'light'
-			cs.set('currentTheme', 'light')
+			cs.set('currentTheme', 'light', { expires: 30 })
 		} else {
 			this.currentTheme = 'dark'
-			cs.set('currentTheme', 'dark')
+			cs.set('currentTheme', 'dark', { expires: 30 })
 		}
 	}
 
