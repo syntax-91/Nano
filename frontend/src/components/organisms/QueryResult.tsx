@@ -34,7 +34,7 @@ function QueryResult() {
 			{searchQueryStore.queryRes.length > 0 &&
 				searchQueryStore.queryRes.map((e, idx) => (
 					<div key={idx}>
-						<Chat username={e.username} roomID={e.roomID} ava='x' />
+						<Chat username={e.username} roomID={e.roomID} ava={e.ava || 'x'} />
 					</div>
 				))}
 		</div>

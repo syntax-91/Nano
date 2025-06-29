@@ -18,6 +18,7 @@ export async function QueryService(query, username) {
 			return {
 				username: user.username,
 				isFound: Boolean(found),
+				ava: user.ava,
 			}
 		})
 
@@ -27,6 +28,7 @@ export async function QueryService(query, username) {
 			success: true,
 			res: isFound.map(data => ({
 				username: data.username,
+				ava: data.ava,
 				isFound: data.isFound,
 			})),
 		}

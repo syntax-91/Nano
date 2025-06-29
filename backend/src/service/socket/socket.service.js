@@ -33,7 +33,7 @@ export function setupSocket(io) {
 		// change-ava
 		socket.on('change-ava', async data => {
 			console.log('change > ', data.type)
-			const res = await UserModel.updateOne(
+			const res = await UserModel.updateMany(
 				{ username: data.username },
 				{ $set: { ava: data.url } }
 			)
