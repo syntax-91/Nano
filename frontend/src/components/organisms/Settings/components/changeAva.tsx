@@ -17,7 +17,7 @@ function ChangeAva() {
 
 		userDataStore.setUserData('ava', url)
 
-		socket.emit('change', {
+		socket.emit('change-ava', {
 			type: 'ava',
 			url: url,
 			username: userDataStore.userName,

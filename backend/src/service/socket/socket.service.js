@@ -30,16 +30,15 @@ export function setupSocket(io) {
 			})
 		})
 
-		// change
-		socket.on('change', data => {
+		// change-ava
+		socket.on('change-ava', async data => {
 			console.log('change > ', data.type)
+			const res = await UserModel.updateOne(
+				{ username: data.username },
+				{ $set: { ava: data.url } }
+			)
 
-			if (data.type == 'ava') {
-				const u = UserModel.updateOne(
-					{ username: data.username },
-					{ $set: { ava: data.url } }
-				)
-			}
+			console.log('завершено..')
 		})
 
 		socket.on('disconnect', () => {
