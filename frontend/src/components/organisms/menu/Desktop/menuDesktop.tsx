@@ -4,7 +4,6 @@ import { BiTestTube } from 'react-icons/bi'
 import { CiLogout } from 'react-icons/ci'
 import { FcAbout } from 'react-icons/fc'
 import { MdDarkMode, MdLightMode, MdSettings } from 'react-icons/md'
-import { useNavigate } from 'react-router-dom'
 import { configStore } from '../../../../app/store/app/configStore'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
 import { handleSettings } from '../../../../shared/utils/handlers/uiHandlers'
@@ -12,8 +11,6 @@ import { logOutU } from '../../../../shared/utils/LogOut'
 import { LTR_anim } from '../../../animations/lr'
 
 function MenuDesktop() {
-	const n = useNavigate()
-
 	const handleClick = () => {
 		isOpenStore.setIsOpen('menuDesktop', false)
 	}
@@ -33,7 +30,7 @@ function MenuDesktop() {
 	}
 
 	const clsC =
-		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of_ cursor-pointer shw'
+		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of cursor-pointer'
 
 	return (
 		<div
@@ -41,7 +38,7 @@ function MenuDesktop() {
 			className={clsx(
 				clsC,
 				`menuDesktop_${configStore.currentTheme}_2`,
-				configStore.currentTheme == 'dark' ? 'bbd' : 'bbl'
+				configStore.currentTheme == 'dark' ? 'bbd BAD' : 'bbl BAL'
 			)}
 			onClick={handleClick}
 		>
