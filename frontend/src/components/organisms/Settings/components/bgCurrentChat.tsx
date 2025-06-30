@@ -16,7 +16,7 @@ function BgCurrentChat() {
 	return (
 		<div
 			className={clsx(
-				'rounded-2xl my-5 p-5 w-[70%] mx-auto ttb',
+				'rounded-2xl my-5 p-5 w-[90%] mx-auto up sm:w-[50%]',
 				configStore.currentTheme == 'dark' ? 'bbd borderP' : 'bbl'
 			)}
 		>
@@ -37,6 +37,7 @@ function BgCurrentChat() {
 				location='center'
 				label='сохранить..'
 				w={520}
+				disabled={!url}
 				max_w={100}
 				onClick={saveSettingsBgCurrentChat}
 			/>

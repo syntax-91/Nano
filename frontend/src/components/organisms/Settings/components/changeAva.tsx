@@ -27,7 +27,7 @@ function ChangeAva() {
 	return (
 		<div className={clsMC}>
 			{/* container */}
-			<div className='borderP w-[50%] rounded-2xl p-2'>
+			<div className='borderP w-[90%] sm:w-[50%] rounded-2xl p-2'>
 				{/* AVA */}
 				<div className='w-20 h-20 mx-auto my-8  rounded-full'>
 					<Ava ava={userDataStore.dataMap.ava} />
@@ -44,8 +44,8 @@ function ChangeAva() {
 
 				<Button
 					disabled={!url}
-					label='submit'
-					w={400}
+					label='сохранить'
+					w={600}
 					max_w={100}
 					onClick={handleChangeAva}
 				/>

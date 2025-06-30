@@ -28,7 +28,7 @@ function Settings() {
 	}
 
 	const clsBlock =
-		'bg-white/5 w-[50%] mx-auto flex justify-center p-2 rounded-2xl cp tr-6 my-5 borderP'
+		'bg-white/5 w-[50%] mx-auto flex justify-center p-2 rounded-2xl cp tr-6 my-4 borderP '
 
 	return (
 		<div
@@ -38,7 +38,7 @@ function Settings() {
 		>
 			<div
 				className={clsx(
-					`w-[100%] h-[100%] md:w-[550px] md:h-[450px]
+					`w-[100%] h-[100%] md:w-[550px] md:h-[450px] overflow-y-auto
 				md:rounded-2xl || fn-3`,
 					configStore.currentTheme == 'dark' ? 'bbd' : 'bbl'
 				)}
@@ -53,7 +53,7 @@ function Settings() {
 					onClick={handleChangeAva} //
 					className={clsBlock}
 				>
-					<h2>автарка..</h2>
+					<h2>аватарка</h2>
 				</div>
 
 				{isOpenBgCurrentChat && <BgCurrentChat />}
