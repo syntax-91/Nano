@@ -28,6 +28,8 @@ app.use(
 const PORT = 3000
 config()
 
+// 1488
+
 // socket.io
 const server = createServer(app)
 const io = new Server(server, {
