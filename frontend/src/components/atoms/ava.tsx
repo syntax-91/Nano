@@ -28,7 +28,9 @@ function Ava({ ava, w = 15, h = 15, ...rest }: IAva) {
 		 	from-white/5 to-white/15`
 			)}
 		>
-			{ava.length > 0 && <img src={ava} alt='' className='rounded-full' />}
+			{ava?.length > 0 && (
+				<img src={ava || ''} alt='' className='rounded-full' />
+			)}
 
 			<div
 				className={clsx(
