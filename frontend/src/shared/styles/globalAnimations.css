@@ -237,11 +237,11 @@ body {
 .up_anim,
 .up,
 .up30 {
-	animation: scaleUp 0.4s ease-out forwards;
+	animation: up 0.4s ease-out forwards;
 	position: relative;
 }
 
-@keyframes scaleUp {
+@keyframes up {
 	0% {
 		top: 30px;
 		opacity: 0;
