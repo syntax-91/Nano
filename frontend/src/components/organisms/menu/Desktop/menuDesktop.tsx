@@ -8,7 +8,6 @@ import { configStore } from '../../../../app/store/app/configStore'
 import { isOpenStore } from '../../../../app/store/isOpen/isOpenSettingsStore'
 import { handleSettings } from '../../../../shared/utils/handlers/uiHandlers'
 import { logOutU } from '../../../../shared/utils/LogOut'
-import { LTR_anim } from '../../../animations/lr'
 
 function MenuDesktop() {
 	const handleClick = () => {
@@ -23,18 +22,16 @@ function MenuDesktop() {
 		logOutU()
 	}
 
-	const ltr_ = LTR_anim()
+	//const ltr_ = LTR_anim()
 
 	const handleTest = () => {
 		isOpenStore.setIsOpen('test', true)
 	}
 
-	const clsC =
-		'absolute top-25 px-10 rounded-2xl z-10 ltr-jump_of cursor-pointer'
+	const clsC = 'absolute top-25 px-10 rounded-2xl z-10 ltr cursor-pointer'
 
 	return (
 		<div
-			ref={ltr_}
 			className={clsx(
 				clsC,
 				`menuDesktop_${configStore.currentTheme}_2`,
