@@ -19,7 +19,7 @@
 
 /* LeftToRight - ltr */
 .ltr {
-	animation: ltr 0.5s ease-in-out forwards;
+	animation: ltr 0.3s ease-in-out forwards;
 }
 
 @keyframes ltr {
@@ -250,5 +250,35 @@ body {
 	100% {
 		top: 0px;
 		opacity: 1;
+	}
+}
+
+/* scale-up */
+
+.scale-up {
+	animation: scaleUp 0.3s ease forwards;
+}
+
+.scale-up_06-to-1 {
+	animation: scaleUp061 0.3s ease forwards;
+}
+
+@keyframes scaleUp061 {
+	from {
+		transform: scale(0.6);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+@keyframes scaleUp {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
 	}
 }
