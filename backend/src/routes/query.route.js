@@ -12,7 +12,7 @@ QueryRouter.get('/', (req, res) => {
 
 	QueryService(query, username).then(e => {
 		res.json({
-			success: e.success,
+			success: e.success || null,
 			res: e.res,
 		})
 	})

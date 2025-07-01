@@ -2,17 +2,16 @@ import { prisma } from '../prisma.js'
 
 export async function QueryService(query, username) {
 	try {
-		const res = await prisma.user.findFirst({
+		const res = await prisma.user.findMany({
 			where: {
-				name: {
+				username: {
 					contains: query,
-					mode: 'insensitive', // без учёта регистра
 				},
 			},
 		})
 
 		const currentUser = await prisma.user.findFirst({
-			data: {
+			where: {
 				username: username,
 			},
 		})
@@ -20,7 +19,7 @@ export async function QueryService(query, username) {
 		console.log('cr chat > ', currentUser.chats)
 
 		const isFound = res.map(user => {
-			const found = currentUser.chats.find(
+			const found = currentUser?.chats?.find(
 				chat => chat.username === user.username
 			)
 

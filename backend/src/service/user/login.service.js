@@ -1,10 +1,11 @@
 import { compare } from 'bcryptjs'
-import { UserModel } from '../../models/UserModel.js'
 
 export async function LoginService(data) {
 	try {
-		const user = await UserModel.findOne({
-			username: data.username,
+		const user = await prisma.user.findFirst({
+			where: {
+				username: data.username,
+			},
 		})
 
 		if (!user === true) {
