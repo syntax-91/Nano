@@ -19,6 +19,8 @@ model Chat {
   roomID  String
   userID  Int
 
+  ownerUsername String
+
   user    User   @relation(fields: [userID], references: [id])
 }
 
@@ -45,8 +47,8 @@ model Msg {
   text: String
   createdAt DateTime @default(now())
   
-  whoId: Int
-
+  username: Int
   who: User[] @relation("MsgUser", 
-  fields: [whoId], references:[is])
+
+  fields: [username], references:[id])
 }

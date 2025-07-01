@@ -14,14 +14,15 @@ export async function createChatService(data) {
 			},
 		})
 
-		/* 		const addMsg = await MsgsModel.insertOne({
-			roomID: roomID,
+		const addMsg = await prisma.msg.create({
+			data: {
+				roomID: roomID,
 
-			ava: '',
-			text: data.firstMsg,
-			who: data.userA,
+				text: data.firstMsg,
+				createdAt: new Date(),
+				username: data.userA,
+			},
 		})
-*/
 
 		const UserAData = {
 			username: data.userA,
