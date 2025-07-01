@@ -6,7 +6,7 @@ export async function ChatsService(username) {
 			where: {
 				username: username,
 			},
-		})
+		}) //
 
 		if (!res || res === null) {
 			return {
