@@ -1,12 +1,21 @@
-import { UserModel } from '../../models/UserModel.js'
+import { prisma } from '../prisma.js'
 
 export async function QueryService(query, username) {
 	try {
-		const res = await UserModel.find({
-			username: { $regex: query, $options: 'i', $ne: username },
+		const res = await prisma.user.findFirst({
+			where: {
+				name: {
+					contains: query,
+					mode: 'insensitive', // без учёта регистра
+				},
+			},
 		})
 
-		const currentUser = await UserModel.findOne({ username })
+		const currentUser = await prisma.user.findFirst({
+			data: {
+				username: username,
+			},
+		})
 
 		console.log('cr chat > ', currentUser.chats)
 

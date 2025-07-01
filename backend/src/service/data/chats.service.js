@@ -1,26 +1,25 @@
-import { UserModel } from '../../models/UserModel.js'
+import { prisma } from '../prisma.js'
 
 export async function ChatsService(username) {
 	try {
-		const res = await UserModel.findOne({
-			username: username,
+		const res = await prisma.user.findFirst({
+			where: {
+				username: username,
+			},
 		})
 
-		if (!res) {
+		if (!res || res === null) {
 			return {
 				success: false,
-				msg: 'что-то пошло не так!',
+				msg: 'пока что нету чатов..',
 				chats: [],
 			}
 		}
 
-		const resJSON = JSON.parse(JSON.stringify(res))
-		const chatsJSON = resJSON.chats
-
 		return {
 			success: true,
 			msg: 'на',
-			chats: chatsJSON,
+			chats: res.chats,
 		}
 	} catch (err) {
 		console.error('ERROR > ', err)
