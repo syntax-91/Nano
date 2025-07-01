@@ -1,27 +1,27 @@
 import { v4 } from 'uuid'
-import { MsgsModel } from '../../models/MsgsModel.js'
-import { RoomModel } from '../../models/RoomModel.js'
 import { UserModel } from '../../models/UserModel.js'
 import { NotifyNewChatService } from '../../service/socket/notifyNewChat.service.js'
+import { prisma } from '../prisma.js'
 
 export async function createChatService(data) {
 	try {
 		const roomID = v4()
 
-		const res = await RoomModel.insertOne({
-			roomID: roomID,
-			roomType: 'xz',
-			members: [data.userA, data.userB],
-			createdAt: new Date(),
+		const res = await prisma.room.create({
+			data: {
+				roomID: roomID,
+				members: [data.userA, data.userB],
+			},
 		})
 
-		const addMsg = await MsgsModel.insertOne({
+		/* 		const addMsg = await MsgsModel.insertOne({
 			roomID: roomID,
 
 			ava: '',
 			text: data.firstMsg,
 			who: data.userA,
 		})
+*/
 
 		const UserAData = {
 			username: data.userA,
