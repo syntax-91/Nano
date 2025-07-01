@@ -1,9 +1,11 @@
-import { UserModel } from '../../models/UserModel.js'
+import { prisma } from '../prisma'
 
 export async function ConfigService(username) {
 	try {
-		const res = UserModel.findOne({
-			username: username,
+		const res = await prisma.user.findFirst({
+			where: {
+				username: username,
+			},
 		})
 
 		const config = res.config

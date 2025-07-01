@@ -1,4 +1,5 @@
 import { compare } from 'bcryptjs'
+import { prisma } from '../prisma.js'
 
 export async function LoginService(data) {
 	try {
