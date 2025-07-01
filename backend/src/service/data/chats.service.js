@@ -2,13 +2,29 @@ import { prisma } from '../prisma.js'
 
 export async function ChatsService(username) {
 	try {
-		const res = await prisma.user.findFirst({
+		const userData = await prisma.user.findFirst({
 			where: {
 				username: username,
 			},
+		})
+
+		const chats = await prisma.chat.findMany({
+			where: {
+				ownerId: userData.id,
+			},
+			include: {
+				owner: {
+					select: {
+						username: true,
+						ava: true,
+					},
+				},
+			},
 		}) //
 
-		if (!res || res === null) {
+		console.log('chats > ', chats)
+
+		if (!chats || chats === null) {
 			return {
 				success: false,
 				msg: 'пока что нету чатов..',
@@ -19,7 +35,7 @@ export async function ChatsService(username) {
 		return {
 			success: true,
 			msg: 'на',
-			chats: res.chats,
+			chats: chats,
 		}
 	} catch (err) {
 		console.error('ERROR > ', err)

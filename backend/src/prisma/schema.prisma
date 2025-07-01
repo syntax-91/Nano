@@ -18,7 +18,6 @@ model Chat {
   roomID String 
 
   createdAt DateTime @default(now())
-  ava String
 
   ownerId Int
   owner User @relation(fields: [ownerId], references: [id])
