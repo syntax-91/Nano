@@ -30,6 +30,7 @@ export async function addUserService(data) {
 
 		return {
 			success: true,
+			id: add.id,
 			msg: 'успех',
 		}
 	} catch (err) {

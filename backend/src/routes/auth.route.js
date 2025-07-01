@@ -23,6 +23,7 @@ AuthRouter.post('/login', (req, res) => {
 	LoginService(data).then(e => {
 		res.json({
 			success: e.success,
+			id: e.id,
 			msg: e.msg,
 		})
 	})
@@ -39,6 +40,7 @@ AuthRouter.post('/register', (req, res) => {
 	addUserService(data).then(e => {
 		res.json({
 			success: e.success,
+			id: e.id,
 			msg: e.msg,
 		})
 	})

@@ -6,6 +6,17 @@ export async function createChatService(data) {
 	try {
 		const roomID = v4()
 
+		/* получаем данные юзеров с БД, так как с ебанного фронте приходит уёбищные данные
+		 */
+
+		const userA = await prisma.user.findUnique({
+			where: { username: data.userA.username },
+		})
+
+		const userB = await prisma.user.findUnique({
+			where: { username: data.userB.username },
+		})
+
 		// создание room
 		await prisma.room.create({
 			data: {
@@ -17,14 +28,14 @@ export async function createChatService(data) {
 		await prisma.chat.createMany({
 			data: [
 				{
-					roomID,
-					ownerId: data.userA.id,
-					ava: data.userA.id || '',
+					roomID: roomID,
+					ownerId: userA.id,
+					ava: '',
 				},
 				{
-					roomID,
-					ownerId: data.userB.id,
-					ava: data.userB.id || '',
+					roomID: roomID,
+					ownerId: userB.id,
+					ava: '',
 				},
 			],
 		})
@@ -34,7 +45,7 @@ export async function createChatService(data) {
 			data: {
 				roomID,
 				text: data.firstMsg,
-				whoId: data.userA.id,
+				whoId: userA.id,
 			},
 		})
 

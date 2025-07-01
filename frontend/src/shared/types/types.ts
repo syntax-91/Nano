@@ -21,6 +21,7 @@ export interface IBtnProps {
 export interface IUserDataSubmit {
 	username: string
 	password: string
+	id: string
 }
 
 /* Input */
@@ -60,8 +61,14 @@ export interface IChatProps {
 }
 
 export type TMembers = {
-	userA: string
-	userB: string
+	userA: {
+		username: string
+		id: number
+	}
+	userB: {
+		username: string
+		id: number
+	}
 }
 
 // INewChatProps
@@ -89,10 +96,11 @@ export interface IMsgProps {
 	time: string
 }
 
-//
+//createChatProps
 export interface ICreateChatProps {
-	userA: string
-	userB: string
+	userA: { username: string; id: string }
+	userB: { username: string; id: string }
+
 	firstMsg: string
 }
 

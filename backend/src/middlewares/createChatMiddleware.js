@@ -9,7 +9,7 @@ export const mweCreateChat = async (req, res, next) => {
 	const uA = await prisma.chat.findFirst({
 		where: {
 			owner: {
-				is: { username: data.userA },
+				is: { username: data.userA.username },
 			},
 		},
 	})
@@ -17,7 +17,7 @@ export const mweCreateChat = async (req, res, next) => {
 	const uB = await prisma.chat.findFirst({
 		where: {
 			owner: {
-				is: { username: data.userB },
+				is: { username: data.userB.username },
 			},
 		},
 	})

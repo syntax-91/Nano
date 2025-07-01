@@ -65,8 +65,14 @@ export const sendMsg = ({ endRef, roomID, text, setText }: ISendMsgProps) => {
 		currentChatDataStore.isFound === null
 	) {
 		CreateChatAPI({
-			userA: userDataStore.userName || '',
-			userB: currentChatDataStore.username,
+			userA: {
+				username: userDataStore.userName || '',
+				id: userDataStore.id || '',
+			},
+			userB: {
+				username: userDataStore.userName || '',
+				id: userDataStore.id || '',
+			},
 			firstMsg: text,
 		})
 	}

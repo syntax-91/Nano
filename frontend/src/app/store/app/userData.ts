@@ -4,6 +4,7 @@ import { makeAutoObservable } from 'mobx'
 class userDataStoreClass {
 	userName = cs.get('userName_nano')
 	isAuth = cs.get('isAuth_nano') || false
+	id = cs.get('id_nano')
 
 	dataMap = {
 		ava: localStorage.getItem('ava_nano') || '',

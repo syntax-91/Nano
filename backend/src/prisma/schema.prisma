@@ -9,13 +9,13 @@ datasource db {
 
 model Room {
   id Int @id @default(autoincrement())
-  roomID String @unique 
+  roomID String @unique
 }
 
 model Chat {
   
   id Int @id @default(autoincrement())
-  roomID String @unique
+  roomID String 
 
   createdAt DateTime @default(now())
   ava String

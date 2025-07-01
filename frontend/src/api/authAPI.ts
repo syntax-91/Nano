@@ -17,6 +17,8 @@ export async function LoginFetch(data: IUserDataSubmit) {
 
 			Cookies.set('userName_nano', data.username, { expires: 7 })
 
+			Cookies.set('id_nano', data.id, { expires: 7 })
+
 			location.href = '/'
 
 			loadingStore.setLoading(false)
@@ -47,6 +49,8 @@ export async function RegisterFetch(data: IUserDataSubmit) {
 			Cookies.set('isAuth_nano', res.data.success, { expires: 7 })
 
 			Cookies.set('userName_nano', data.username, { expires: 7 })
+
+			Cookies.set('id_nano', data.id, { expires: 7 })
 
 			location.href = '/'
 

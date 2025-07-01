@@ -21,6 +21,7 @@ export async function LoginService(data) {
 		if (PSW_isVALID) {
 			return {
 				success: true,
+				id: user.id,
 				msg: 'Успех!',
 			}
 		}
